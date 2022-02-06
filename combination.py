@@ -1,4 +1,3 @@
-
 class Combination:
     def __init__(self, N, p):
         self.N = N
