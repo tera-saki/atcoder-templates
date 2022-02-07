@@ -8,23 +8,24 @@ class LIS:
         self.A = A
 
     def solve(self):
-        L = [self.A[0]]
+        S = [self.A[0]]
         for i in range(1, self.N):
-            if self.A[i] > L[-1]:
-                L.append(self.A[i])
+            if self.A[i] > S[-1]:
+                S.append(self.A[i])
             else:
                 l = -1
-                r = len(L)
+                r = len(S)
                 while r - l > 1:
                     c = (l + r) // 2
-                    if L[c] >= self.A[i]:
+                    if S[c] >= self.A[i]:
                         r = c
                     else:
                         l = c
-                L[r] = self.A[i]
-        return len(L)
+                S[r] = self.A[i]
+        return len(S)
 
 
+# https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D&lang=ja
 N = int(input())
 A = [int(input()) for _ in range(N)]
 print(LIS(N, A).solve())
