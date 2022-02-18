@@ -16,9 +16,21 @@ class Combination:
             self.inv[i] = p - self.inv[p % i] * (p // i) % p
             self.finv[i] = self.finv[i - 1] * self.inv[i] % p
 
-    def comb(self, n, k):
+    def P(self, n, k):
+        if n < k:
+            return 0
+        if n < 0 or k < 0:
+            return 0
+        return self.f[n] * self.finv[n - k] % self.p
+
+    def C(self, n, k):
         if n < k:
             return 0
         if n < 0 or k < 0:
             return 0
         return self.f[n] * (self.finv[k] * self.finv[n - k] % self.p) % self.p
+
+    # 重複組合せ
+    # n種類のものからk個選ぶ
+    def H(self, n, k):
+        return self.C(k + n - 1, k)
