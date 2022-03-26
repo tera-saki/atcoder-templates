@@ -10,17 +10,16 @@ class SCC:
         self.E = E
         self.I = I
         self.V = []
-        self.components = []
+        self.C = []
         self.traverse()
         self.traverse2()
 
     def toDAG(self):
-        S = [set(c) for c in self.components]
         cidx = [None] * self.N
-        for i in range(len(S)):
-            for v in S[i]:
+        for i in range(len(self.C)):
+            for v in self.C[i]:
                 cidx[v] = i
-        edge = [[] for _ in range(len(S))]
+        edge = [[] for _ in range(len(self.C))]
         for v in range(self.N):
             cv = cidx[v]
             for dest in self.E[v]:
@@ -28,7 +27,7 @@ class SCC:
                 if cv == cdest:
                     continue
                 edge[cv].append(cdest)
-        return self.components, edge
+        return self.C, edge
 
     def traverse(self):
         flag = [False] * self.N
@@ -41,8 +40,8 @@ class SCC:
         flag = [False] * self.N
         for v in self.V:
             if flag[v] is False:
-                idx = len(self.components)
-                self.components.append([])
+                idx = len(self.C)
+                self.C.append([])
                 self.dfs2(idx, v, flag)
 
     def dfs(self, v, flag):
@@ -54,7 +53,7 @@ class SCC:
 
     def dfs2(self, idx, v, flag):
         flag[v] = True
-        self.components[idx].append(v)
+        self.C[idx].append(v)
         for dest in self.I[v]:
             if flag[dest] is False:
                 self.dfs2(idx, dest, flag)
@@ -70,6 +69,6 @@ for _ in range(M):
     I[b].append(a)
 scc = SCC(N, E, I)
 
-print(len(scc.components))
-for i in range(len(scc.components)):
-    print(len(scc.components[i]), *scc.components[i])
+print(len(scc.C))
+for i in range(len(scc.C)):
+    print(len(scc.C[i]), *scc.C[i])
