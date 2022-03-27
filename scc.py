@@ -19,14 +19,15 @@ class SCC:
         for i in range(len(self.C)):
             for v in self.C[i]:
                 cidx[v] = i
-        edge = [[] for _ in range(len(self.C))]
+        edge = [set() for _ in range(len(self.C))]
         for v in range(self.N):
             cv = cidx[v]
             for dest in self.E[v]:
                 cdest = cidx[dest]
                 if cv == cdest:
                     continue
-                edge[cv].append(cdest)
+                edge[cv].add(cdest)
+        edge = [list(s) for s in edge]
         return self.C, edge
 
     def traverse(self):
