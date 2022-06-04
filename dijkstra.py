@@ -4,7 +4,7 @@ input = sys.stdin.readline
 
 
 class Dijkstra:
-    def __init__(self, N, E, inf=1 << 40):
+    def __init__(self, N, E, inf=1 << 50):
         self.N = N
         self.E = E
         self.inf = inf
