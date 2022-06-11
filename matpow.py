@@ -1,9 +1,13 @@
+import sys
+input = sys.stdin.readline
+
+
 class Matpow:
-    def __init__(self, N, A, p):
-        self.N = N
+    def __init__(self, A, mod, digit=60):
         self.A = A
-        self.p = p
-        self.digit = 60
+        self.N = len(A)
+        self.mod = mod
+        self.digit = digit
         self.doubling = [None] * self.digit
 
         self.doubling[0] = A
@@ -24,5 +28,19 @@ class Matpow:
             for j in range(self.N):
                 for k in range(self.N):
                     C[i][j] += A[i][k] * B[k][j]
-                    C[i][j] %= self.p
+                    C[i][j] %= self.mod
         return C
+
+
+# https://atcoder.jp/contests/dp/tasks/dp_r
+N, K = map(int, input().split())
+A = [list(map(int, input().split())) for _ in range(N)]
+mod = 10 ** 9 + 7
+
+Ak = Matpow(A, mod).pow(K)
+ans = 0
+for i in range(N):
+    for j in range(N):
+        ans += Ak[i][j]
+        ans %= mod
+print(ans)
