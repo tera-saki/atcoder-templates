@@ -1,9 +1,15 @@
+import sys
+input = sys.stdin.readline
+
+
 class BIT:
+    # 0-indexed
     def __init__(self, N):
         self.N = N
         self.X = [0] * (N + 1)
 
     def add(self, i, x):
+        i += 1
         while i <= self.N:
             self.X[i] += x
             i += i & -i
@@ -14,6 +20,9 @@ class BIT:
             s += self.X[i]
             i -= i & -i
         return s
+
+    def range_sum(self, l, r):
+        return self.sum(r) - self.sum(l)
 
     def max(self, i):
         s = -float('inf')
@@ -32,16 +41,17 @@ class BIT:
                 cur += 1 << i
         return cur + 1, s
 
-# https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D
-N = int(input())
-A = list(map(int, input().split()))
-idx = {}
-for i, a in enumerate(sorted(A)):
-    idx[a] = i + 1
 
+# https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_E
+N, Q = map(int, input().split())
 bit = BIT(N)
-ans = 0
-for i in range(N):
-    ans += i - bit.sum(idx[A[i]])
-    bit.add(idx[A[i]], 1)
-print(ans)
+for _ in range(Q):
+    t, *q = map(int, input().split())
+    if t == 0:
+        s, t, x = q
+        s -= 1
+        bit.add(s, x)
+        bit.add(t, -x)
+    else:
+        t, = q
+        print(bit.range_sum(0, t))
