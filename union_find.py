@@ -16,7 +16,7 @@ class UnionFind:
 
         if x == y:
             return False
-        if x > y:
+        if self.par[x] > self.par[y]:
             x, y = y, x
 
         self.par[x] += self.par[y]
