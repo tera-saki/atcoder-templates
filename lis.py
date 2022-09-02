@@ -4,9 +4,9 @@ input = sys.stdin.readline
 
 
 class LIS:
-    def __init__(self, N, A):
-        self.N = N
+    def __init__(self, A):
         self.A = A
+        self.N = len(A)
 
     def solve(self, strict=True):
         S = [self.A[0]]
@@ -30,4 +30,4 @@ class LIS:
 # https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D&lang=ja
 N = int(input())
 A = [int(input()) for _ in range(N)]
-print(LIS(N, A).solve())
+print(LIS(A).solve())
