@@ -1,14 +1,12 @@
-import sys
-input = sys.stdin.readline
-
-sys.setrecursionlimit(10 ** 6)
-
-
 class SCC:
-    def __init__(self, N, E, I):
+    def __init__(self, N, E):
         self.N = N
         self.E = E
-        self.I = I
+        self.I = [[] for _ in range(N)]
+        for s in range(N):
+            for t in E[s]:
+                self.I[t].append(s)
+        
         self.V = []
         self.C = []
         self.traverse()
