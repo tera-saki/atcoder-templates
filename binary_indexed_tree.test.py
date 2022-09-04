@@ -1,6 +1,7 @@
 # verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_5_D
-from binary_indexed_tree import BIT
 import sys
+from binary_indexed_tree import BIT
+
 input = sys.stdin.readline
 
 
