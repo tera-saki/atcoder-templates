@@ -40,13 +40,3 @@ class SegTree:
             L >>= 1
             R >>= 1
         return self.func(vL, vR)
-
-
-# https://judge.yosupo.jp/problem/staticrmq
-N, Q = map(int, input().split())
-A = list(map(int, input().split()))
-segtree = SegTree(N, min, 1 << 30)
-segtree.build(A)
-for _ in range(Q):
-    l, r = map(int, input().split())
-    print(segtree.query(l, r))
