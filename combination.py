@@ -1,7 +1,3 @@
-import sys
-input = sys.stdin.readline
-
-
 class Combination:
     def __init__(self, N, mod):
         self.N = N
@@ -41,19 +37,3 @@ class Combination:
             return 1
         return self.C(k + n - 1, k)
 
-
-# https://yukicoder.me/problems/no/117
-T = int(input())
-mod = 10 ** 9 + 7
-comb = Combination(2 * 10 ** 6, mod)
-
-for _ in range(T):
-    query = input()[:-1]
-    t = query[0]
-    n, k = map(int, query[2:-1].split(','))
-    if t == 'C':
-        print(comb.C(n, k))
-    elif t == 'P':
-        print(comb.P(n, k))
-    else:
-        print(comb.H(n, k))
