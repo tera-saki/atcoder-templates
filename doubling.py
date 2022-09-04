@@ -1,7 +1,3 @@
-import sys
-input = sys.stdin.readline
-
-
 class Doubling:
     def __init__(self, nex, digit=60):
         self.d = [[None for _ in range(len(nex))] for _ in range(digit)]
@@ -19,10 +15,3 @@ class Doubling:
                 p = self.d[i][p]
             k >>= 1
         return p
-
-
-# https://atcoder.jp/contests/abc167/tasks/abc167_d
-N, K = map(int, input().split())
-nex = list(map(lambda x: int(x) - 1, input().split()))
-solver = Doubling(nex)
-print(solver.solve(0, K) + 1)
