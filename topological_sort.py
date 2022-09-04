@@ -1,18 +1,20 @@
-from collections import deque
 import sys
+from typing import List, Optional
+from collections import deque
 input = sys.stdin.readline
 
 
 class TopologicalSort():
-    def __init__(self, N, E):
+    def __init__(self, N: int, E: List[List[int]]) -> None:
         self.N = N
         self.E = E
         self.D = [0] * N
-        for s in range(N):
-            for t in E[s]:
+        for s in range(self.N):
+            for t in self.E[s]:
                 self.D[t] += 1
 
-    def sort(self):
+    def sort(self) -> Optional[List[int]]:
+        """return sorted list if sortable othereise None"""
         dq = deque([])
         for i in range(self.N):
             if self.D[i] == 0:
@@ -29,5 +31,5 @@ class TopologicalSort():
 
         for i in range(self.N):
             if not self.D[i] == 0:
-                return False, None
-        return True, ret
+                return None
+        return ret
