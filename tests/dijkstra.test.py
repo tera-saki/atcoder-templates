@@ -1,6 +1,6 @@
 # verification-helper: PROBLEM https://judge.yosupo.jp/problem/shortest_path
 import sys
-from dijkstra import Dijkstra
+from lib.dijkstra import Dijkstra
 
 input = sys.stdin.readline
 

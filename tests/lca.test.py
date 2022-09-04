@@ -1,9 +1,9 @@
 # verification-helper: PROBLEM https://judge.yosupo.jp/problem/lca
 import sys
+from lib.lca import LCA
+
 input = sys.stdin.readline
 sys.setrecursionlimit(10 ** 6)
-
-from lca import LCA
 
 N, Q = map(int, input().split())
 P = list(map(int, input().split()))

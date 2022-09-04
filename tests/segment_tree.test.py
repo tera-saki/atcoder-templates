@@ -1,8 +1,8 @@
 # verification-helper: PROBLEM https://judge.yosupo.jp/problem/point_add_range_sum
 import sys
-input = sys.stdin.readline
+from lib.segment_tree import SegTree
 
-from segment_tree import SegTree
+input = sys.stdin.readline
 
 N, Q = map(int, input().split())
 A = list(map(int, input().split()))

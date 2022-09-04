@@ -1,9 +1,8 @@
 # verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_5_D
 import sys
-from binary_indexed_tree import BIT
+from lib.binary_indexed_tree import BIT
 
 input = sys.stdin.readline
-
 
 N = int(input())
 A = list(map(int, input().split()))

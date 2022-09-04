@@ -1,8 +1,8 @@
 # verification-helper: PROBLEM https://yukicoder.me/problems/no/117
 import sys
-input = sys.stdin.readline
+from lib.combination import Combination
 
-from combination import Combination
+input = sys.stdin.readline
 
 T = int(input())
 mod = 10 ** 9 + 7
@@ -18,4 +18,3 @@ for _ in range(T):
         print(comb.P(n, k))
     else:
         print(comb.H(n, k))
-

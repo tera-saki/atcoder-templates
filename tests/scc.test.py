@@ -1,9 +1,9 @@
 # verification-helper: PROBLEM https://judge.yosupo.jp/problem/scc
 import sys
+from lib.scc import SCC
+
 input = sys.stdin.readline
 sys.setrecursionlimit(10 ** 6)
-
-from scc import SCC
 
 N, M = map(int, input().split())
 E = [[] for _ in range(N)]

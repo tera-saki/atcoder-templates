@@ -2,7 +2,7 @@
 # verification-helper: IGNORE
 # https://onlinejudge.u-aizu.ac.jp/status/users/terasa/submissions/1/GRL_4_B/judge/6940421/Python3
 import sys
-from topological_sort import TopologicalSort
+from lib.topological_sort import TopologicalSort
 
 input = sys.stdin.readline
 

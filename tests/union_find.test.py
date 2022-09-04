@@ -1,8 +1,8 @@
 # verification-helper: PROBLEM https://judge.yosupo.jp/problem/unionfind
 import sys
-input = sys.stdin.readline
+from lib.union_find import UnionFind
 
-from union_find import UnionFind
+input = sys.stdin.readline
 
 N, Q = map(int, input().split())
 uf = UnionFind(N)
