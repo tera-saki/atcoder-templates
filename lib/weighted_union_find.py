@@ -1,8 +1,3 @@
-import sys
-
-input = sys.stdin.readline
-
-
 class WeightedUnionFind:
     def __init__(self, N):
         self.N = N
@@ -43,17 +38,3 @@ class WeightedUnionFind:
 
     def same(self, x, y):
         return self.find(x)[0] == self.find(y)[0]
-
-
-# https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B
-N, Q = map(int, input().split())
-uf = WeightedUnionFind(N)
-for _ in range(Q):
-    t, *q = map(int, input().split())
-    if t == 0:
-        x, y, z = q
-        uf.merge(x, y, z)
-    else:
-        x, y = q
-        res = uf.diff(x, y)
-        print(res if res is not None else '?')
