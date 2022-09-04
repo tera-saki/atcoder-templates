@@ -45,17 +45,3 @@ class LCA:
 
     def dist(self, u, v):
         return self.depth[u] + self.depth[v] - 2 * self.depth[self.lca(u, v)]
-
-
-# https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C
-N = int(input())
-E = [None for _ in range(N)]
-for i in range(N):
-    _, *c = map(int, input().split())
-    E[i] = c
-
-solver = LCA(N, E)
-Q = int(input())
-for _ in range(Q):
-    u, v = map(int, input().split())
-    print(solver.lca(u, v))
