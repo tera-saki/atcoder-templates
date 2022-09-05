@@ -1,6 +1,3 @@
-import sys
-
-
 class PrimeTable:
     def __init__(self, N):
         self.is_prime = [True] * (N + 1)
@@ -21,20 +18,3 @@ class PrimeTable:
 
     def is_prime(self, n):
         return self.is_prime[n]
-
-
-# https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0009
-primes = PrimeTable(10 ** 6).primes
-for n in map(int, sys.stdin.read().split()):
-    l = -1
-    r = len(primes)
-    while r - l > 1:
-        c = (l + r) // 2
-        if primes[c] == n:
-            l = c
-            break
-        if primes[c] < n:
-            l = c
-        else:
-            r = c
-    print(l + 1)
