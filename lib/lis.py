@@ -1,6 +1,4 @@
-import sys
 from operator import lt, le
-input = sys.stdin.readline
 
 
 class LIS:
@@ -25,9 +23,3 @@ class LIS:
                         r = c
                 S[r] = self.A[i]
         return len(S)
-
-
-# https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D&lang=ja
-N = int(input())
-A = [int(input()) for _ in range(N)]
-print(LIS(A).solve())
