@@ -1,4 +1,5 @@
 # verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/DPL_1_D
+import sys
 from lib.lis import LIS
 
 input = sys.stdin.readline
