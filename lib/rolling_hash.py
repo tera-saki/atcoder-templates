@@ -5,10 +5,16 @@ class RollingHash:
     def __init__(self, S, mod=None, base=None):
         self.h = [0] * (len(S) + 1)
         self.p = [1] * (len(S) + 1)
+
         if mod is None:
             self.mod = (1 << 61) - 1
+        else:
+            self.mod = mod
+
         if base is None:
-            self.base = random.randint(1, self.mod - 1)
+            self.base = random.randint(100, self.mod - 1)
+        else:
+            self.base = base
 
         for i in range(len(S)):
             self.h[i + 1] = (self.h[i] * self.base + ord(S[i])) % self.mod

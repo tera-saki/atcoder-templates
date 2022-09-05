@@ -5,12 +5,11 @@ from lib.rolling_hash import RollingHash
 
 input = sys.stdin.readline
 
-
 T = input()[:-1]
 P = input()[:-1]
 
 mod = (1 << 61) - 1
-base = random.randint(1, mod - 1)
+base = random.randint(100, mod - 1)
 RT = RollingHash(T, mod=mod, base=base)
 RP = RollingHash(P, mod=mod, base=base)
 
