@@ -1,9 +1,9 @@
-from typing import List, Optional
+from typing import List, Tuple, Optional
 import heapq
 
 
 class Dijkstra:
-    def __init__(self, N: int, E: List[List[tuple[int, int]]],
+    def __init__(self, N: int, E: List[List[Tuple[int, int]]],
                  start: int = 0, inf: int = 1 << 50):
         self.N = N
         self.E = E
