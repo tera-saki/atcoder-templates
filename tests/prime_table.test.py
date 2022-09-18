@@ -1,4 +1,4 @@
-# verification-helper: https://onlinejudge.u-aizu.ac.jp/problems/0009
+# verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/0009
 import sys
 from library.prime_table import PrimeTable
 
