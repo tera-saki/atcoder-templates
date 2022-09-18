@@ -2,16 +2,19 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: tests/topological_sort.test.py
+    title: tests/topological_sort.test.py
+  _isVerificationFailed: true
   _pathExtension: py
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
-    , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+    , line 100, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "import sys\nfrom typing import List, Optional\nfrom collections import deque\n\
     input = sys.stdin.readline\n\n\nclass TopologicalSort():\n    def __init__(self,\
     \ N: int, E: List[List[int]]) -> None:\n        self.N = N\n        self.E = E\n\
@@ -28,9 +31,10 @@ data:
   isVerificationFile: false
   path: library/topological_sort.py
   requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2022-09-18 21:34:34+09:00'
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - tests/topological_sort.test.py
 documentation_of: library/topological_sort.py
 layout: document
 redirect_from:

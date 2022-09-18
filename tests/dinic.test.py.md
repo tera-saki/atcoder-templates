@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: library/dinic.py
+    title: library/dinic.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -13,17 +16,18 @@ data:
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
-    , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+    , line 100, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "# verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/GRL_6_A\n\
     import sys\nfrom library.dinic import Dinic\n\ninput = sys.stdin.readline\n\n\
     N, M = map(int, input().split())\ndinic = Dinic(N)\nfor _ in range(M):\n    u,\
     \ v, cap = map(int, input().split())\n    dinic.add_edge(u, v, cap)\nprint(dinic.flow(0,\
     \ N - 1))\n"
-  dependsOn: []
+  dependsOn:
+  - library/dinic.py
   isVerificationFile: true
   path: tests/dinic.test.py
   requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
+  timestamp: '2022-09-18 21:34:34+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/dinic.test.py

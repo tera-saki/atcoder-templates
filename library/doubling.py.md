@@ -14,7 +14,7 @@ data:
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
-    , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+    , line 100, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "class Doubling:\n    def __init__(self, nex, digit=60):\n        self.d =\
     \ [[None for _ in range(len(nex))] for _ in range(digit)]\n        self.digit\
     \ = digit\n\n        self.d[0] = nex\n        for i in range(1, self.digit):\n\

@@ -13,7 +13,7 @@ data:
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
-    , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+    , line 100, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "import sys\ninput = sys.stdin.readline\n\n# reference: https://qiita.com/takayg1/items/b7b3f7d458915bcc7a4e\n\
     \n\nclass LazySegTree_RAQ:\n    def __init__(self, N, func, e):\n        self.N\
     \ = N\n        self.func = func\n        self.X = [e] * (N << 1)\n        self.lazy\

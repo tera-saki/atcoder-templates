@@ -14,7 +14,7 @@ data:
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
-    , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+    , line 100, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "class BIT:\n    def __init__(self, N):\n        self.N = N\n        self.A\
     \ = [0] * (N + 1)\n\n    def add(self, i, x):\n        i += 1\n        while i\
     \ <= self.N:\n            self.A[i] += x\n            i += i & -i\n\n    def sum(self,\

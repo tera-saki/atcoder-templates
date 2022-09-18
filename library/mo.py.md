@@ -15,7 +15,7 @@ data:
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
-    , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+    , line 100, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "import sys\nimport math\ninput = sys.stdin.readline\n\n\nclass Mo:\n    #\
     \ refer to following tatyam-san's submission:\n    # https://atcoder.jp/contests/abc242/submissions/29862680\n\
     \    def __init__(self, N, Q, A, query):\n        # divide queries into \u221A\

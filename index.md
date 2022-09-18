@@ -12,10 +12,10 @@ data:
     - icon: ':warning:'
       path: library/cumulative_sum.py
       title: library/cumulative_sum.py
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: library/dijkstra.py
       title: library/dijkstra.py
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: library/dinic.py
       title: library/dinic.py
     - icon: ':heavy_check_mark:'
@@ -30,7 +30,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/lca.py
       title: library/lca.py
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: library/lis.py
       title: library/lis.py
     - icon: ':warning:'
@@ -39,7 +39,7 @@ data:
     - icon: ':x:'
       path: library/mo.py
       title: library/mo.py
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: library/osa_k.py
       title: library/osa_k.py
     - icon: ':x:'
@@ -48,7 +48,7 @@ data:
     - icon: ':warning:'
       path: library/rle.py
       title: library/rle.py
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: library/rolling_hash.py
       title: library/rolling_hash.py
     - icon: ':heavy_check_mark:'
@@ -57,7 +57,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/segment_tree.py
       title: library/segment_tree.py
-    - icon: ':warning:'
+    - icon: ':x:'
       path: library/topological_sort.py
       title: library/topological_sort.py
     - icon: ':heavy_check_mark:'

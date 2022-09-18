@@ -12,7 +12,7 @@ data:
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
-    , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+    , line 100, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "import sys\ninput = sys.stdin.readline\n\n\nclass RLE:\n    @classmethod\n\
     \    def encode(self, S):\n        A = [[S[0], 1]]\n        for i in range(1,\
     \ len(S)):\n            if S[i] != S[i - 1]:\n                A.append([S[i],\
