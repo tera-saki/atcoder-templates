@@ -1,4 +1,5 @@
 # verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/0053
+# verification-helper: IGNORE
 import sys
 from library.prime_table import PrimeTable
 
