@@ -15,7 +15,7 @@ jobs:
         python-version: 'pypy3.7'
 
     - name: Install dependencies
-      run: pip3 install -U online-judge-verify-helper
+      run: pip3 install -U git+https://github.com/tera-saki/verification-helper
 
     - name: Run tests
       env:
