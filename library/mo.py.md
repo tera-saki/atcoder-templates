@@ -2,22 +2,21 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: tests/mo.test.py
-    title: tests/mo.test.py
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: py
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links:
     - https://atcoder.jp/contests/abc242/submissions/29862680
+    - https://atcoder.jp/contests/abc242/submissions/34629582
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 100, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
-  code: "import sys\nimport math\ninput = sys.stdin.readline\n\n\nclass Mo:\n    #\
-    \ refer to following tatyam-san's submission:\n    # https://atcoder.jp/contests/abc242/submissions/29862680\n\
+  code: "# https://atcoder.jp/contests/abc242/submissions/34629582\nimport sys\nimport\
+    \ math\ninput = sys.stdin.readline\n\n\nclass Mo:\n    # refer to following tatyam-san's\
+    \ submission:\n    # https://atcoder.jp/contests/abc242/submissions/29862680\n\
     \    def __init__(self, N, Q, A, query):\n        # divide queries into \u221A\
     Q buckets\n        # thus the size of each bucket is N/\u221AQ\n        self.N\
     \ = N\n        self.Q = Q\n        self.A = A\n        self.query = query\n  \
@@ -47,15 +46,25 @@ data:
     \ = self.cnt\n        return self.ans\n\n    def extend_left(self, i):\n     \
     \   raise NotImplementedError()\n\n    def extend_right(self, i):\n        raise\
     \ NotImplementedError()\n\n    def shrink_left(self, i):\n        raise NotImplementedError()\n\
-    \n    def shrink_right(self, i):\n        raise NotImplementedError()\n"
+    \n    def shrink_right(self, i):\n        raise NotImplementedError()\n\n\nclass\
+    \ MoSolver(Mo):\n    def __init__(self, N, Q, A, query):\n        super().__init__(N,\
+    \ Q, A, query)\n\n    def extend(self, i):\n        if clothes[A[i]] & 1:\n  \
+    \          self.cnt += 1\n        clothes[A[i]] += 1\n\n    def shrink(self, i):\n\
+    \        clothes[A[i]] -= 1\n        if clothes[A[i]] & 1:\n            self.cnt\
+    \ -= 1\n\n    def extend_left(self, i):\n        self.extend(i)\n\n    def extend_right(self,\
+    \ i):\n        self.extend(i)\n\n    def shrink_left(self, i):\n        self.shrink(i)\n\
+    \n    def shrink_right(self, i):\n        self.shrink(i)\n\n\nN = int(input())\n\
+    A = list(map(lambda x: int(x) - 1, input().split()))\nQ = int(input())\nquery\
+    \ = []\nfor _ in range(Q):\n    l, r = map(int, input().split())\n    l -= 1\n\
+    \    query.append((l, r))\n\nclothes = [0] * N\n\nM = max(A) + 1\nsolver = MoSolver(N,\
+    \ Q, A, query)\nans = solver.solve()\nprint(*ans, sep='\\n')\n"
   dependsOn: []
   isVerificationFile: false
   path: library/mo.py
   requiredBy: []
-  timestamp: '2022-09-19 00:46:05+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - tests/mo.test.py
+  timestamp: '2022-09-19 00:58:59+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: library/mo.py
 layout: document
 redirect_from:

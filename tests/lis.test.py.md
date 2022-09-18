@@ -40,7 +40,7 @@ data:
   isVerificationFile: true
   path: tests/lis.test.py
   requiredBy: []
-  timestamp: '2022-09-19 00:46:05+09:00'
+  timestamp: '2022-09-19 00:58:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/lis.test.py

@@ -36,13 +36,13 @@ data:
     - icon: ':warning:'
       path: library/matpow.py
       title: library/matpow.py
-    - icon: ':x:'
+    - icon: ':warning:'
       path: library/mo.py
       title: library/mo.py
     - icon: ':heavy_check_mark:'
       path: library/osa_k.py
       title: library/osa_k.py
-    - icon: ':x:'
+    - icon: ':warning:'
       path: library/prime_table.py
       title: library/prime_table.py
     - icon: ':warning:'
@@ -57,7 +57,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/segment_tree.py
       title: library/segment_tree.py
-    - icon: ':x:'
+    - icon: ':warning:'
       path: library/topological_sort.py
       title: library/topological_sort.py
     - icon: ':heavy_check_mark:'
@@ -93,15 +93,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/lis.test.py
       title: tests/lis.test.py
-    - icon: ':x:'
-      path: tests/mo.test.py
-      title: tests/mo.test.py
     - icon: ':heavy_check_mark:'
       path: tests/osa_k.test.py
       title: tests/osa_k.test.py
-    - icon: ':x:'
-      path: tests/prime_table.test.py
-      title: tests/prime_table.test.py
     - icon: ':heavy_check_mark:'
       path: tests/rolling_hash.test.py
       title: tests/rolling_hash.test.py
@@ -111,9 +105,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/segment_tree.test.py
       title: tests/segment_tree.test.py
-    - icon: ':x:'
-      path: tests/topological_sort.test.py
-      title: tests/topological_sort.test.py
     - icon: ':heavy_check_mark:'
       path: tests/union_find.test.py
       title: tests/union_find.test.py
