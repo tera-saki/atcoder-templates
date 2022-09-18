@@ -28,7 +28,7 @@ data:
   isVerificationFile: false
   path: library/prime_table.py
   requiredBy: []
-  timestamp: '2022-09-19 00:58:59+09:00'
+  timestamp: '2022-09-19 01:08:37+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: library/prime_table.py
