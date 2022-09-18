@@ -2,19 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: tests/weighted_union_find.test.py
-    title: tests/weighted_union_find.test.py
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: py
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
-    , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+    , line 97, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "class WeightedUnionFind:\n    def __init__(self, N):\n        self.N = N\n\
     \        self.par = [-1] * N\n        self.weight = [0] * N\n\n    def find(self,\
     \ x, w=0):\n        if self.par[x] < 0:\n            return x, w\n        else:\n\
@@ -32,10 +29,9 @@ data:
   isVerificationFile: false
   path: library/weighted_union_find.py
   requiredBy: []
-  timestamp: '2022-09-18 21:34:34+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - tests/weighted_union_find.test.py
+  timestamp: '2022-09-18 13:43:26+00:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: library/weighted_union_find.py
 layout: document
 redirect_from:

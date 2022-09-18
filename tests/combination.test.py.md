@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: library/combination.py
-    title: library/combination.py
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -16,7 +13,7 @@ data:
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
-    , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+    , line 97, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "# verification-helper: PROBLEM https://yukicoder.me/problems/no/117\nimport\
     \ sys\nfrom library.combination import Combination\n\ninput = sys.stdin.readline\n\
     \nT = int(input())\nmod = 10 ** 9 + 7\ncomb = Combination(2 * 10 ** 6, mod)\n\n\
@@ -24,8 +21,7 @@ data:
     \ query[2:-1].split(','))\n    if t == 'C':\n        print(comb.C(n, k))\n   \
     \ elif t == 'P':\n        print(comb.P(n, k))\n    else:\n        print(comb.H(n,\
     \ k))\n"
-  dependsOn:
-  - library/combination.py
+  dependsOn: []
   isVerificationFile: true
   path: tests/combination.test.py
   requiredBy: []

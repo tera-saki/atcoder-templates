@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: library/doubling.py
-    title: library/doubling.py
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -16,7 +13,7 @@ data:
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
-    , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+    , line 97, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "# verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/2320\n\
     import sys\nfrom library.doubling import Doubling\n\ninput = sys.stdin.readline\n\
     \nD = ['N', 'E', 'S', 'W']\ndirect = [(-1, 0), (0, 1), (1, 0), (0, -1)]\n\n\n\
@@ -39,8 +36,7 @@ data:
     \ = divmod(a, W)\n    print(i + 1, j + 1, D[d])\n\n\nwhile True:\n    H, W, L\
     \ = map(int, input().split())\n    if H == 0 and W == 0 and L == 0:\n        break\n\
     \    solve(H, W, L)\n"
-  dependsOn:
-  - library/doubling.py
+  dependsOn: []
   isVerificationFile: true
   path: tests/doubling.test.py
   requiredBy: []

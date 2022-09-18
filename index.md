@@ -3,10 +3,10 @@ data:
   libraryCategories:
   - name: library
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: library/binary_indexed_tree.py
       title: library/binary_indexed_tree.py
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: library/combination.py
       title: library/combination.py
     - icon: ':warning:'
@@ -18,7 +18,7 @@ data:
     - icon: ':warning:'
       path: library/dinic.py
       title: library/dinic.py
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: library/doubling.py
       title: library/doubling.py
     - icon: ':warning:'
@@ -27,7 +27,7 @@ data:
     - icon: ':warning:'
       path: library/lazy_seg_tree_update.py
       title: library/lazy_seg_tree_update.py
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: library/lca.py
       title: library/lca.py
     - icon: ':warning:'
@@ -36,13 +36,13 @@ data:
     - icon: ':warning:'
       path: library/matpow.py
       title: library/matpow.py
-    - icon: ':x:'
+    - icon: ':warning:'
       path: library/mo.py
       title: library/mo.py
     - icon: ':warning:'
       path: library/osa_k.py
       title: library/osa_k.py
-    - icon: ':x:'
+    - icon: ':warning:'
       path: library/prime_table.py
       title: library/prime_table.py
     - icon: ':warning:'
@@ -51,22 +51,22 @@ data:
     - icon: ':warning:'
       path: library/rolling_hash.py
       title: library/rolling_hash.py
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: library/scc.py
       title: library/scc.py
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: library/segment_tree.py
       title: library/segment_tree.py
     - icon: ':warning:'
       path: library/topological_sort.py
       title: library/topological_sort.py
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: library/union_find.py
       title: library/union_find.py
     - icon: ':warning:'
       path: library/utils.py
       title: library/utils.py
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: library/weighted_union_find.py
       title: library/weighted_union_find.py
   verificationCategories:

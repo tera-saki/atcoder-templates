@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':x:'
-    path: library/mo.py
-    title: library/mo.py
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true
@@ -17,7 +14,7 @@ data:
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
-    , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+    , line 97, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "# verification-helper: PROBLEM https://atcoder.jp/contests/abc242/tasks/abc242_g\n\
     # verification-helper: IGNORE\nimport sys\nfrom library.mo import Mo\n\n\nclass\
     \ MoSolver(Mo):\n    def __init__(self, N, Q, A, query):\n        super().__init__(N,\
@@ -31,12 +28,11 @@ data:
     \ = []\nfor _ in range(Q):\n    l, r = map(int, input().split())\n    l -= 1\n\
     \    query.append((l, r))\n\nclothes = [0] * N\n\nM = max(A) + 1\nsolver = MoSolver(N,\
     \ Q, A, query)\nans = solver.solve()\nprint(*ans, sep='\\n')\n"
-  dependsOn:
-  - library/mo.py
+  dependsOn: []
   isVerificationFile: true
   path: tests/mo.test.py
   requiredBy: []
-  timestamp: '2022-09-18 21:34:34+09:00'
+  timestamp: '2022-09-18 13:43:26+00:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: tests/mo.test.py
