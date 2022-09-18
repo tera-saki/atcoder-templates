@@ -11,7 +11,7 @@ data:
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
-    , line 97, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+    , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "class UnionFind:\n    def __init__(self, N):\n        self.N = N\n      \
     \  self.par = [-1] * N\n\n    def find(self, x):\n        if self.par[x] < 0:\n\
     \            return x\n        else:\n            self.par[x] = self.find(self.par[x])\n\
@@ -26,7 +26,7 @@ data:
   isVerificationFile: false
   path: library/union_find.py
   requiredBy: []
-  timestamp: '2022-09-18 13:43:26+00:00'
+  timestamp: '2022-09-18 21:34:34+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: library/union_find.py

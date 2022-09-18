@@ -11,7 +11,7 @@ data:
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
-    , line 97, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+    , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "from operator import lt, le\n\n\nclass LIS:\n    def __init__(self, A):\n\
     \        self.A = A\n        self.N = len(A)\n\n    def solve(self, strict=True):\n\
     \        S = [self.A[0]]\n        cmp = lt if strict else le\n        for i in\
@@ -25,7 +25,7 @@ data:
   isVerificationFile: false
   path: library/lis.py
   requiredBy: []
-  timestamp: '2022-09-18 13:43:26+00:00'
+  timestamp: '2022-09-18 21:34:34+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: library/lis.py

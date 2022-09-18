@@ -11,7 +11,7 @@ data:
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
-    , line 97, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+    , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "class Combination:\n    def __init__(self, N, mod):\n        self.N = N\n\
     \        self.mod = mod\n        self.f = [None] * (N + 1)\n        self.finv\
     \ = [None] * (N + 1)\n        self.inv = [None] * (N + 1)\n\n        self.f[0]\
@@ -32,7 +32,7 @@ data:
   isVerificationFile: false
   path: library/combination.py
   requiredBy: []
-  timestamp: '2022-09-18 13:43:26+00:00'
+  timestamp: '2022-09-18 21:34:34+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: library/combination.py

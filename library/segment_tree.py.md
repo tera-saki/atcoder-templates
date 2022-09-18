@@ -11,7 +11,7 @@ data:
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
-    , line 97, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+    , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "class SegTree:\n    def __init__(self, N, func, e):\n        self.N = N\n\
     \        self.func = func\n        self.X = [e] * (N << 1)\n        self.e = e\n\
     \n    def build(self, seq):\n        for i in range(self.N):\n            self.X[self.N\
@@ -31,7 +31,7 @@ data:
   isVerificationFile: false
   path: library/segment_tree.py
   requiredBy: []
-  timestamp: '2022-09-18 13:43:26+00:00'
+  timestamp: '2022-09-18 21:34:34+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: library/segment_tree.py
