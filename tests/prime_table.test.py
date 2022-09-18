@@ -1,5 +1,4 @@
-# verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/0053
-# verification-helper: IGNORE
+# https://onlinejudge.u-aizu.ac.jp/status/users/terasa/submissions/1/0053/judge/6971267/Python3
 import sys
 from library.prime_table import PrimeTable
 

@@ -1,5 +1,4 @@
-# verification-helper: PROBLEM https://atcoder.jp/contests/abc242/tasks/abc242_g
-# verification-helper: IGNORE
+# https://atcoder.jp/contests/abc242/submissions/34629582
 import sys
 from library.mo import Mo
 
