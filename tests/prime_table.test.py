@@ -1,20 +1,15 @@
-# verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/0009
+# verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/0053
 import sys
 from library.prime_table import PrimeTable
 
 input = sys.stdin.readline
 
 primes = PrimeTable(10 ** 6).primes
-for n in map(int, sys.stdin.read().split()):
-    l = -1
-    r = len(primes)
-    while r - l > 1:
-        c = (l + r) // 2
-        if primes[c] == n:
-            l = c
-            break
-        if primes[c] < n:
-            l = c
-        else:
-            r = c
-    print(l + 1)
+S = [0]
+for p in primes:
+    S.append(S[-1] + p)
+while True:
+    n = int(input())
+    if n == 0:
+        break
+    print(S[n])
