@@ -1,3 +1,8 @@
+# https://onlinejudge.u-aizu.ac.jp/status/users/terasa/submissions/1/0053/judge/6971267/Python3
+import sys
+input = sys.stdin.readline
+
+
 class PrimeTable:
     def __init__(self, N):
         self.is_prime = [True] * (N + 1)
@@ -18,3 +23,14 @@ class PrimeTable:
 
     def is_prime(self, n):
         return self.is_prime[n]
+
+
+primes = PrimeTable(10 ** 6).primes
+S = [0]
+for p in primes:
+    S.append(S[-1] + p)
+while True:
+    n = int(input())
+    if n == 0:
+        break
+    print(S[n])
