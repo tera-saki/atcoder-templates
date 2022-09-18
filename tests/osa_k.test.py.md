@@ -1,0 +1,38 @@
+---
+data:
+  _extendedDependsOn: []
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
+  _pathExtension: py
+  _verificationStatusIcon: ':heavy_check_mark:'
+  attributes:
+    PROBLEM: https://yukicoder.me/problems/no/1006
+    links:
+    - https://yukicoder.me/problems/no/1006
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
+    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
+    , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+  code: "# verification-helper: PROBLEM https://yukicoder.me/problems/no/1006\nimport\
+    \ sys\nfrom collections import defaultdict\nfrom library.osa_k import Osa_k\n\n\
+    input = sys.stdin.readline\n\nX = int(input())\nosa_k = Osa_k(X)\nf = [0] * X\n\
+    for i in range(1, X):\n    factors = osa_k.factors(i)\n    D = defaultdict(int)\n\
+    \    for factor in factors:\n        D[factor] += 1\n    d = 1\n    for v in D.values():\n\
+    \        d *= (v + 1)\n    f[i] = i - d\nv = [1 << 30] * X\nfor i in range(1,\
+    \ X):\n    v[i] = abs(f[i] - f[X - i])\nminv = min(v)\nfor i in range(1, X):\n\
+    \    if v[i] == minv:\n        print(i, X - i)\n"
+  dependsOn: []
+  isVerificationFile: true
+  path: tests/osa_k.test.py
+  requiredBy: []
+  timestamp: '1970-01-01 00:00:00+00:00'
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: tests/osa_k.test.py
+layout: document
+redirect_from:
+- /verify/tests/osa_k.test.py
+- /verify/tests/osa_k.test.py.html
+title: tests/osa_k.test.py
+---

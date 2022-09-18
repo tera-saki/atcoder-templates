@@ -1,0 +1,41 @@
+---
+data:
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: library/combination.py
+    title: library/combination.py
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
+  _pathExtension: py
+  _verificationStatusIcon: ':heavy_check_mark:'
+  attributes:
+    PROBLEM: https://yukicoder.me/problems/no/117
+    links:
+    - https://yukicoder.me/problems/no/117
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
+    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
+    , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+  code: "# verification-helper: PROBLEM https://yukicoder.me/problems/no/117\nimport\
+    \ sys\nfrom library.combination import Combination\n\ninput = sys.stdin.readline\n\
+    \nT = int(input())\nmod = 10 ** 9 + 7\ncomb = Combination(2 * 10 ** 6, mod)\n\n\
+    for _ in range(T):\n    query = input()[:-1]\n    t = query[0]\n    n, k = map(int,\
+    \ query[2:-1].split(','))\n    if t == 'C':\n        print(comb.C(n, k))\n   \
+    \ elif t == 'P':\n        print(comb.P(n, k))\n    else:\n        print(comb.H(n,\
+    \ k))\n"
+  dependsOn:
+  - library/combination.py
+  isVerificationFile: true
+  path: tests/combination.test.py
+  requiredBy: []
+  timestamp: '2022-09-18 07:47:05+00:00'
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: tests/combination.test.py
+layout: document
+redirect_from:
+- /verify/tests/combination.test.py
+- /verify/tests/combination.test.py.html
+title: tests/combination.test.py
+---
