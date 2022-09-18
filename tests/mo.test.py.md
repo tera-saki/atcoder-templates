@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':x:'
+    path: library/mo.py
+    title: library/mo.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true
@@ -28,7 +31,8 @@ data:
     \ = []\nfor _ in range(Q):\n    l, r = map(int, input().split())\n    l -= 1\n\
     \    query.append((l, r))\n\nclothes = [0] * N\n\nM = max(A) + 1\nsolver = MoSolver(N,\
     \ Q, A, query)\nans = solver.solve()\nprint(*ans, sep='\\n')\n"
-  dependsOn: []
+  dependsOn:
+  - library/mo.py
   isVerificationFile: true
   path: tests/mo.test.py
   requiredBy: []

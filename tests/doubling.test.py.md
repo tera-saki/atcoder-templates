@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: library/doubling.py
+    title: library/doubling.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -36,7 +39,8 @@ data:
     \ = divmod(a, W)\n    print(i + 1, j + 1, D[d])\n\n\nwhile True:\n    H, W, L\
     \ = map(int, input().split())\n    if H == 0 and W == 0 and L == 0:\n        break\n\
     \    solve(H, W, L)\n"
-  dependsOn: []
+  dependsOn:
+  - library/doubling.py
   isVerificationFile: true
   path: tests/doubling.test.py
   requiredBy: []

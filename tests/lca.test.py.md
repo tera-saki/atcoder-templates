@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: library/lca.py
+    title: library/lca.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -20,7 +23,8 @@ data:
     E = [[] for _ in range(N)]\nfor i, p in enumerate(P, start=1):\n    E[i].append(p)\n\
     \    E[p].append(i)\n\nsolver = LCA(N, E)\nfor _ in range(Q):\n    u, v = map(int,\
     \ input().split())\n    print(solver.lca(u, v))\n"
-  dependsOn: []
+  dependsOn:
+  - library/lca.py
   isVerificationFile: true
   path: tests/lca.test.py
   requiredBy: []

@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: library/segment_tree.py
+    title: library/segment_tree.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -20,7 +23,8 @@ data:
     \ = SegTree(N, lambda a, b: a + b, 0)\nst.build(A)\n\nfor _ in range(Q):\n   \
     \ t, x, y = map(int, input().split())\n    if t == 0:\n        st.add(x, y)\n\
     \    else:\n        print(st.query(x, y))\n"
-  dependsOn: []
+  dependsOn:
+  - library/segment_tree.py
   isVerificationFile: true
   path: tests/segment_tree.test.py
   requiredBy: []

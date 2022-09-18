@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: library/binary_indexed_tree.py
+    title: library/binary_indexed_tree.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -20,7 +23,8 @@ data:
     \ in enumerate(sorted(A)):\n    idx[a] = i\n\nans = 0\nbit = BIT(N)\nfor i, a\
     \ in enumerate(A):\n    ans += bit.range_sum(idx[a] + 1, N)\n    bit.add(idx[a],\
     \ 1)\nprint(ans)\n"
-  dependsOn: []
+  dependsOn:
+  - library/binary_indexed_tree.py
   isVerificationFile: true
   path: tests/binary_indexed_tree.test.py
   requiredBy: []

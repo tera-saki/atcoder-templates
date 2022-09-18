@@ -26,7 +26,7 @@ data:
   isVerificationFile: true
   path: tests/topological_sort.test.py
   requiredBy: []
-  timestamp: '2022-09-18 21:34:34+09:00'
+  timestamp: '1970-01-01 00:00:00+00:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: tests/topological_sort.test.py

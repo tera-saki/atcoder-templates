@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: library/weighted_union_find.py
+    title: library/weighted_union_find.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -20,7 +23,8 @@ data:
     for _ in range(Q):\n    t, *q = map(int, input().split())\n    if t == 0:\n  \
     \      x, y, z = q\n        uf.merge(x, y, z)\n    else:\n        x, y = q\n \
     \       res = uf.diff(x, y)\n        print(res if res is not None else '?')\n"
-  dependsOn: []
+  dependsOn:
+  - library/weighted_union_find.py
   isVerificationFile: true
   path: tests/weighted_union_find.test.py
   requiredBy: []

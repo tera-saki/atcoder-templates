@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':x:'
+    path: library/prime_table.py
+    title: library/prime_table.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true
@@ -20,7 +23,8 @@ data:
     \ninput = sys.stdin.readline\n\nprimes = PrimeTable(10 ** 6).primes\nS = [0]\n\
     for p in primes:\n    S.append(S[-1] + p)\nwhile True:\n    n = int(input())\n\
     \    if n == 0:\n        break\n    print(S[n])\n"
-  dependsOn: []
+  dependsOn:
+  - library/prime_table.py
   isVerificationFile: true
   path: tests/prime_table.test.py
   requiredBy: []

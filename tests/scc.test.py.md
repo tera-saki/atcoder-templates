@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: library/scc.py
+    title: library/scc.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -20,7 +23,8 @@ data:
     \ in range(M):\n    a, b = map(int, input().split())\n    E[a].append(b)\nscc\
     \ = SCC(N, E)\n\nprint(len(scc.C))\nfor i in range(len(scc.C)):\n    print(len(scc.C[i]),\
     \ *scc.C[i])\n"
-  dependsOn: []
+  dependsOn:
+  - library/scc.py
   isVerificationFile: true
   path: tests/scc.test.py
   requiredBy: []

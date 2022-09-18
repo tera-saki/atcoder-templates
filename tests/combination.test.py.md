@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: library/combination.py
+    title: library/combination.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -21,7 +24,8 @@ data:
     \ query[2:-1].split(','))\n    if t == 'C':\n        print(comb.C(n, k))\n   \
     \ elif t == 'P':\n        print(comb.P(n, k))\n    else:\n        print(comb.H(n,\
     \ k))\n"
-  dependsOn: []
+  dependsOn:
+  - library/combination.py
   isVerificationFile: true
   path: tests/combination.test.py
   requiredBy: []
