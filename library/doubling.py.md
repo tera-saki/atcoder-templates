@@ -26,7 +26,7 @@ data:
   isVerificationFile: false
   path: library/doubling.py
   requiredBy: []
-  timestamp: '2022-09-18 07:47:05+00:00'
+  timestamp: '2022-09-18 21:34:34+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/doubling.test.py

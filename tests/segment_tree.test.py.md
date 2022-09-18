@@ -28,7 +28,7 @@ data:
   isVerificationFile: true
   path: tests/segment_tree.test.py
   requiredBy: []
-  timestamp: '2022-09-18 07:47:05+00:00'
+  timestamp: '2022-09-18 21:34:34+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/segment_tree.test.py
