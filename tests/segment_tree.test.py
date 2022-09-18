@@ -1,6 +1,6 @@
 # verification-helper: PROBLEM https://judge.yosupo.jp/problem/point_add_range_sum
 import sys
-from lib.segment_tree import SegTree
+from library.segment_tree import SegTree
 
 input = sys.stdin.readline
 

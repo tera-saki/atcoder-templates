@@ -1,7 +1,7 @@
 # verification-helper: PROBLEM https://atcoder.jp/contests/abc242/tasks/abc242_g
 # verification-helper: IGNORE
 import sys
-from lib.mo import Mo
+from library.mo import Mo
 
 
 class MoSolver(Mo):

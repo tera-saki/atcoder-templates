@@ -1,7 +1,7 @@
 # verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_14_B
 import sys
 import random
-from lib.rolling_hash import RollingHash
+from library.rolling_hash import RollingHash
 
 input = sys.stdin.readline
 

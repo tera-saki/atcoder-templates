@@ -1,6 +1,6 @@
 # verification-helper: PROBLEM https://yukicoder.me/problems/no/117
 import sys
-from lib.combination import Combination
+from library.combination import Combination
 
 input = sys.stdin.readline
 

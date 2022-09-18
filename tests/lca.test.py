@@ -1,6 +1,6 @@
 # verification-helper: PROBLEM https://judge.yosupo.jp/problem/lca
 import sys
-from lib.lca import LCA
+from library.lca import LCA
 
 input = sys.stdin.readline
 sys.setrecursionlimit(10 ** 6)

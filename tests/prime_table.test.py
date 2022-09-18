@@ -1,6 +1,6 @@
 # verification-helper: https://onlinejudge.u-aizu.ac.jp/problems/0009
 import sys
-from lib.prime_table import PrimeTable
+from library.prime_table import PrimeTable
 
 input = sys.stdin.readline
 

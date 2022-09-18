@@ -1,6 +1,6 @@
 # verification-helper: PROBLEM https://judge.yosupo.jp/problem/unionfind
 import sys
-from lib.union_find import UnionFind
+from library.union_find import UnionFind
 
 input = sys.stdin.readline
 

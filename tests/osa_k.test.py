@@ -1,7 +1,7 @@
 # verification-helper: PROBLEM https://yukicoder.me/problems/no/1006
 import sys
 from collections import defaultdict
-from lib.osa_k import Osa_k
+from library.osa_k import Osa_k
 
 input = sys.stdin.readline
 

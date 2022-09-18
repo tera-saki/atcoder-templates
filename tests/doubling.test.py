@@ -1,6 +1,6 @@
 # verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/2320
 import sys
-from lib.doubling import Doubling
+from library.doubling import Doubling
 
 input = sys.stdin.readline
 

@@ -1,6 +1,6 @@
 # verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/DSL_1_B
 import sys
-from lib.weighted_union_find import WeightedUnionFind
+from library.weighted_union_find import WeightedUnionFind
 
 input = sys.stdin.readline
 

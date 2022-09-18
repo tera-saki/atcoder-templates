@@ -1,6 +1,6 @@
 # verification-helper: PROBLEM https://judge.yosupo.jp/problem/scc
 import sys
-from lib.scc import SCC
+from library.scc import SCC
 
 input = sys.stdin.readline
 sys.setrecursionlimit(10 ** 6)
