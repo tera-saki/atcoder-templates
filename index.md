@@ -9,7 +9,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/combination.py
       title: library/combination.py
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: library/cumulative_sum.py
       title: library/cumulative_sum.py
     - icon: ':heavy_check_mark:'
@@ -78,6 +78,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/combination.test.py
       title: tests/combination.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/cumulative_sum.test.py
+      title: tests/cumulative_sum.test.py
     - icon: ':heavy_check_mark:'
       path: tests/dijkstra.test.py
       title: tests/dijkstra.test.py

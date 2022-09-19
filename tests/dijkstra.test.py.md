@@ -29,7 +29,7 @@ data:
   isVerificationFile: true
   path: tests/dijkstra.test.py
   requiredBy: []
-  timestamp: '2022-09-19 01:08:37+09:00'
+  timestamp: '2022-09-19 10:15:41+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/dijkstra.test.py
