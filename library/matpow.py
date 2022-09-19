@@ -1,7 +1,3 @@
-import sys
-input = sys.stdin.readline
-
-
 class Matpow:
     def __init__(self, A, mod, digit=60):
         self.A = A
@@ -30,17 +26,3 @@ class Matpow:
                     C[i][j] += A[i][k] * B[k][j]
                     C[i][j] %= self.mod
         return C
-
-
-# https://atcoder.jp/contests/dp/tasks/dp_r
-N, K = map(int, input().split())
-A = [list(map(int, input().split())) for _ in range(N)]
-mod = 10 ** 9 + 7
-
-Ak = Matpow(A, mod).pow(K)
-ans = 0
-for i in range(N):
-    for j in range(N):
-        ans += Ak[i][j]
-        ans %= mod
-print(ans)
