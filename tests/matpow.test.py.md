@@ -2,51 +2,38 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: library/lis.py
-    title: library/lis.py
+    path: library/matpow.py
+    title: library/matpow.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/DPL_1_D
+    PROBLEM: https://yukicoder.me/problems/no/1073
     links:
-    - https://onlinejudge.u-aizu.ac.jp/problems/DPL_1_D
+    - https://yukicoder.me/problems/no/1073
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 100, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
-  code: '# verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/DPL_1_D
-
-    import sys
-
-    from library.lis import LIS
-
-
-    input = sys.stdin.readline
-
-
-
-    N = int(input())
-
-    A = [int(input()) for _ in range(N)]
-
-    print(LIS(A).solve())
-
-    '
+  code: "# verification-helper: PROBLEM https://yukicoder.me/problems/no/1073\nimport\
+    \ sys\nfrom library.matpow import Matpow\n\ninput = sys.stdin.readline\n\nN =\
+    \ int(input())\nmod = 10 ** 9 + 7\n\npinv = pow(6, mod - 2, mod)\nA = [[0 for\
+    \ _ in range(6)] for _ in range(6)]\nfor j in range(6):\n    A[0][j] = pinv\n\
+    for i in range(1, 6):\n    A[i][i - 1] = 1\n\nAn = Matpow(A, mod).pow(N)\nprint(An[0][0])\n"
   dependsOn:
-  - library/lis.py
+  - library/matpow.py
   isVerificationFile: true
-  path: tests/lis.test.py
+  path: tests/matpow.test.py
   requiredBy: []
   timestamp: '2022-09-19 11:29:04+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: tests/lis.test.py
+documentation_of: tests/matpow.test.py
 layout: document
 redirect_from:
-- /verify/tests/lis.test.py
-- /verify/tests/lis.test.py.html
-title: tests/lis.test.py
+- /verify/tests/matpow.test.py
+- /verify/tests/matpow.test.py.html
+title: tests/matpow.test.py
 ---

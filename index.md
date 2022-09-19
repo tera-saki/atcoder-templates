@@ -33,7 +33,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/lis.py
       title: library/lis.py
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: library/matpow.py
       title: library/matpow.py
     - icon: ':warning:'
@@ -96,6 +96,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/lis.test.py
       title: tests/lis.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/matpow.test.py
+      title: tests/matpow.test.py
     - icon: ':heavy_check_mark:'
       path: tests/osa_k.test.py
       title: tests/osa_k.test.py
