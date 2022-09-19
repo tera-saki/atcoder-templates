@@ -29,7 +29,7 @@ data:
   isVerificationFile: true
   path: tests/combination.test.py
   requiredBy: []
-  timestamp: '2022-09-19 11:29:04+09:00'
+  timestamp: '2022-09-19 11:59:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/combination.test.py

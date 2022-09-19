@@ -36,7 +36,7 @@ data:
   isVerificationFile: false
   path: library/lca.py
   requiredBy: []
-  timestamp: '2022-09-19 11:29:04+09:00'
+  timestamp: '2022-09-19 11:59:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/lca.test.py

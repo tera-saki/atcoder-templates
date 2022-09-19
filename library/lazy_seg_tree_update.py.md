@@ -51,7 +51,7 @@ data:
   isVerificationFile: false
   path: library/lazy_seg_tree_update.py
   requiredBy: []
-  timestamp: '2022-09-19 11:29:04+09:00'
+  timestamp: '2022-09-19 11:59:28+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: library/lazy_seg_tree_update.py
