@@ -27,7 +27,7 @@ data:
   isVerificationFile: false
   path: library/cumulative_sum.py
   requiredBy: []
-  timestamp: '2022-09-19 10:15:41+09:00'
+  timestamp: '2022-09-19 10:50:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/cumulative_sum.test.py

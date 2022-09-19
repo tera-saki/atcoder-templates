@@ -2,39 +2,38 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: library/segment_tree.py
-    title: library/segment_tree.py
+    path: library/prime_table.py
+    title: library/prime_table.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    PROBLEM: https://judge.yosupo.jp/problem/point_add_range_sum
+    PROBLEM: https://yukicoder.me/problems/no/1140
     links:
-    - https://judge.yosupo.jp/problem/point_add_range_sum
+    - https://yukicoder.me/problems/no/1140
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 100, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
-  code: "# verification-helper: PROBLEM https://judge.yosupo.jp/problem/point_add_range_sum\n\
-    import sys\nfrom library.segment_tree import SegTree\n\ninput = sys.stdin.readline\n\
-    \nN, Q = map(int, input().split())\nA = list(map(int, input().split()))\n\nst\
-    \ = SegTree(N, lambda a, b: a + b, 0)\nst.build(A)\n\nfor _ in range(Q):\n   \
-    \ t, x, y = map(int, input().split())\n    if t == 0:\n        st.add(x, y)\n\
-    \    else:\n        print(st.query(x, y))\n"
+  code: "# verification-helper: PROBLEM https://yukicoder.me/problems/no/1140\nimport\
+    \ sys\nfrom library.prime_table import PrimeTable\n\ninput = sys.stdin.readline\n\
+    \nL = 5 * 10 ** 6\nis_prime = PrimeTable(L).is_prime\n\nT = int(input())\nfor\
+    \ _ in range(T):\n    a, p = map(int, input().split())\n    if is_prime[p]:\n\
+    \        print(0 if a % p == 0 else 1)\n    else:\n        print(-1)\n"
   dependsOn:
-  - library/segment_tree.py
+  - library/prime_table.py
   isVerificationFile: true
-  path: tests/segment_tree.test.py
+  path: tests/prime_table.test.py
   requiredBy: []
   timestamp: '2022-09-19 10:50:15+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: tests/segment_tree.test.py
+documentation_of: tests/prime_table.test.py
 layout: document
 redirect_from:
-- /verify/tests/segment_tree.test.py
-- /verify/tests/segment_tree.test.py.html
-title: tests/segment_tree.test.py
+- /verify/tests/prime_table.test.py
+- /verify/tests/prime_table.test.py.html
+title: tests/prime_table.test.py
 ---

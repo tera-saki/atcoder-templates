@@ -42,7 +42,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/osa_k.py
       title: library/osa_k.py
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: library/prime_table.py
       title: library/prime_table.py
     - icon: ':warning:'
@@ -99,6 +99,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/osa_k.test.py
       title: tests/osa_k.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/prime_table.test.py
+      title: tests/prime_table.test.py
     - icon: ':heavy_check_mark:'
       path: tests/rolling_hash.test.py
       title: tests/rolling_hash.test.py
