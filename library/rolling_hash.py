@@ -2,17 +2,13 @@ import random
 
 
 class RollingHash:
-    def __init__(self, S, mod=None, base=None):
+    def __init__(self, S, mod=(1 << 61) - 1, base=None):
         self.h = [0] * (len(S) + 1)
         self.p = [1] * (len(S) + 1)
-
-        if mod is None:
-            self.mod = (1 << 61) - 1
-        else:
-            self.mod = mod
+        self.mod = mod
 
         if base is None:
-            self.base = random.randint(100, self.mod - 1)
+            self.base = random.randint(2, self.mod - 2)
         else:
             self.base = base
 
