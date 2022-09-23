@@ -21,14 +21,14 @@ data:
     \ sys\nfrom library.scc import SCC\n\ninput = sys.stdin.readline\nsys.setrecursionlimit(10\
     \ ** 6)\n\nN, M = map(int, input().split())\nE = [[] for _ in range(N)]\nfor _\
     \ in range(M):\n    a, b = map(int, input().split())\n    E[a].append(b)\nscc\
-    \ = SCC(N, E)\n\nprint(len(scc.C))\nfor i in range(len(scc.C)):\n    print(len(scc.C[i]),\
+    \ = SCC(N, E)\n\nprint(scc.c_num)\nfor i in range(scc.c_num):\n    print(len(scc.C[i]),\
     \ *scc.C[i])\n"
   dependsOn:
   - library/scc.py
   isVerificationFile: true
   path: tests/scc.test.py
   requiredBy: []
-  timestamp: '2022-09-23 12:31:50+09:00'
+  timestamp: '2022-09-23 21:22:51+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/scc.test.py

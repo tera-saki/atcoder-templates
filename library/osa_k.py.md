@@ -28,7 +28,7 @@ data:
   isVerificationFile: false
   path: library/osa_k.py
   requiredBy: []
-  timestamp: '2022-09-23 12:31:50+09:00'
+  timestamp: '2022-09-23 21:22:51+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/osa_k.test.py
