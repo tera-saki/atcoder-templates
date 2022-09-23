@@ -44,7 +44,7 @@ data:
   isVerificationFile: true
   path: tests/doubling.test.py
   requiredBy: []
-  timestamp: '2022-09-19 11:59:28+09:00'
+  timestamp: '2022-09-23 12:31:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/doubling.test.py

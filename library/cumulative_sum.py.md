@@ -15,19 +15,15 @@ data:
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 100, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
-  code: "class CumulativeSum2D:\n    def __init__(self, A):\n        self.A = A\n\
-    \        self.H = len(A)\n        self.W = len(A[0])\n        self.S = [[0 for\
-    \ _ in range(self.W + 1)] for _ in range(self.H + 1)]\n\n        for i in range(self.H):\n\
-    \            for j in range(self.W):\n                self.S[i + 1][j + 1] = self.S[i\
-    \ + 1][j] + self.S[i][j + 1] - self.S[i][j] + self.A[i][j]\n\n    def sum(self,\
-    \ lx, ly, rx, ry):\n        \"\"\"return sum of area s.t. lx <= x <= rx and ly\
-    \ <= y <= ry (0-indexed)\"\"\"\n        return self.S[rx + 1][ry + 1] - self.S[lx][ry\
-    \ + 1] - self.S[rx + 1][ly] + self.S[lx][ly]\n"
+  code: "class CumulativeSum:\n    def __init__(self, A):\n        self.S = [0]\n\
+    \        acc = 0\n        for a in A:\n            acc += a\n            self.S.append(acc)\n\
+    \n    def get(self, l, r):\n        \"\"\"return sum(A[l:r]), i.e. sum of A[x]\
+    \ (l <= x < r) \"\"\"\n        return self.S[r] - self.S[l]\n"
   dependsOn: []
   isVerificationFile: false
   path: library/cumulative_sum.py
   requiredBy: []
-  timestamp: '2022-09-19 11:59:28+09:00'
+  timestamp: '2022-09-23 12:31:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/cumulative_sum.test.py
