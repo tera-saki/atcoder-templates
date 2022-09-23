@@ -34,15 +34,28 @@ class SCC:
                 self.c_num += 1
 
     def dfs(self, v, flag):
-        flag[v] = True
-        for dest in self.E[v]:
-            if flag[dest] is False:
-                self.dfs(dest, flag)
-        self.V.append(v)
+        stack = [~v, v]
+        while stack:
+            v = stack.pop()
+            if v < 0:
+                self.V.append(~v)
+                continue
+
+            if flag[v] is True:
+                stack.pop()
+                continue
+            flag[v] = True
+            for dest in self.E[v]:
+                if flag[dest] is False:
+                    stack.append(~dest)
+                    stack.append(dest)
 
     def dfs2(self, v, flag):
-        flag[v] = True
-        self.cid[v] = self.c_num
-        for dest in self.I[v]:
-            if flag[dest] is False:
-                self.dfs2(dest, flag)
+        stack = [v]
+        while stack:
+            v = stack.pop()
+            flag[v] = True
+            self.cid[v] = self.c_num
+            for dest in self.I[v]:
+                if flag[dest] is False:
+                    stack.append(dest)
