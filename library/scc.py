@@ -6,27 +6,17 @@ class SCC:
         for s in range(N):
             for t in E[s]:
                 self.I[t].append(s)
-        
+
         self.V = []
-        self.C = []
+        self.cid = [None] * N
+        self.c_num = 0
         self.traverse()
         self.traverse2()
 
-    def toDAG(self):
-        cidx = [None] * self.N
-        for i in range(len(self.C)):
-            for v in self.C[i]:
-                cidx[v] = i
-        edge = [set() for _ in range(len(self.C))]
-        for v in range(self.N):
-            cv = cidx[v]
-            for dest in self.E[v]:
-                cdest = cidx[dest]
-                if cv == cdest:
-                    continue
-                edge[cv].add(cdest)
-        edge = [list(s) for s in edge]
-        return self.C, edge
+        self.C = [[] for _ in range(self.c_num)]
+        for i in range(self.N):
+            c = self.cid[i]
+            self.C[c].append(i)
 
     def traverse(self):
         flag = [False] * self.N
@@ -37,11 +27,11 @@ class SCC:
 
     def traverse2(self):
         flag = [False] * self.N
+        cid = 0
         for v in self.V:
             if flag[v] is False:
-                idx = len(self.C)
-                self.C.append([])
-                self.dfs2(idx, v, flag)
+                self.dfs2(v, flag)
+                self.c_num += 1
 
     def dfs(self, v, flag):
         flag[v] = True
@@ -50,9 +40,9 @@ class SCC:
                 self.dfs(dest, flag)
         self.V.append(v)
 
-    def dfs2(self, idx, v, flag):
+    def dfs2(self, v, flag):
         flag[v] = True
-        self.C[idx].append(v)
+        self.cid[v] = self.c_num
         for dest in self.I[v]:
             if flag[dest] is False:
-                self.dfs2(idx, dest, flag)
+                self.dfs2(dest, flag)

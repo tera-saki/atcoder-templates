@@ -12,6 +12,6 @@ for _ in range(M):
     E[a].append(b)
 scc = SCC(N, E)
 
-print(len(scc.C))
-for i in range(len(scc.C)):
+print(scc.c_num)
+for i in range(scc.c_num):
     print(len(scc.C[i]), *scc.C[i])
