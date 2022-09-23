@@ -10,5 +10,5 @@ class CumulativeSum2D:
                 self.S[i + 1][j + 1] = self.S[i + 1][j] + self.S[i][j + 1] - self.S[i][j] + self.A[i][j]
 
     def sum(self, lx, ly, rx, ry):
-        """return sum of area s.t. lx <= x <= rx and ly <= y <= ry (0-indexed)"""
-        return self.S[rx + 1][ry + 1] - self.S[lx][ry + 1] - self.S[rx + 1][ly] + self.S[lx][ly]
+        """return sum of area s.t. lx <= x < rx and ly <= y < ry (0-indexed)"""
+        return self.S[rx][ry] - self.S[lx][ry] - self.S[rx][ly] + self.S[lx][ly]

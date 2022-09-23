@@ -1,6 +1,6 @@
 # verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/challenges/sources/JOI/Final/0560
 import sys
-from library.cumulative_sum import CumulativeSum2D
+from library.cumulative_sum_2d import CumulativeSum2D
 
 input = sys.stdin.readline
 
@@ -24,7 +24,9 @@ So = CumulativeSum2D(O)
 Si = CumulativeSum2D(I)
 
 for _ in range(Q):
-    lx, ly, rx, ry = map(lambda x: int(x) - 1, input().split())
+    lx, ly, rx, ry = map(int, input().split())
+    lx -= 1
+    ly -= 1
     aj = Sj.sum(lx, ly, rx, ry)
     ao = So.sum(lx, ly, rx, ry)
     ai = Si.sum(lx, ly, rx, ry)
