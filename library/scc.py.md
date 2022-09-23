@@ -26,16 +26,21 @@ data:
     \ self.V.reverse()\n\n    def traverse2(self):\n        flag = [False] * self.N\n\
     \        cid = 0\n        for v in self.V:\n            if flag[v] is False:\n\
     \                self.dfs2(v, flag)\n                self.c_num += 1\n\n    def\
-    \ dfs(self, v, flag):\n        flag[v] = True\n        for dest in self.E[v]:\n\
-    \            if flag[dest] is False:\n                self.dfs(dest, flag)\n \
-    \       self.V.append(v)\n\n    def dfs2(self, v, flag):\n        flag[v] = True\n\
-    \        self.cid[v] = self.c_num\n        for dest in self.I[v]:\n          \
-    \  if flag[dest] is False:\n                self.dfs2(dest, flag)\n"
+    \ dfs(self, v, flag):\n        stack = [~v, v]\n        while stack:\n       \
+    \     v = stack.pop()\n            if v < 0:\n                self.V.append(~v)\n\
+    \                continue\n\n            if flag[v] is True:\n               \
+    \ stack.pop()\n                continue\n            flag[v] = True\n        \
+    \    for dest in self.E[v]:\n                if flag[dest] is False:\n       \
+    \             stack.append(~dest)\n                    stack.append(dest)\n\n\
+    \    def dfs2(self, v, flag):\n        stack = [v]\n        while stack:\n   \
+    \         v = stack.pop()\n            flag[v] = True\n            self.cid[v]\
+    \ = self.c_num\n            for dest in self.I[v]:\n                if flag[dest]\
+    \ is False:\n                    stack.append(dest)\n"
   dependsOn: []
   isVerificationFile: false
   path: library/scc.py
   requiredBy: []
-  timestamp: '2022-09-23 21:22:51+09:00'
+  timestamp: '2022-09-23 22:15:17+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/scc.test.py
