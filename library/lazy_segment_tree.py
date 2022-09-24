@@ -4,6 +4,9 @@ F = TypeVar('F')
 
 
 class LazySegTree:
+    # reference: https://github.com/shakayami/ACL-for-python
+    # reference: https://maspypy.com/segment-tree-%E3%81%AE%E3%81%8A%E5%8B%89%E5%BC%B72
+    # reference: https://betrue12.hateblo.jp/entry/2020/09/22/194541
     def __init__(self, N: int, op: Callable[[S, S], S], e: S,
                  mapping: Callable[[F, S], S],
                  composition: Callable[[F, F], F], id: F):
