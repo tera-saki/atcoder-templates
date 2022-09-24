@@ -29,7 +29,7 @@ data:
   isVerificationFile: false
   path: library/union_find.py
   requiredBy: []
-  timestamp: '2022-09-24 15:48:03+09:00'
+  timestamp: '2022-09-24 15:55:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/union_find.test.py
