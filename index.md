@@ -24,12 +24,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/doubling.py
       title: library/doubling.py
-    - icon: ':warning:'
-      path: library/lazy_seg_tree_add.py
-      title: library/lazy_seg_tree_add.py
-    - icon: ':warning:'
-      path: library/lazy_seg_tree_update.py
-      title: library/lazy_seg_tree_update.py
+    - icon: ':heavy_check_mark:'
+      path: library/lazy_segment_tree.py
+      title: library/lazy_segment_tree.py
     - icon: ':heavy_check_mark:'
       path: library/lca.py
       title: library/lca.py
@@ -96,6 +93,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/doubling.test.py
       title: tests/doubling.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/lazy_segment_tree.test.py
+      title: tests/lazy_segment_tree.test.py
     - icon: ':heavy_check_mark:'
       path: tests/lca.test.py
       title: tests/lca.test.py
