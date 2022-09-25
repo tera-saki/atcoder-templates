@@ -57,6 +57,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/segment_tree.py
       title: library/segment_tree.py
+    - icon: ':heavy_check_mark:'
+      path: library/swag.py
+      title: library/swag.py
     - icon: ':warning:'
       path: library/topological_sort.py
       title: library/topological_sort.py
@@ -123,6 +126,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/segment_tree.test.py
       title: tests/segment_tree.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/swag.test.py
+      title: tests/swag.test.py
     - icon: ':heavy_check_mark:'
       path: tests/two_sat.test.py
       title: tests/two_sat.test.py

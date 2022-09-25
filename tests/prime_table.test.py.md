@@ -27,7 +27,7 @@ data:
   isVerificationFile: true
   path: tests/prime_table.test.py
   requiredBy: []
-  timestamp: '2022-09-25 12:34:01+09:00'
+  timestamp: '2022-09-25 18:32:29+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/prime_table.test.py
