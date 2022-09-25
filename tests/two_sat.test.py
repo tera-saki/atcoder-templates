@@ -22,7 +22,7 @@ if ans is None:
     exit()
 A = []
 for i in range(N):
-    if ans[i] > 0:
+    if ans[i] is True:
         A.append(i + 1)
     else:
         A.append(-(i + 1))

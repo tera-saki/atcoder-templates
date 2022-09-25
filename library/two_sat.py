@@ -11,7 +11,7 @@ class TwoSat:
             return 2 * (~n) + 1 if n < 0 else 2 * n
 
         def oppose(id):
-            return id - 1 if id & 1 else id + 1
+            return id ^ 1
 
         sid, tid = vid(s), vid(t)
         # ~s -> t
@@ -24,12 +24,6 @@ class TwoSat:
         for i in range(self.N):
             if cid[2 * i] == cid[2 * i + 1]:
                 return None
-
-        ans = []
-        for i in range(self.N):
-            # possibly ~x -> x
-            if cid[2 * i] > cid[2 * i + 1]:
-                ans.append(1)
-            else:
-                ans.append(-1)
+        # if cid[2 * a] > cid[2 * a + 1], possibly ~a -> a
+        ans = [cid[2 * i] > cid[2 * i + 1] for i in range(self.N)]
         return ans
