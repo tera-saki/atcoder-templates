@@ -34,7 +34,7 @@ data:
   isVerificationFile: false
   path: library/segment_tree.py
   requiredBy: []
-  timestamp: '2022-09-25 12:09:50+09:00'
+  timestamp: '2022-09-25 12:31:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/segment_tree.test.py

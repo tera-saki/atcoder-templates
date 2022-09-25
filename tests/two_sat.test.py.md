@@ -23,7 +23,7 @@ data:
     \ int(M)\nsolver = TwoSat(N)\nfor _ in range(M):\n    s, t, _ = map(int, input().split())\n\
     \    if s > 0:\n        s -= 1\n    if t > 0:\n        t -= 1\n    solver.add_clause(s,\
     \ t)\n\nans = solver.solve()\nif ans is None:\n    print('s UNSATISFIABLE')\n\
-    \    exit()\nA = []\nfor i in range(N):\n    if ans[i] > 0:\n        A.append(i\
+    \    exit()\nA = []\nfor i in range(N):\n    if ans[i] is True:\n        A.append(i\
     \ + 1)\n    else:\n        A.append(-(i + 1))\nprint('s SATISFIABLE')\nprint(f\"\
     v {' '.join([str(a) for a in A])} 0\")\n"
   dependsOn:
@@ -31,7 +31,7 @@ data:
   isVerificationFile: true
   path: tests/two_sat.test.py
   requiredBy: []
-  timestamp: '2022-09-25 12:09:50+09:00'
+  timestamp: '2022-09-25 12:31:25+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/two_sat.test.py

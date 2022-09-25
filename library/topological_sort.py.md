@@ -33,7 +33,7 @@ data:
   isVerificationFile: false
   path: library/topological_sort.py
   requiredBy: []
-  timestamp: '2022-09-25 12:09:50+09:00'
+  timestamp: '2022-09-25 12:31:25+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: library/topological_sort.py
