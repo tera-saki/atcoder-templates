@@ -31,7 +31,7 @@ data:
   isVerificationFile: true
   path: tests/two_sat.test.py
   requiredBy: []
-  timestamp: '2022-09-25 21:16:37+09:00'
+  timestamp: '2022-09-25 22:19:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/two_sat.test.py
