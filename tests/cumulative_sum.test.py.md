@@ -28,7 +28,7 @@ data:
   isVerificationFile: true
   path: tests/cumulative_sum.test.py
   requiredBy: []
-  timestamp: '2022-09-25 18:32:29+09:00'
+  timestamp: '2022-09-25 21:16:37+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/cumulative_sum.test.py
