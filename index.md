@@ -60,7 +60,7 @@ data:
     - icon: ':warning:'
       path: library/topological_sort.py
       title: library/topological_sort.py
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: library/two_sat.py
       title: library/two_sat.py
     - icon: ':heavy_check_mark:'
@@ -72,11 +72,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/weighted_union_find.py
       title: library/weighted_union_find.py
-  - name: tests
-    pages:
-    - icon: ':warning:'
-      path: tests/two_sat.py
-      title: tests/two_sat.py
   verificationCategories:
   - name: tests
     pages:
@@ -128,6 +123,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/segment_tree.test.py
       title: tests/segment_tree.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/two_sat.test.py
+      title: tests/two_sat.test.py
     - icon: ':heavy_check_mark:'
       path: tests/union_find.test.py
       title: tests/union_find.test.py

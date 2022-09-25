@@ -1,11 +1,14 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: library/two_sat.py
+    title: library/two_sat.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: py
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     PROBLEM: https://judge.yosupo.jp/problem/two_sat
     links:
@@ -23,17 +26,18 @@ data:
     \    exit()\nA = []\nfor i in range(N):\n    if ans[i] > 0:\n        A.append(i\
     \ + 1)\n    else:\n        A.append(-(i + 1))\nprint('s SATISFIABLE')\nprint(f\"\
     v {' '.join([str(a) for a in A])} 0\")\n"
-  dependsOn: []
-  isVerificationFile: false
-  path: tests/two_sat.py
+  dependsOn:
+  - library/two_sat.py
+  isVerificationFile: true
+  path: tests/two_sat.test.py
   requiredBy: []
   timestamp: '2022-09-25 12:09:50+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: tests/two_sat.py
+documentation_of: tests/two_sat.test.py
 layout: document
 redirect_from:
-- /library/tests/two_sat.py
-- /library/tests/two_sat.py.html
-title: tests/two_sat.py
+- /verify/tests/two_sat.test.py
+- /verify/tests/two_sat.test.py.html
+title: tests/two_sat.test.py
 ---
