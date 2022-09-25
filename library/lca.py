@@ -1,7 +1,6 @@
 import sys
 
 input = sys.stdin.readline
-sys.setrecursionlimit(10 ** 6)
 
 
 class LCA:
@@ -12,20 +11,26 @@ class LCA:
         self.par = [[-1 for _ in range(N)] for _ in range(self.K)]
         self.depth = [None] * N
 
-        self.dfs(root, 0, -1)
+        self._dfs(root)
         for k in range(self.K - 1):
             for i in range(self.N):
                 if self.par[k][i] < 0:
                     continue
                 self.par[k + 1][i] = self.par[k][self.par[k][i]]
 
-    def dfs(self, v, d, p):
-        self.par[0][v] = p
-        self.depth[v] = d
-        for dest in self.E[v]:
-            if dest == p:
-                continue
-            self.dfs(dest, d + 1, v)
+    def _dfs(self, root):
+        self.depth[root] = 0
+        stack = [(root, -1)]
+        while stack:
+            v, p = stack.pop()
+            if not p < 0:
+                self.par[0][v] = p
+                self.depth[v] = self.depth[p] + 1
+
+            for dest in self.E[v]:
+                if dest == p:
+                    continue
+                stack.append((dest, v))
 
     def lca(self, u, v):
         if self.depth[u] > self.depth[v]:
