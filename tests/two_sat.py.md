@@ -1,0 +1,39 @@
+---
+data:
+  _extendedDependsOn: []
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
+  _pathExtension: py
+  _verificationStatusIcon: ':warning:'
+  attributes:
+    PROBLEM: https://judge.yosupo.jp/problem/two_sat
+    links:
+    - https://judge.yosupo.jp/problem/two_sat
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
+    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
+    , line 100, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+  code: "# verification-helper: PROBLEM https://judge.yosupo.jp/problem/two_sat\n\
+    import sys\nfrom library.two_sat import TwoSat\n\ninput = sys.stdin.readline\n\
+    sys.setrecursionlimit(10 ** 6)\n\np, cnf, N, M = input().split()\nN, M = int(N),\
+    \ int(M)\nsolver = TwoSat(N)\nfor _ in range(M):\n    s, t, _ = map(int, input().split())\n\
+    \    if s > 0:\n        s -= 1\n    if t > 0:\n        t -= 1\n    solver.add_clause(s,\
+    \ t)\n\nans = solver.solve()\nif ans is None:\n    print('s UNSATISFIABLE')\n\
+    \    exit()\nA = []\nfor i in range(N):\n    if ans[i] > 0:\n        A.append(i\
+    \ + 1)\n    else:\n        A.append(-(i + 1))\nprint('s SATISFIABLE')\nprint(f\"\
+    v {' '.join([str(a) for a in A])} 0\")\n"
+  dependsOn: []
+  isVerificationFile: false
+  path: tests/two_sat.py
+  requiredBy: []
+  timestamp: '2022-09-25 12:09:50+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: tests/two_sat.py
+layout: document
+redirect_from:
+- /library/tests/two_sat.py
+- /library/tests/two_sat.py.html
+title: tests/two_sat.py
+---
