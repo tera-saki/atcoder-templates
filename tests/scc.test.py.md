@@ -28,7 +28,7 @@ data:
   isVerificationFile: true
   path: tests/scc.test.py
   requiredBy: []
-  timestamp: '2022-09-25 12:31:25+09:00'
+  timestamp: '2022-09-25 12:34:01+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/scc.test.py
