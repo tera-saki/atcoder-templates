@@ -15,7 +15,7 @@ class TreeDiameter:
         _, v = self.diameter
         cur = v
         p = []
-        while cur is not None:
+        while cur >= 0:
             p.append(cur)
             cur = self.prev[cur]
         return p
@@ -42,8 +42,7 @@ class TreeDiameter:
         farthest = s
         while stack:
             v, p = stack.pop()
-            if not p < 0:
-                self.prev[v] = p
+            self.prev[v] = p
             if cost[v] > cost[farthest]:
                 farthest = v
             for c, d in self.E[v]:
