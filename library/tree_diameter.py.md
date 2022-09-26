@@ -20,25 +20,24 @@ data:
     \ = [None] * N\n\n        u, c0 = self._dfs1(0)\n        v, cu = self._dfs2(u)\n\
     \        self.diameter = (u, v)\n        self.diameter_weight = cu[v]\n\n    def\
     \ get_path(self):\n        _, v = self.diameter\n        cur = v\n        p =\
-    \ []\n        while cur is not None:\n            p.append(cur)\n            cur\
-    \ = self.prev[cur]\n        return p\n\n    def _dfs1(self, s):\n        cost\
-    \ = [self.inf] * self.N\n        cost[s] = 0\n        stack = [s]\n        farthest\
-    \ = s\n        while stack:\n            v = stack.pop()\n            if cost[v]\
+    \ []\n        while cur >= 0:\n            p.append(cur)\n            cur = self.prev[cur]\n\
+    \        return p\n\n    def _dfs1(self, s):\n        cost = [self.inf] * self.N\n\
+    \        cost[s] = 0\n        stack = [s]\n        farthest = s\n        while\
+    \ stack:\n            v = stack.pop()\n            if cost[v] > cost[farthest]:\n\
+    \                farthest = v\n            for c, d in self.E[v]:\n          \
+    \      if cost[d] > cost[v] + c:\n                    cost[d] = cost[v] + c\n\
+    \                    stack.append(d)\n        return farthest, cost\n\n    def\
+    \ _dfs2(self, s):\n        cost = [self.inf] * self.N\n        cost[s] = 0\n \
+    \       stack = [(s, -1)]\n        farthest = s\n        while stack:\n      \
+    \      v, p = stack.pop()\n            self.prev[v] = p\n            if cost[v]\
     \ > cost[farthest]:\n                farthest = v\n            for c, d in self.E[v]:\n\
     \                if cost[d] > cost[v] + c:\n                    cost[d] = cost[v]\
-    \ + c\n                    stack.append(d)\n        return farthest, cost\n\n\
-    \    def _dfs2(self, s):\n        cost = [self.inf] * self.N\n        cost[s]\
-    \ = 0\n        stack = [(s, -1)]\n        farthest = s\n        while stack:\n\
-    \            v, p = stack.pop()\n            if not p < 0:\n                self.prev[v]\
-    \ = p\n            if cost[v] > cost[farthest]:\n                farthest = v\n\
-    \            for c, d in self.E[v]:\n                if cost[d] > cost[v] + c:\n\
-    \                    cost[d] = cost[v] + c\n                    stack.append((d,\
-    \ v))\n        return farthest, cost\n"
+    \ + c\n                    stack.append((d, v))\n        return farthest, cost\n"
   dependsOn: []
   isVerificationFile: false
   path: library/tree_diameter.py
   requiredBy: []
-  timestamp: '2022-09-27 00:50:40+09:00'
+  timestamp: '2022-09-27 01:14:22+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/tree_diameter.test.py
