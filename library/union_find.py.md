@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: tests/union_find.test.py
     title: tests/union_find.test.py
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: py
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -29,8 +29,8 @@ data:
   isVerificationFile: false
   path: library/union_find.py
   requiredBy: []
-  timestamp: '2022-09-25 22:19:43+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-09-26 23:57:29+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - tests/union_find.test.py
 documentation_of: library/union_find.py

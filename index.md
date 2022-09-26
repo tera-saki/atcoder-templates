@@ -64,15 +64,18 @@ data:
       path: library/topological_sort.py
       title: library/topological_sort.py
     - icon: ':heavy_check_mark:'
+      path: library/tree_diameter.py
+      title: library/tree_diameter.py
+    - icon: ':heavy_check_mark:'
       path: library/two_sat.py
       title: library/two_sat.py
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: library/union_find.py
       title: library/union_find.py
     - icon: ':warning:'
       path: library/utils.py
       title: library/utils.py
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: library/weighted_union_find.py
       title: library/weighted_union_find.py
   verificationCategories:
@@ -133,12 +136,15 @@ data:
       path: tests/swag.test.py
       title: tests/swag.test.py
     - icon: ':heavy_check_mark:'
+      path: tests/tree_diameter.test.py
+      title: tests/tree_diameter.test.py
+    - icon: ':heavy_check_mark:'
       path: tests/two_sat.test.py
       title: tests/two_sat.test.py
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: tests/union_find.test.py
       title: tests/union_find.test.py
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: tests/weighted_union_find.test.py
       title: tests/weighted_union_find.test.py
 layout: toppage

@@ -30,7 +30,7 @@ data:
   isVerificationFile: true
   path: tests/osa_k.test.py
   requiredBy: []
-  timestamp: '2022-09-25 22:19:43+09:00'
+  timestamp: '2022-09-26 23:57:29+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/osa_k.test.py

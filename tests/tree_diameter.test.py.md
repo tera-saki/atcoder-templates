@@ -2,39 +2,39 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: library/scc.py
-    title: library/scc.py
+    path: library/tree_diameter.py
+    title: library/tree_diameter.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    PROBLEM: https://judge.yosupo.jp/problem/scc
+    PROBLEM: https://judge.yosupo.jp/problem/tree_diameter
     links:
-    - https://judge.yosupo.jp/problem/scc
+    - https://judge.yosupo.jp/problem/tree_diameter
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 100, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
-  code: "# verification-helper: PROBLEM https://judge.yosupo.jp/problem/scc\nimport\
-    \ sys\nfrom library.scc import SCC\n\ninput = sys.stdin.readline\nsys.setrecursionlimit(10\
-    \ ** 6)\n\nN, M = map(int, input().split())\nE = [[] for _ in range(N)]\nfor _\
-    \ in range(M):\n    a, b = map(int, input().split())\n    E[a].append(b)\nscc\
-    \ = SCC(N, E)\n\nprint(scc.c_num)\nfor i in range(scc.c_num):\n    print(len(scc.C[i]),\
-    \ *scc.C[i])\n"
+  code: "# verification-helper: PROBLEM https://judge.yosupo.jp/problem/tree_diameter\n\
+    import sys\nfrom library.tree_diameter import TreeDiameter\n\ninput = sys.stdin.readline\n\
+    \nN = int(input())\nE = [[] for _ in range(N)]\nfor _ in range(N - 1):\n    a,\
+    \ b, c = map(int, input().split())\n    E[a].append((c, b))\n    E[b].append((c,\
+    \ a))\nsolver = TreeDiameter(N, E)\npath = solver.get_path()\nprint(solver.diameter_weight,\
+    \ len(path))\nprint(*solver.get_path())\n"
   dependsOn:
-  - library/scc.py
+  - library/tree_diameter.py
   isVerificationFile: true
-  path: tests/scc.test.py
+  path: tests/tree_diameter.test.py
   requiredBy: []
   timestamp: '2022-09-26 23:57:29+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: tests/scc.test.py
+documentation_of: tests/tree_diameter.test.py
 layout: document
 redirect_from:
-- /verify/tests/scc.test.py
-- /verify/tests/scc.test.py.html
-title: tests/scc.test.py
+- /verify/tests/tree_diameter.test.py
+- /verify/tests/tree_diameter.test.py.html
+title: tests/tree_diameter.test.py
 ---
