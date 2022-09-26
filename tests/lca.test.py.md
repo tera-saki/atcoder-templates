@@ -28,7 +28,7 @@ data:
   isVerificationFile: true
   path: tests/lca.test.py
   requiredBy: []
-  timestamp: '2022-09-26 23:57:29+09:00'
+  timestamp: '2022-09-27 00:50:40+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/lca.test.py

@@ -69,13 +69,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/two_sat.py
       title: library/two_sat.py
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: library/union_find.py
       title: library/union_find.py
     - icon: ':warning:'
       path: library/utils.py
       title: library/utils.py
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: library/weighted_union_find.py
       title: library/weighted_union_find.py
   verificationCategories:
@@ -141,10 +141,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/two_sat.test.py
       title: tests/two_sat.test.py
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: tests/union_find.test.py
       title: tests/union_find.test.py
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: tests/weighted_union_find.test.py
       title: tests/weighted_union_find.test.py
 layout: toppage

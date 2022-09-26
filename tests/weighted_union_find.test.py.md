@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: library/weighted_union_find.py
     title: library/weighted_union_find.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: py
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/DSL_1_B
     links:
@@ -28,8 +28,8 @@ data:
   isVerificationFile: true
   path: tests/weighted_union_find.test.py
   requiredBy: []
-  timestamp: '2022-09-26 23:57:29+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-09-27 00:50:40+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/weighted_union_find.test.py
 layout: document
