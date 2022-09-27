@@ -30,16 +30,16 @@ data:
     \ def reachable(self, i) -> bool:\n        \"\"\"return whether i-th vertex from\
     \ start is reachable\"\"\"\n        return self.C[i] < self.inf\n\n    def _calculate(self)\
     \ -> None:\n        h = [(0, self.start)]\n        self.C[self.start] = 0\n  \
-    \      visited = set()\n\n        while h:\n            _, v = heapq.heappop(h)\n\
-    \            if v in visited:\n                continue\n            visited.add(v)\n\
-    \n            for c, d in self.E[v]:\n                if self.C[d] > self.C[v]\
-    \ + c:\n                    self.C[d] = self.C[v] + c\n                    self.prev[d]\
-    \ = v\n                    heapq.heappush(h, (self.C[d], d))\n"
+    \      visited = [False] * self.N\n\n        while h:\n            _, v = heapq.heappop(h)\n\
+    \            if visited[v] is True:\n                continue\n            visited[v]\
+    \ = True\n\n            for c, d in self.E[v]:\n                if self.C[d] >\
+    \ self.C[v] + c:\n                    self.C[d] = self.C[v] + c\n            \
+    \        self.prev[d] = v\n                    heapq.heappush(h, (self.C[d], d))\n"
   dependsOn: []
   isVerificationFile: false
   path: library/dijkstra.py
   requiredBy: []
-  timestamp: '2022-09-27 20:48:26+09:00'
+  timestamp: '2022-09-27 23:13:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/dijkstra.test.py
