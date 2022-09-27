@@ -3,7 +3,6 @@ import sys
 from library.lca import LCA
 
 input = sys.stdin.readline
-sys.setrecursionlimit(10 ** 6)
 
 N, Q = map(int, input().split())
 P = list(map(int, input().split()))

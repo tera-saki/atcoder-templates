@@ -32,13 +32,17 @@ class LCA:
                     continue
                 stack.append((dest, v))
 
+    def la(self, v, x):
+        for k in range(self.K):
+            if x & (1 << k):
+                v = self.par[k][v]
+        return v
+
     def lca(self, u, v):
         if self.depth[u] > self.depth[v]:
             u, v = v, u
         d = self.depth[v] - self.depth[u]
-        for k in range(self.K):
-            if d & (1 << k):
-                v = self.par[k][v]
+        v = self.la(v, d)
 
         if u == v:
             return u
@@ -50,3 +54,14 @@ class LCA:
 
     def dist(self, u, v):
         return self.depth[u] + self.depth[v] - 2 * self.depth[self.lca(u, v)]
+
+    def jump(self, u, v, x):
+        lca = self.lca(u, v)
+        d1 = self.depth[u] - self.depth[lca]
+        d2 = self.depth[v] - self.depth[lca]
+
+        if d1 + d2 < x:
+            return -1
+        if x <= d1:
+            return self.la(u, x)
+        return self.la(v, d1 + d2 - x)
