@@ -38,13 +38,13 @@ class Dijkstra:
     def _calculate(self) -> None:
         h = [(0, self.start)]
         self.C[self.start] = 0
-        visited = set()
+        visited = [False] * self.N
 
         while h:
             _, v = heapq.heappop(h)
-            if v in visited:
+            if visited[v] is True:
                 continue
-            visited.add(v)
+            visited[v] = True
 
             for c, d in self.E[v]:
                 if self.C[d] > self.C[v] + c:
