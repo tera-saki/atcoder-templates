@@ -26,19 +26,23 @@ data:
     \ p < 0:\n                self.par[0][v] = p\n                self.depth[v] =\
     \ self.depth[p] + 1\n\n            for dest in self.E[v]:\n                if\
     \ dest == p:\n                    continue\n                stack.append((dest,\
-    \ v))\n\n    def lca(self, u, v):\n        if self.depth[u] > self.depth[v]:\n\
-    \            u, v = v, u\n        d = self.depth[v] - self.depth[u]\n        for\
-    \ k in range(self.K):\n            if d & (1 << k):\n                v = self.par[k][v]\n\
-    \n        if u == v:\n            return u\n        for k in range(self.K)[::-1]:\n\
+    \ v))\n\n    def la(self, v, x):\n        for k in range(self.K):\n          \
+    \  if x & (1 << k):\n                v = self.par[k][v]\n        return v\n\n\
+    \    def lca(self, u, v):\n        if self.depth[u] > self.depth[v]:\n       \
+    \     u, v = v, u\n        d = self.depth[v] - self.depth[u]\n        v = self.la(v,\
+    \ d)\n\n        if u == v:\n            return u\n        for k in range(self.K)[::-1]:\n\
     \            if self.par[k][u] != self.par[k][v]:\n                u = self.par[k][u]\n\
     \                v = self.par[k][v]\n        return self.par[0][v]\n\n    def\
     \ dist(self, u, v):\n        return self.depth[u] + self.depth[v] - 2 * self.depth[self.lca(u,\
-    \ v)]\n"
+    \ v)]\n\n    def jump(self, u, v, x):\n        lca = self.lca(u, v)\n        d1\
+    \ = self.depth[u] - self.depth[lca]\n        d2 = self.depth[v] - self.depth[lca]\n\
+    \n        if d1 + d2 < x:\n            return -1\n        if x <= d1:\n      \
+    \      return self.la(u, x)\n        return self.la(v, d1 + d2 - x)\n"
   dependsOn: []
   isVerificationFile: false
   path: library/lca.py
   requiredBy: []
-  timestamp: '2022-09-27 01:14:22+09:00'
+  timestamp: '2022-09-27 20:48:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/lca.test.py

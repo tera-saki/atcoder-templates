@@ -39,7 +39,7 @@ data:
   isVerificationFile: false
   path: library/dijkstra.py
   requiredBy: []
-  timestamp: '2022-09-27 01:14:22+09:00'
+  timestamp: '2022-09-27 20:48:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/dijkstra.test.py

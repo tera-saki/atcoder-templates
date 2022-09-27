@@ -103,6 +103,9 @@ data:
       path: tests/doubling.test.py
       title: tests/doubling.test.py
     - icon: ':heavy_check_mark:'
+      path: tests/jump_on_tree.test.py
+      title: tests/jump_on_tree.test.py
+    - icon: ':heavy_check_mark:'
       path: tests/lazy_segment_tree.test.py
       title: tests/lazy_segment_tree.test.py
     - icon: ':heavy_check_mark:'
