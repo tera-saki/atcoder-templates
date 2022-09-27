@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: library/two_sat.py
+    title: library/two_sat.py
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: tests/scc.test.py
@@ -14,7 +17,7 @@ data:
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
-    , line 100, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+    , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "class SCC:\n    def __init__(self, N, E):\n        self.N = N\n        self.E\
     \ = E\n        self.I = [[] for _ in range(N)]\n        for s in range(N):\n \
     \           for t in E[s]:\n                self.I[t].append(s)\n\n        self.V\
@@ -39,7 +42,8 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: library/scc.py
-  requiredBy: []
+  requiredBy:
+  - library/two_sat.py
   timestamp: '2022-09-27 20:48:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

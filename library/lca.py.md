@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: tests/jump_on_tree.test.py
+    title: tests/jump_on_tree.test.py
+  - icon: ':heavy_check_mark:'
     path: tests/lca.test.py
     title: tests/lca.test.py
   _isVerificationFailed: false
@@ -14,7 +17,7 @@ data:
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
-    , line 100, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+    , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "import sys\n\ninput = sys.stdin.readline\n\n\nclass LCA:\n    def __init__(self,\
     \ N, E, root=0):\n        self.N = N\n        self.E = E\n        self.K = N.bit_length()\n\
     \        self.par = [[-1 for _ in range(N)] for _ in range(self.K)]\n        self.depth\
@@ -46,6 +49,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/lca.test.py
+  - tests/jump_on_tree.test.py
 documentation_of: library/lca.py
 layout: document
 redirect_from:

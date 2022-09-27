@@ -14,7 +14,7 @@ data:
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
-    , line 100, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+    , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "class CumulativeSum2D:\n    def __init__(self, A):\n        self.A = A\n\
     \        self.H = len(A)\n        self.W = len(A[0])\n        self.S = [[0 for\
     \ _ in range(self.W + 1)] for _ in range(self.H + 1)]\n\n        for i in range(self.H):\n\

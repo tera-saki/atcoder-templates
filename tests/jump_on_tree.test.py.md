@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: library/lca.py
+    title: library/lca.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -13,14 +16,15 @@ data:
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
-    , line 100, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+    , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "# verification-helper: PROBLEM https://judge.yosupo.jp/problem/jump_on_tree\n\
     import sys\nfrom library.lca import LCA\n\ninput = sys.stdin.readline\n\nN, Q\
     \ = map(int, input().split())\nE = [[] for _ in range(N)]\nfor _ in range(N -\
     \ 1):\n    a, b = map(int, input().split())\n    E[a].append(b)\n    E[b].append(a)\n\
     \nsolver = LCA(N, E)\nfor _ in range(Q):\n    s, t, i = map(int, input().split())\n\
     \    print(solver.jump(s, t, i))\n"
-  dependsOn: []
+  dependsOn:
+  - library/lca.py
   isVerificationFile: true
   path: tests/jump_on_tree.test.py
   requiredBy: []

@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: library/scc.py
+    title: library/scc.py
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -14,7 +17,7 @@ data:
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
-    , line 100, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+    , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "from typing import List\n\nfrom library.scc import SCC\n\n\nclass TwoSat:\n\
     \    def __init__(self, N: int):\n        self.N = N\n        self.E = [[] for\
     \ _ in range(2 * N)]\n\n    def add_clause(self, s: int, t: int) -> None:\n  \
@@ -26,7 +29,8 @@ data:
     \            if cid[2 * i] == cid[2 * i + 1]:\n                return None\n \
     \       # if cid[2 * a] > cid[2 * a + 1], possibly ~a -> a\n        ans = [cid[2\
     \ * i] > cid[2 * i + 1] for i in range(self.N)]\n        return ans\n"
-  dependsOn: []
+  dependsOn:
+  - library/scc.py
   isVerificationFile: false
   path: library/two_sat.py
   requiredBy: []

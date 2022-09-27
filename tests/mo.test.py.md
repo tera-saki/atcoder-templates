@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: library/binary_indexed_tree.py
+    title: library/binary_indexed_tree.py
+  - icon: ':heavy_check_mark:'
     path: library/mo.py
     title: library/mo.py
   _extendedRequiredBy: []
@@ -16,7 +19,7 @@ data:
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
-    , line 100, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
+    , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "# verification-helper: PROBLEM https://judge.yosupo.jp/problem/static_range_inversions_query\n\
     import sys\n\nfrom library.mo import Mo\nfrom library.binary_indexed_tree import\
     \ BIT\n\n\ninput = sys.stdin.readline\n\n\nclass MoSolver(Mo):\n    def __init__(self,\
@@ -33,6 +36,7 @@ data:
     \ Q, A, query).solve()\nprint(*ans, sep='\\n')\n"
   dependsOn:
   - library/mo.py
+  - library/binary_indexed_tree.py
   isVerificationFile: true
   path: tests/mo.test.py
   requiredBy: []
