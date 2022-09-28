@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: tests/aoj/aoj_0549.test.py
-    title: tests/aoj/aoj_0549.test.py
+    path: tests/aoj/0549.test.py
+    title: tests/aoj/0549.test.py
   _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -26,7 +26,7 @@ data:
   timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/aoj/aoj_0549.test.py
+  - tests/aoj/0549.test.py
 documentation_of: library/cumulative_sum.py
 layout: document
 redirect_from:

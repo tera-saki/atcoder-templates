@@ -4,11 +4,11 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: tests/yosupo/yosupo_jump_on_tree.test.py
-    title: tests/yosupo/yosupo_jump_on_tree.test.py
+    path: tests/yosupo/jump_on_tree.test.py
+    title: tests/yosupo/jump_on_tree.test.py
   - icon: ':heavy_check_mark:'
-    path: tests/yosupo/yosupo_lca.test.py
-    title: tests/yosupo/yosupo_lca.test.py
+    path: tests/yosupo/lca.test.py
+    title: tests/yosupo/lca.test.py
   _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -48,8 +48,8 @@ data:
   timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/yosupo/yosupo_lca.test.py
-  - tests/yosupo/yosupo_jump_on_tree.test.py
+  - tests/yosupo/lca.test.py
+  - tests/yosupo/jump_on_tree.test.py
 documentation_of: library/lca.py
 layout: document
 redirect_from:

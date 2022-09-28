@@ -26,15 +26,15 @@ data:
   dependsOn:
   - library/weighted_union_find.py
   isVerificationFile: true
-  path: tests/aoj/aoj_dsl_1_b.test.py
+  path: tests/aoj/dsl_1_b.test.py
   requiredBy: []
   timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: tests/aoj/aoj_dsl_1_b.test.py
+documentation_of: tests/aoj/dsl_1_b.test.py
 layout: document
 redirect_from:
-- /verify/tests/aoj/aoj_dsl_1_b.test.py
-- /verify/tests/aoj/aoj_dsl_1_b.test.py.html
-title: tests/aoj/aoj_dsl_1_b.test.py
+- /verify/tests/aoj/dsl_1_b.test.py
+- /verify/tests/aoj/dsl_1_b.test.py.html
+title: tests/aoj/dsl_1_b.test.py
 ---

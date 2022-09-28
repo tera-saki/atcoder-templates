@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: tests/yosupo/yosupo_union_find.test.py
-    title: tests/yosupo/yosupo_union_find.test.py
+    path: tests/yosupo/union_find.test.py
+    title: tests/yosupo/union_find.test.py
   _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -32,7 +32,7 @@ data:
   timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/yosupo/yosupo_union_find.test.py
+  - tests/yosupo/union_find.test.py
 documentation_of: library/union_find.py
 layout: document
 redirect_from:

@@ -7,8 +7,8 @@ data:
     title: library/two_sat.py
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: tests/yosupo/yosupo_scc.test.py
-    title: tests/yosupo/yosupo_scc.test.py
+    path: tests/yosupo/scc.test.py
+    title: tests/yosupo/scc.test.py
   _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -48,7 +48,7 @@ data:
   timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/yosupo/yosupo_scc.test.py
+  - tests/yosupo/scc.test.py
 documentation_of: library/scc.py
 layout: document
 redirect_from:

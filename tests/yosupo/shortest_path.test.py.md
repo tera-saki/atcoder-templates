@@ -27,15 +27,15 @@ data:
   dependsOn:
   - library/dijkstra.py
   isVerificationFile: true
-  path: tests/yosupo/yosupo_shortest_path.test.py
+  path: tests/yosupo/shortest_path.test.py
   requiredBy: []
   timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: tests/yosupo/yosupo_shortest_path.test.py
+documentation_of: tests/yosupo/shortest_path.test.py
 layout: document
 redirect_from:
-- /verify/tests/yosupo/yosupo_shortest_path.test.py
-- /verify/tests/yosupo/yosupo_shortest_path.test.py.html
-title: tests/yosupo/yosupo_shortest_path.test.py
+- /verify/tests/yosupo/shortest_path.test.py
+- /verify/tests/yosupo/shortest_path.test.py.html
+title: tests/yosupo/shortest_path.test.py
 ---

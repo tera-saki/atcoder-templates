@@ -2,38 +2,39 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: library/matpow.py
-    title: library/matpow.py
+    path: library/lca.py
+    title: library/lca.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    PROBLEM: https://yukicoder.me/problems/no/1073
+    PROBLEM: https://judge.yosupo.jp/problem/jump_on_tree
     links:
-    - https://yukicoder.me/problems/no/1073
+    - https://judge.yosupo.jp/problem/jump_on_tree
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
-  code: "# verification-helper: PROBLEM https://yukicoder.me/problems/no/1073\nimport\
-    \ sys\nfrom library.matpow import Matpow\n\ninput = sys.stdin.readline\n\nN =\
-    \ int(input())\nmod = 10 ** 9 + 7\n\npinv = pow(6, mod - 2, mod)\nA = [[0 for\
-    \ _ in range(6)] for _ in range(6)]\nfor j in range(6):\n    A[0][j] = pinv\n\
-    for i in range(1, 6):\n    A[i][i - 1] = 1\n\nAn = Matpow(A, mod).pow(N)\nprint(An[0][0])\n"
+  code: "# verification-helper: PROBLEM https://judge.yosupo.jp/problem/jump_on_tree\n\
+    import sys\nfrom library.lca import LCA\n\ninput = sys.stdin.readline\n\nN, Q\
+    \ = map(int, input().split())\nE = [[] for _ in range(N)]\nfor _ in range(N -\
+    \ 1):\n    a, b = map(int, input().split())\n    E[a].append(b)\n    E[b].append(a)\n\
+    \nsolver = LCA(N, E)\nfor _ in range(Q):\n    s, t, i = map(int, input().split())\n\
+    \    print(solver.jump(s, t, i))\n"
   dependsOn:
-  - library/matpow.py
+  - library/lca.py
   isVerificationFile: true
-  path: tests/yuki/yuki_1073.test.py
+  path: tests/yosupo/jump_on_tree.test.py
   requiredBy: []
   timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: tests/yuki/yuki_1073.test.py
+documentation_of: tests/yosupo/jump_on_tree.test.py
 layout: document
 redirect_from:
-- /verify/tests/yuki/yuki_1073.test.py
-- /verify/tests/yuki/yuki_1073.test.py.html
-title: tests/yuki/yuki_1073.test.py
+- /verify/tests/yosupo/jump_on_tree.test.py
+- /verify/tests/yosupo/jump_on_tree.test.py.html
+title: tests/yosupo/jump_on_tree.test.py
 ---

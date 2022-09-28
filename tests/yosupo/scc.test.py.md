@@ -26,15 +26,15 @@ data:
   dependsOn:
   - library/scc.py
   isVerificationFile: true
-  path: tests/yosupo/yosupo_scc.test.py
+  path: tests/yosupo/scc.test.py
   requiredBy: []
   timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: tests/yosupo/yosupo_scc.test.py
+documentation_of: tests/yosupo/scc.test.py
 layout: document
 redirect_from:
-- /verify/tests/yosupo/yosupo_scc.test.py
-- /verify/tests/yosupo/yosupo_scc.test.py.html
-title: tests/yosupo/yosupo_scc.test.py
+- /verify/tests/yosupo/scc.test.py
+- /verify/tests/yosupo/scc.test.py.html
+title: tests/yosupo/scc.test.py
 ---

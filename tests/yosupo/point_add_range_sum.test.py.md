@@ -26,15 +26,15 @@ data:
   dependsOn:
   - library/segment_tree.py
   isVerificationFile: true
-  path: tests/yosupo/yosupo_point_add_range_sum.test.py
+  path: tests/yosupo/point_add_range_sum.test.py
   requiredBy: []
   timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: tests/yosupo/yosupo_point_add_range_sum.test.py
+documentation_of: tests/yosupo/point_add_range_sum.test.py
 layout: document
 redirect_from:
-- /verify/tests/yosupo/yosupo_point_add_range_sum.test.py
-- /verify/tests/yosupo/yosupo_point_add_range_sum.test.py.html
-title: tests/yosupo/yosupo_point_add_range_sum.test.py
+- /verify/tests/yosupo/point_add_range_sum.test.py
+- /verify/tests/yosupo/point_add_range_sum.test.py.html
+title: tests/yosupo/point_add_range_sum.test.py
 ---

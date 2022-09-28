@@ -2,40 +2,39 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: library/combination.py
-    title: library/combination.py
+    path: library/swag.py
+    title: library/swag.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    PROBLEM: https://yukicoder.me/problems/no/117
+    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/3/DSL_3_D
     links:
-    - https://yukicoder.me/problems/no/117
+    - https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/3/DSL_3_D
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
-  code: "# verification-helper: PROBLEM https://yukicoder.me/problems/no/117\nimport\
-    \ sys\nfrom library.combination import Combination\n\ninput = sys.stdin.readline\n\
-    \nT = int(input())\nmod = 10 ** 9 + 7\ncomb = Combination(2 * 10 ** 6, mod)\n\n\
-    for _ in range(T):\n    query = input()[:-1]\n    t = query[0]\n    n, k = map(int,\
-    \ query[2:-1].split(','))\n    if t == 'C':\n        print(comb.C(n, k))\n   \
-    \ elif t == 'P':\n        print(comb.P(n, k))\n    else:\n        print(comb.H(n,\
-    \ k))\n"
+  code: "# verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/3/DSL_3_D\n\
+    import sys\nfrom library.swag import SWAG\n\ninput = sys.stdin.readline\n\nN,\
+    \ L = map(int, input().split())\nA = list(map(int, input().split()))\n\nans =\
+    \ []\nswag = SWAG(min)\nfor i in range(L):\n    swag.push(A[i])\nans.append(swag.fold())\n\
+    \nfor i in range(L, N):\n    swag.pop()\n    swag.push(A[i])\n    ans.append(swag.fold())\n\
+    \nprint(*ans)\n"
   dependsOn:
-  - library/combination.py
+  - library/swag.py
   isVerificationFile: true
-  path: tests/yuki/yuki_117.test.py
+  path: tests/aoj/dsl_3_d.test.py
   requiredBy: []
   timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: tests/yuki/yuki_117.test.py
+documentation_of: tests/aoj/dsl_3_d.test.py
 layout: document
 redirect_from:
-- /verify/tests/yuki/yuki_117.test.py
-- /verify/tests/yuki/yuki_117.test.py.html
-title: tests/yuki/yuki_117.test.py
+- /verify/tests/aoj/dsl_3_d.test.py
+- /verify/tests/aoj/dsl_3_d.test.py.html
+title: tests/aoj/dsl_3_d.test.py
 ---

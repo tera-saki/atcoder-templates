@@ -2,51 +2,39 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: library/lis.py
-    title: library/lis.py
+    path: library/lca.py
+    title: library/lca.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/DPL_1_D
+    PROBLEM: https://judge.yosupo.jp/problem/lca
     links:
-    - https://onlinejudge.u-aizu.ac.jp/problems/DPL_1_D
+    - https://judge.yosupo.jp/problem/lca
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
-  code: '# verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/DPL_1_D
-
-    import sys
-
-    from library.lis import LIS
-
-
-    input = sys.stdin.readline
-
-
-
-    N = int(input())
-
-    A = [int(input()) for _ in range(N)]
-
-    print(LIS(A).solve())
-
-    '
+  code: "# verification-helper: PROBLEM https://judge.yosupo.jp/problem/lca\nimport\
+    \ sys\nfrom library.lca import LCA\n\ninput = sys.stdin.readline\n\nN, Q = map(int,\
+    \ input().split())\nP = list(map(int, input().split()))\nE = [[] for _ in range(N)]\n\
+    for i, p in enumerate(P, start=1):\n    E[i].append(p)\n    E[p].append(i)\n\n\
+    solver = LCA(N, E)\nfor _ in range(Q):\n    u, v = map(int, input().split())\n\
+    \    print(solver.lca(u, v))\n"
   dependsOn:
-  - library/lis.py
+  - library/lca.py
   isVerificationFile: true
-  path: tests/aoj/aoj_dpl_1_d.test.py
+  path: tests/yosupo/lca.test.py
   requiredBy: []
   timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: tests/aoj/aoj_dpl_1_d.test.py
+documentation_of: tests/yosupo/lca.test.py
 layout: document
 redirect_from:
-- /verify/tests/aoj/aoj_dpl_1_d.test.py
-- /verify/tests/aoj/aoj_dpl_1_d.test.py.html
-title: tests/aoj/aoj_dpl_1_d.test.py
+- /verify/tests/yosupo/lca.test.py
+- /verify/tests/yosupo/lca.test.py.html
+title: tests/yosupo/lca.test.py
 ---

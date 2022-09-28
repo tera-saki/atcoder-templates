@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: tests/yosupo/yosupo_point_add_range_sum.test.py
-    title: tests/yosupo/yosupo_point_add_range_sum.test.py
+    path: tests/yosupo/point_add_range_sum.test.py
+    title: tests/yosupo/point_add_range_sum.test.py
   _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -37,7 +37,7 @@ data:
   timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/yosupo/yosupo_point_add_range_sum.test.py
+  - tests/yosupo/point_add_range_sum.test.py
 documentation_of: library/segment_tree.py
 layout: document
 redirect_from:

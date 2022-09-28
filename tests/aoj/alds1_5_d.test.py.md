@@ -2,38 +2,39 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: library/prime_table.py
-    title: library/prime_table.py
+    path: library/binary_indexed_tree.py
+    title: library/binary_indexed_tree.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    PROBLEM: https://yukicoder.me/problems/no/1140
+    PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_5_D
     links:
-    - https://yukicoder.me/problems/no/1140
+    - https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_5_D
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
-  code: "# verification-helper: PROBLEM https://yukicoder.me/problems/no/1140\nimport\
-    \ sys\nfrom library.prime_table import PrimeTable\n\ninput = sys.stdin.readline\n\
-    \nL = 5 * 10 ** 6\nis_prime = PrimeTable(L).is_prime\n\nT = int(input())\nfor\
-    \ _ in range(T):\n    a, p = map(int, input().split())\n    if is_prime[p]:\n\
-    \        print(0 if a % p == 0 else 1)\n    else:\n        print(-1)\n"
+  code: "# verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_5_D\n\
+    import sys\nfrom library.binary_indexed_tree import BIT\n\ninput = sys.stdin.readline\n\
+    \nN = int(input())\nA = list(map(int, input().split()))\n\nidx = {}\nfor i, a\
+    \ in enumerate(sorted(A)):\n    idx[a] = i\n\nans = 0\nbit = BIT(N)\nfor i, a\
+    \ in enumerate(A):\n    ans += bit.range_sum(idx[a] + 1, N)\n    bit.add(idx[a],\
+    \ 1)\nprint(ans)\n"
   dependsOn:
-  - library/prime_table.py
+  - library/binary_indexed_tree.py
   isVerificationFile: true
-  path: tests/yuki/yuki_1140.test.py
+  path: tests/aoj/alds1_5_d.test.py
   requiredBy: []
   timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: tests/yuki/yuki_1140.test.py
+documentation_of: tests/aoj/alds1_5_d.test.py
 layout: document
 redirect_from:
-- /verify/tests/yuki/yuki_1140.test.py
-- /verify/tests/yuki/yuki_1140.test.py.html
-title: tests/yuki/yuki_1140.test.py
+- /verify/tests/aoj/alds1_5_d.test.py
+- /verify/tests/aoj/alds1_5_d.test.py.html
+title: tests/aoj/alds1_5_d.test.py
 ---
