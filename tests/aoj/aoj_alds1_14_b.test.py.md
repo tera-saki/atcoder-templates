@@ -27,15 +27,15 @@ data:
   dependsOn:
   - library/rolling_hash.py
   isVerificationFile: true
-  path: tests/rolling_hash.test.py
+  path: tests/aoj/aoj_alds1_14_b.test.py
   requiredBy: []
-  timestamp: '2022-09-29 01:07:36+09:00'
+  timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: tests/rolling_hash.test.py
+documentation_of: tests/aoj/aoj_alds1_14_b.test.py
 layout: document
 redirect_from:
-- /verify/tests/rolling_hash.test.py
-- /verify/tests/rolling_hash.test.py.html
-title: tests/rolling_hash.test.py
+- /verify/tests/aoj/aoj_alds1_14_b.test.py
+- /verify/tests/aoj/aoj_alds1_14_b.test.py.html
+title: tests/aoj/aoj_alds1_14_b.test.py
 ---

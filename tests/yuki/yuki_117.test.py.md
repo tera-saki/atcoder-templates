@@ -27,15 +27,15 @@ data:
   dependsOn:
   - library/combination.py
   isVerificationFile: true
-  path: tests/combination.test.py
+  path: tests/yuki/yuki_117.test.py
   requiredBy: []
-  timestamp: '2022-09-29 01:07:36+09:00'
+  timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: tests/combination.test.py
+documentation_of: tests/yuki/yuki_117.test.py
 layout: document
 redirect_from:
-- /verify/tests/combination.test.py
-- /verify/tests/combination.test.py.html
-title: tests/combination.test.py
+- /verify/tests/yuki/yuki_117.test.py
+- /verify/tests/yuki/yuki_117.test.py.html
+title: tests/yuki/yuki_117.test.py
 ---

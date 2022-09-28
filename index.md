@@ -79,79 +79,83 @@ data:
       path: library/weighted_union_find.py
       title: library/weighted_union_find.py
   verificationCategories:
-  - name: tests
+  - name: tests/aoj
     pages:
     - icon: ':heavy_check_mark:'
-      path: tests/binary_indexed_tree.test.py
-      title: tests/binary_indexed_tree.test.py
+      path: tests/aoj/aoj_0549.test.py
+      title: tests/aoj/aoj_0549.test.py
     - icon: ':heavy_check_mark:'
-      path: tests/combination.test.py
-      title: tests/combination.test.py
+      path: tests/aoj/aoj_0560.test.py
+      title: tests/aoj/aoj_0560.test.py
     - icon: ':heavy_check_mark:'
-      path: tests/cumulative_sum.test.py
-      title: tests/cumulative_sum.test.py
+      path: tests/aoj/aoj_2320.test.py
+      title: tests/aoj/aoj_2320.test.py
     - icon: ':heavy_check_mark:'
-      path: tests/cumulative_sum_2d.test.py
-      title: tests/cumulative_sum_2d.test.py
+      path: tests/aoj/aoj_alds1_14_b.test.py
+      title: tests/aoj/aoj_alds1_14_b.test.py
     - icon: ':heavy_check_mark:'
-      path: tests/dijkstra.test.py
-      title: tests/dijkstra.test.py
+      path: tests/aoj/aoj_alds1_5_d.test.py
+      title: tests/aoj/aoj_alds1_5_d.test.py
     - icon: ':heavy_check_mark:'
-      path: tests/dinic.test.py
-      title: tests/dinic.test.py
+      path: tests/aoj/aoj_dpl_1_d.test.py
+      title: tests/aoj/aoj_dpl_1_d.test.py
     - icon: ':heavy_check_mark:'
-      path: tests/doubling.test.py
-      title: tests/doubling.test.py
+      path: tests/aoj/aoj_dsl_1_b.test.py
+      title: tests/aoj/aoj_dsl_1_b.test.py
     - icon: ':heavy_check_mark:'
-      path: tests/jump_on_tree.test.py
-      title: tests/jump_on_tree.test.py
+      path: tests/aoj/aoj_dsl_3_d.test.py
+      title: tests/aoj/aoj_dsl_3_d.test.py
     - icon: ':heavy_check_mark:'
-      path: tests/lazy_segment_tree.test.py
-      title: tests/lazy_segment_tree.test.py
+      path: tests/aoj/aoj_grl_6_a.test.py
+      title: tests/aoj/aoj_grl_6_a.test.py
+  - name: tests/yosupo
+    pages:
     - icon: ':heavy_check_mark:'
-      path: tests/lca.test.py
-      title: tests/lca.test.py
+      path: tests/yosupo/yosupo_jump_on_tree.test.py
+      title: tests/yosupo/yosupo_jump_on_tree.test.py
     - icon: ':heavy_check_mark:'
-      path: tests/lis.test.py
-      title: tests/lis.test.py
+      path: tests/yosupo/yosupo_lca.test.py
+      title: tests/yosupo/yosupo_lca.test.py
     - icon: ':heavy_check_mark:'
-      path: tests/matpow.test.py
-      title: tests/matpow.test.py
+      path: tests/yosupo/yosupo_point_add_range_sum.test.py
+      title: tests/yosupo/yosupo_point_add_range_sum.test.py
     - icon: ':heavy_check_mark:'
-      path: tests/mo.test.py
-      title: tests/mo.test.py
+      path: tests/yosupo/yosupo_range_affine_range_sum.test.py
+      title: tests/yosupo/yosupo_range_affine_range_sum.test.py
     - icon: ':heavy_check_mark:'
-      path: tests/osa_k.test.py
-      title: tests/osa_k.test.py
+      path: tests/yosupo/yosupo_scc.test.py
+      title: tests/yosupo/yosupo_scc.test.py
     - icon: ':heavy_check_mark:'
-      path: tests/prime_table.test.py
-      title: tests/prime_table.test.py
+      path: tests/yosupo/yosupo_shortest_path.test.py
+      title: tests/yosupo/yosupo_shortest_path.test.py
     - icon: ':heavy_check_mark:'
-      path: tests/rolling_hash.test.py
-      title: tests/rolling_hash.test.py
+      path: tests/yosupo/yosupo_static_range_inversions_query.test.py
+      title: tests/yosupo/yosupo_static_range_inversions_query.test.py
     - icon: ':heavy_check_mark:'
-      path: tests/scc.test.py
-      title: tests/scc.test.py
+      path: tests/yosupo/yosupo_tree_diameter.test.py
+      title: tests/yosupo/yosupo_tree_diameter.test.py
     - icon: ':heavy_check_mark:'
-      path: tests/segment_tree.test.py
-      title: tests/segment_tree.test.py
+      path: tests/yosupo/yosupo_two_sat.test.py
+      title: tests/yosupo/yosupo_two_sat.test.py
     - icon: ':heavy_check_mark:'
-      path: tests/swag.test.py
-      title: tests/swag.test.py
+      path: tests/yosupo/yosupo_union_find.test.py
+      title: tests/yosupo/yosupo_union_find.test.py
+  - name: tests/yuki
+    pages:
     - icon: ':heavy_check_mark:'
-      path: tests/tree_diameter.test.py
-      title: tests/tree_diameter.test.py
+      path: tests/yuki/yuki_1006.test.py
+      title: tests/yuki/yuki_1006.test.py
     - icon: ':heavy_check_mark:'
-      path: tests/two_sat.test.py
-      title: tests/two_sat.test.py
+      path: tests/yuki/yuki_1073.test.py
+      title: tests/yuki/yuki_1073.test.py
     - icon: ':heavy_check_mark:'
-      path: tests/union_find.test.py
-      title: tests/union_find.test.py
+      path: tests/yuki/yuki_1140.test.py
+      title: tests/yuki/yuki_1140.test.py
     - icon: ':heavy_check_mark:'
-      path: tests/weighted_union_find.test.py
-      title: tests/weighted_union_find.test.py
+      path: tests/yuki/yuki_117.test.py
+      title: tests/yuki/yuki_117.test.py
     - icon: ':heavy_check_mark:'
-      path: tests/yuki_1955.test.py
-      title: tests/yuki_1955.test.py
+      path: tests/yuki/yuki_1955.test.py
+      title: tests/yuki/yuki_1955.test.py
 layout: toppage
 ---

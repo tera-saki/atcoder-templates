@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: tests/dijkstra.test.py
-    title: tests/dijkstra.test.py
+    path: tests/yosupo/yosupo_shortest_path.test.py
+    title: tests/yosupo/yosupo_shortest_path.test.py
   _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -39,10 +39,10 @@ data:
   isVerificationFile: false
   path: library/dijkstra.py
   requiredBy: []
-  timestamp: '2022-09-29 01:07:36+09:00'
+  timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/dijkstra.test.py
+  - tests/yosupo/yosupo_shortest_path.test.py
 documentation_of: library/dijkstra.py
 layout: document
 redirect_from:

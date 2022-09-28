@@ -4,11 +4,11 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: tests/binary_indexed_tree.test.py
-    title: tests/binary_indexed_tree.test.py
+    path: tests/aoj/aoj_alds1_5_d.test.py
+    title: tests/aoj/aoj_alds1_5_d.test.py
   - icon: ':heavy_check_mark:'
-    path: tests/mo.test.py
-    title: tests/mo.test.py
+    path: tests/yosupo/yosupo_static_range_inversions_query.test.py
+    title: tests/yosupo/yosupo_static_range_inversions_query.test.py
   _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -28,11 +28,11 @@ data:
   isVerificationFile: false
   path: library/binary_indexed_tree.py
   requiredBy: []
-  timestamp: '2022-09-29 01:07:36+09:00'
+  timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/mo.test.py
-  - tests/binary_indexed_tree.test.py
+  - tests/yosupo/yosupo_static_range_inversions_query.test.py
+  - tests/aoj/aoj_alds1_5_d.test.py
 documentation_of: library/binary_indexed_tree.py
 layout: document
 redirect_from:

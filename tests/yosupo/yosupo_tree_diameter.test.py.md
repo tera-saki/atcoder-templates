@@ -26,15 +26,15 @@ data:
   dependsOn:
   - library/tree_diameter.py
   isVerificationFile: true
-  path: tests/tree_diameter.test.py
+  path: tests/yosupo/yosupo_tree_diameter.test.py
   requiredBy: []
-  timestamp: '2022-09-29 01:07:36+09:00'
+  timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: tests/tree_diameter.test.py
+documentation_of: tests/yosupo/yosupo_tree_diameter.test.py
 layout: document
 redirect_from:
-- /verify/tests/tree_diameter.test.py
-- /verify/tests/tree_diameter.test.py.html
-title: tests/tree_diameter.test.py
+- /verify/tests/yosupo/yosupo_tree_diameter.test.py
+- /verify/tests/yosupo/yosupo_tree_diameter.test.py.html
+title: tests/yosupo/yosupo_tree_diameter.test.py
 ---

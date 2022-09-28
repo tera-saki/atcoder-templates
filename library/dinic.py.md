@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: tests/dinic.test.py
-    title: tests/dinic.test.py
+    path: tests/aoj/aoj_grl_6_a.test.py
+    title: tests/aoj/aoj_grl_6_a.test.py
   _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -40,10 +40,10 @@ data:
   isVerificationFile: false
   path: library/dinic.py
   requiredBy: []
-  timestamp: '2022-09-29 01:07:36+09:00'
+  timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/dinic.test.py
+  - tests/aoj/aoj_grl_6_a.test.py
 documentation_of: library/dinic.py
 layout: document
 redirect_from:

@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: tests/rolling_hash.test.py
-    title: tests/rolling_hash.test.py
+    path: tests/aoj/aoj_alds1_14_b.test.py
+    title: tests/aoj/aoj_alds1_14_b.test.py
   _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -28,10 +28,10 @@ data:
   isVerificationFile: false
   path: library/rolling_hash.py
   requiredBy: []
-  timestamp: '2022-09-29 01:07:36+09:00'
+  timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/rolling_hash.test.py
+  - tests/aoj/aoj_alds1_14_b.test.py
 documentation_of: library/rolling_hash.py
 layout: document
 redirect_from:

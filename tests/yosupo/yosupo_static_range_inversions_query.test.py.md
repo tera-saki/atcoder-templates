@@ -38,15 +38,15 @@ data:
   - library/mo.py
   - library/binary_indexed_tree.py
   isVerificationFile: true
-  path: tests/mo.test.py
+  path: tests/yosupo/yosupo_static_range_inversions_query.test.py
   requiredBy: []
-  timestamp: '2022-09-29 01:07:36+09:00'
+  timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: tests/mo.test.py
+documentation_of: tests/yosupo/yosupo_static_range_inversions_query.test.py
 layout: document
 redirect_from:
-- /verify/tests/mo.test.py
-- /verify/tests/mo.test.py.html
-title: tests/mo.test.py
+- /verify/tests/yosupo/yosupo_static_range_inversions_query.test.py
+- /verify/tests/yosupo/yosupo_static_range_inversions_query.test.py.html
+title: tests/yosupo/yosupo_static_range_inversions_query.test.py
 ---

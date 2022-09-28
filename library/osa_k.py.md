@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: tests/osa_k.test.py
-    title: tests/osa_k.test.py
+    path: tests/yuki/yuki_1006.test.py
+    title: tests/yuki/yuki_1006.test.py
   _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -28,10 +28,10 @@ data:
   isVerificationFile: false
   path: library/osa_k.py
   requiredBy: []
-  timestamp: '2022-09-29 01:07:36+09:00'
+  timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/osa_k.test.py
+  - tests/yuki/yuki_1006.test.py
 documentation_of: library/osa_k.py
 layout: document
 redirect_from:

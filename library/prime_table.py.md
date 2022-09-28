@@ -4,11 +4,11 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: tests/prime_table.test.py
-    title: tests/prime_table.test.py
+    path: tests/yuki/yuki_1140.test.py
+    title: tests/yuki/yuki_1140.test.py
   - icon: ':heavy_check_mark:'
-    path: tests/yuki_1955.test.py
-    title: tests/yuki_1955.test.py
+    path: tests/yuki/yuki_1955.test.py
+    title: tests/yuki/yuki_1955.test.py
   _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -29,11 +29,11 @@ data:
   isVerificationFile: false
   path: library/prime_table.py
   requiredBy: []
-  timestamp: '2022-09-29 01:07:36+09:00'
+  timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/yuki_1955.test.py
-  - tests/prime_table.test.py
+  - tests/yuki/yuki_1140.test.py
+  - tests/yuki/yuki_1955.test.py
 documentation_of: library/prime_table.py
 layout: document
 redirect_from:

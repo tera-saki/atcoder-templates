@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: tests/tree_diameter.test.py
-    title: tests/tree_diameter.test.py
+    path: tests/yosupo/yosupo_tree_diameter.test.py
+    title: tests/yosupo/yosupo_tree_diameter.test.py
   _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -37,10 +37,10 @@ data:
   isVerificationFile: false
   path: library/tree_diameter.py
   requiredBy: []
-  timestamp: '2022-09-29 01:07:36+09:00'
+  timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/tree_diameter.test.py
+  - tests/yosupo/yosupo_tree_diameter.test.py
 documentation_of: library/tree_diameter.py
 layout: document
 redirect_from:

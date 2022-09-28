@@ -26,15 +26,15 @@ data:
   dependsOn:
   - library/lca.py
   isVerificationFile: true
-  path: tests/jump_on_tree.test.py
+  path: tests/yosupo/yosupo_jump_on_tree.test.py
   requiredBy: []
-  timestamp: '2022-09-29 01:07:36+09:00'
+  timestamp: '2022-09-29 01:54:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: tests/jump_on_tree.test.py
+documentation_of: tests/yosupo/yosupo_jump_on_tree.test.py
 layout: document
 redirect_from:
-- /verify/tests/jump_on_tree.test.py
-- /verify/tests/jump_on_tree.test.py.html
-title: tests/jump_on_tree.test.py
+- /verify/tests/yosupo/yosupo_jump_on_tree.test.py
+- /verify/tests/yosupo/yosupo_jump_on_tree.test.py.html
+title: tests/yosupo/yosupo_jump_on_tree.test.py
 ---
