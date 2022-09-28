@@ -54,6 +54,8 @@ class SCC:
         stack = [v]
         while stack:
             v = stack.pop()
+            if flag[v] is True:
+                continue
             flag[v] = True
             self.cid[v] = self.c_num
             for dest in self.I[v]:
