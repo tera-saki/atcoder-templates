@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: tests/yuki_1955.py
+    title: tests/yuki_1955.py
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: tests/prime_table.test.py
@@ -25,8 +28,9 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: library/prime_table.py
-  requiredBy: []
-  timestamp: '2022-09-27 23:13:15+09:00'
+  requiredBy:
+  - tests/yuki_1955.py
+  timestamp: '2022-09-29 00:39:31+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/prime_table.test.py

@@ -4,7 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: library/scc.py
     title: library/scc.py
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: tests/yuki_1955.py
+    title: tests/yuki_1955.py
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: tests/two_sat.test.py
@@ -20,12 +23,13 @@ data:
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "from typing import List\n\nfrom library.scc import SCC\n\n\nclass TwoSat:\n\
     \    def __init__(self, N: int):\n        self.N = N\n        self.E = [[] for\
-    \ _ in range(2 * N)]\n\n    def add_clause(self, s: int, t: int) -> None:\n  \
-    \      def vid(n):\n            return 2 * (~n) + 1 if n < 0 else 2 * n\n\n  \
-    \      def oppose(id):\n            return id ^ 1\n\n        sid, tid = vid(s),\
-    \ vid(t)\n        # ~s -> t\n        self.E[oppose(sid)].append(tid)\n       \
-    \ # ~t -> s\n        self.E[oppose(tid)].append(sid)\n\n    def solve(self) ->\
-    \ List[bool]:\n        cid = SCC(2 * self.N, self.E).cid\n        for i in range(self.N):\n\
+    \ _ in range(2 * N)]\n\n    def vid(self, n):\n        return 2 * (~n) + 1 if\
+    \ n < 0 else 2 * n\n\n    def add_clause(self, s: int, t: int) -> None:\n    \
+    \    sid, tid = self.vid(s), self.vid(t)\n        # ~s -> t\n        self.E[sid\
+    \ ^ 1].append(tid)\n        # ~t -> s\n        self.E[tid ^ 1].append(sid)\n\n\
+    \    def if_then(self, s: int, t: int) -> None:\n        sid, tid = self.vid(s),\
+    \ self.vid(t)\n        self.add_clause(~s, t)\n\n    def solve(self) -> List[bool]:\n\
+    \        cid = SCC(2 * self.N, self.E).cid\n        for i in range(self.N):\n\
     \            if cid[2 * i] == cid[2 * i + 1]:\n                return None\n \
     \       # if cid[2 * a] > cid[2 * a + 1], possibly ~a -> a\n        ans = [cid[2\
     \ * i] > cid[2 * i + 1] for i in range(self.N)]\n        return ans\n"
@@ -33,8 +37,9 @@ data:
   - library/scc.py
   isVerificationFile: false
   path: library/two_sat.py
-  requiredBy: []
-  timestamp: '2022-09-27 23:13:15+09:00'
+  requiredBy:
+  - tests/yuki_1955.py
+  timestamp: '2022-09-29 00:45:55+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/two_sat.test.py

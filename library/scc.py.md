@@ -36,15 +36,16 @@ data:
     \    for dest in self.E[v]:\n                if flag[dest] is False:\n       \
     \             stack.append(~dest)\n                    stack.append(dest)\n\n\
     \    def dfs2(self, v, flag):\n        stack = [v]\n        while stack:\n   \
-    \         v = stack.pop()\n            flag[v] = True\n            self.cid[v]\
-    \ = self.c_num\n            for dest in self.I[v]:\n                if flag[dest]\
-    \ is False:\n                    stack.append(dest)\n"
+    \         v = stack.pop()\n            if flag[v] is True:\n                continue\n\
+    \            flag[v] = True\n            self.cid[v] = self.c_num\n          \
+    \  for dest in self.I[v]:\n                if flag[dest] is False:\n         \
+    \           stack.append(dest)\n"
   dependsOn: []
   isVerificationFile: false
   path: library/scc.py
   requiredBy:
   - library/two_sat.py
-  timestamp: '2022-09-27 23:13:15+09:00'
+  timestamp: '2022-09-29 00:39:31+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/scc.test.py
