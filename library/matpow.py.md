@@ -31,7 +31,7 @@ data:
   isVerificationFile: false
   path: library/matpow.py
   requiredBy: []
-  timestamp: '2022-09-29 00:39:31+09:00'
+  timestamp: '2022-09-29 00:45:55+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/matpow.test.py
