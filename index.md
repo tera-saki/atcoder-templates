@@ -78,11 +78,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/weighted_union_find.py
       title: library/weighted_union_find.py
-  - name: tests
-    pages:
-    - icon: ':warning:'
-      path: tests/yuki_1955.py
-      title: tests/yuki_1955.py
   verificationCategories:
   - name: tests
     pages:
@@ -155,5 +150,8 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/weighted_union_find.test.py
       title: tests/weighted_union_find.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/yuki_1955.test.py
+      title: tests/yuki_1955.test.py
 layout: toppage
 ---

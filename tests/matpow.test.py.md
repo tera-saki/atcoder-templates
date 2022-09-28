@@ -27,7 +27,7 @@ data:
   isVerificationFile: true
   path: tests/matpow.test.py
   requiredBy: []
-  timestamp: '2022-09-29 00:45:55+09:00'
+  timestamp: '2022-09-29 01:07:36+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/matpow.test.py

@@ -32,7 +32,7 @@ data:
   isVerificationFile: false
   path: library/weighted_union_find.py
   requiredBy: []
-  timestamp: '2022-09-29 00:45:55+09:00'
+  timestamp: '2022-09-29 01:07:36+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/weighted_union_find.test.py
