@@ -12,7 +12,7 @@ class BellmanFord:
 
         self._calculate()
 
-    def get_cost(self, i: int) -> Optional[int]:
+    def get_cost(self, i: int) -> int:
         """
         return the cost to i-th vertex from start.
         If the return value is inf, the vertex is unreachable.
