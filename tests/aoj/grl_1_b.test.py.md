@@ -21,15 +21,16 @@ data:
     import sys\nfrom library.bellman_ford import BellmanFord\n\ninput = sys.stdin.readline\n\
     \nN, M, start = map(int, input().split())\nE = [[] for _ in range(N)]\nfor _ in\
     \ range(M):\n    s, t, d = map(int, input().split())\n    E[s].append((d, t))\n\
-    \nsolver = BellmanFord(N, E, start=start)\nif solver.negative_cycle:\n    print('NEGATIVE\
-    \ CYCLE')\n    exit()\nfor i in range(N):\n    c = solver.get_cost(i)\n    print(c\
-    \ if c < solver.inf else 'INF')\n"
+    \nsolver = BellmanFord(N, E, start=start)\ncost = [solver.get_cost(i) for i in\
+    \ range(N)]\nans = []\nfor c in cost:\n    if c == -solver.inf:\n        print('NEGATIVE\
+    \ CYCLE')\n        exit()\n    ans.append(c if c < solver.inf else 'INF')\nprint(*ans,\
+    \ sep='\\n')\n"
   dependsOn:
   - library/bellman_ford.py
   isVerificationFile: true
   path: tests/aoj/grl_1_b.test.py
   requiredBy: []
-  timestamp: '2022-10-12 22:37:07+09:00'
+  timestamp: '2022-10-13 00:59:27+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/aoj/grl_1_b.test.py

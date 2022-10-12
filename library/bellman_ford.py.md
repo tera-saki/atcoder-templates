@@ -15,22 +15,32 @@ data:
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
-  code: "class BellmanFord:\n    def __init__(self, N, E, start=0, inf=1 << 50):\n\
-    \        self.N = N\n        self.E = E\n        self.start = start\n        self.inf\
-    \ = inf\n        self.C = [self.inf] * N\n\n        self.negative_cycle = False\n\
-    \        self._calculate()\n\n    def get_cost(self, i):\n        return self.C[i]\
-    \ if not self.negative_cycle else None\n\n    def _calculate(self):\n        self.C[self.start]\
-    \ = 0\n        for cnt in range(self.N):\n            update = False\n       \
-    \     for u in range(self.N):\n                if self.C[u] == self.inf:\n   \
-    \                 continue\n                for c, v in self.E[u]:\n         \
-    \           if self.C[v] > self.C[u] + c:\n                        self.C[v] =\
-    \ self.C[u] + c\n                        update = True\n            if not update:\n\
-    \                return\n        self.negative_cycle = True\n"
+  code: "from typing import List, Tuple, Optional\n\n\nclass BellmanFord:\n    def\
+    \ __init__(self, N: int, E: List[List[Tuple[int, int]]],\n                 start:\
+    \ int = 0, inf: int = 1 << 60):\n        self.N = N\n        self.E = E\n    \
+    \    self.start = start\n        self.inf = inf\n        self.C = [self.inf] *\
+    \ N\n\n        self._calculate()\n\n    def get_cost(self, i: int) -> int:\n \
+    \       \"\"\"\n        return the cost to i-th vertex from start.\n        If\
+    \ the return value is inf, the vertex is unreachable.\n        If the return value\
+    \ is -inf, the path to the vertex includes negative cycle.\n        \"\"\"\n \
+    \       return self.C[i]\n\n    def _calculate(self):\n        self.C[self.start]\
+    \ = 0\n        for _ in range(self.N - 1):\n            update = False\n     \
+    \       for u in range(self.N):\n                if self.C[u] == self.inf:\n \
+    \                   continue\n                for c, v in self.E[u]:\n       \
+    \             if self.C[v] > self.C[u] + c:\n                        self.C[v]\
+    \ = self.C[u] + c\n                        update = True\n            if not update:\n\
+    \                break\n\n        nc = [False] * self.N\n        for _ in range(self.N):\n\
+    \            for u in range(self.N):\n                if self.C[u] == self.inf:\n\
+    \                    continue\n                for c, v in self.E[u]:\n      \
+    \              if self.C[v] > self.C[u] + c:\n                        nc[v] =\
+    \ True\n                    if nc[u]:\n                        nc[v] = True\n\n\
+    \        for u in range(self.N):\n            if nc[u]:\n                self.C[u]\
+    \ = -self.inf\n"
   dependsOn: []
   isVerificationFile: false
   path: library/bellman_ford.py
   requiredBy: []
-  timestamp: '2022-10-12 22:37:07+09:00'
+  timestamp: '2022-10-13 01:05:21+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/grl_1_b.test.py

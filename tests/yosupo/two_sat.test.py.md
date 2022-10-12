@@ -31,7 +31,7 @@ data:
   isVerificationFile: true
   path: tests/yosupo/two_sat.test.py
   requiredBy: []
-  timestamp: '2022-10-12 22:37:07+09:00'
+  timestamp: '2022-10-13 00:59:27+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/yosupo/two_sat.test.py
