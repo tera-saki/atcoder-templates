@@ -3,7 +3,7 @@ from typing import List, Tuple, Optional
 
 class BellmanFord:
     def __init__(self, N: int, E: List[List[Tuple[int, int]]],
-                 start: int = 0, inf: int = 1 << 50):
+                 start: int = 0, inf: int = 1 << 60):
         self.N = N
         self.E = E
         self.start = start
