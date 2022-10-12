@@ -4,6 +4,9 @@ data:
   - name: library
     pages:
     - icon: ':heavy_check_mark:'
+      path: library/bellman_ford.py
+      title: library/bellman_ford.py
+    - icon: ':heavy_check_mark:'
       path: library/binary_indexed_tree.py
       title: library/binary_indexed_tree.py
     - icon: ':heavy_check_mark:'
@@ -105,6 +108,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/dsl_3_d.test.py
       title: tests/aoj/dsl_3_d.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/grl_1_b.test.py
+      title: tests/aoj/grl_1_b.test.py
     - icon: ':heavy_check_mark:'
       path: tests/aoj/grl_6_a.test.py
       title: tests/aoj/grl_6_a.test.py

@@ -29,7 +29,7 @@ data:
   isVerificationFile: true
   path: tests/yosupo/shortest_path.test.py
   requiredBy: []
-  timestamp: '2022-09-29 01:54:05+09:00'
+  timestamp: '2022-10-12 22:37:07+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/yosupo/shortest_path.test.py
