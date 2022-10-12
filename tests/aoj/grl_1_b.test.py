@@ -11,9 +11,11 @@ for _ in range(M):
     E[s].append((d, t))
 
 solver = BellmanFord(N, E, start=start)
-if solver.negative_cycle:
-    print('NEGATIVE CYCLE')
-    exit()
-for i in range(N):
-    c = solver.get_cost(i)
-    print(c if c < solver.inf else 'INF')
+cost = [solver.get_cost(i) for i in range(N)]
+ans = []
+for c in cost:
+    if c == -solver.inf:
+        print('NEGATIVE CYCLE')
+        exit()
+    ans.append(c if c < solver.inf else 'INF')
+print(*ans, sep='\n')
