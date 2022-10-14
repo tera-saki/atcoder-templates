@@ -41,6 +41,7 @@ class BellmanFord:
                     continue
                 for c, v in self.E[u]:
                     if self.C[v] > self.C[u] + c:
+                        self.C[v] = self.C[u] + c
                         nc[v] = True
                     if nc[u]:
                         nc[v] = True
