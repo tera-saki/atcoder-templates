@@ -32,15 +32,15 @@ data:
     \                break\n\n        nc = [False] * self.N\n        for _ in range(self.N):\n\
     \            for u in range(self.N):\n                if self.C[u] == self.inf:\n\
     \                    continue\n                for c, v in self.E[u]:\n      \
-    \              if self.C[v] > self.C[u] + c:\n                        nc[v] =\
-    \ True\n                    if nc[u]:\n                        nc[v] = True\n\n\
-    \        for u in range(self.N):\n            if nc[u]:\n                self.C[u]\
-    \ = -self.inf\n"
+    \              if self.C[v] > self.C[u] + c:\n                        self.C[v]\
+    \ = self.C[u] + c\n                        nc[v] = True\n                    if\
+    \ nc[u]:\n                        nc[v] = True\n\n        for u in range(self.N):\n\
+    \            if nc[u]:\n                self.C[u] = -self.inf\n"
   dependsOn: []
   isVerificationFile: false
   path: library/bellman_ford.py
   requiredBy: []
-  timestamp: '2022-10-13 01:05:21+09:00'
+  timestamp: '2022-10-14 23:33:58+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/grl_1_b.test.py
