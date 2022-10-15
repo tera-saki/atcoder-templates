@@ -37,6 +37,9 @@ data:
       path: library/lis.py
       title: library/lis.py
     - icon: ':heavy_check_mark:'
+      path: library/math.py
+      title: library/math.py
+    - icon: ':heavy_check_mark:'
       path: library/matpow.py
       title: library/matpow.py
     - icon: ':heavy_check_mark:'
@@ -114,6 +117,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/grl_6_a.test.py
       title: tests/aoj/grl_6_a.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/ntl_1_e.test.py
+      title: tests/aoj/ntl_1_e.test.py
   - name: tests/yosupo
     pages:
     - icon: ':heavy_check_mark:'

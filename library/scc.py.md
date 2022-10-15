@@ -45,7 +45,7 @@ data:
   path: library/scc.py
   requiredBy:
   - library/two_sat.py
-  timestamp: '2022-10-14 23:33:58+09:00'
+  timestamp: '2022-10-15 16:47:49+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yosupo/scc.test.py
