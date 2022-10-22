@@ -39,7 +39,7 @@ data:
   isVerificationFile: true
   path: tests/aoj/ntl_1_e.test.py
   requiredBy: []
-  timestamp: '2022-10-15 16:47:49+09:00'
+  timestamp: '2022-10-22 16:14:30+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/aoj/ntl_1_e.test.py

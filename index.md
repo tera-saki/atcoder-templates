@@ -88,6 +88,9 @@ data:
   - name: tests/aoj
     pages:
     - icon: ':heavy_check_mark:'
+      path: tests/aoj/0366.test.py
+      title: tests/aoj/0366.test.py
+    - icon: ':heavy_check_mark:'
       path: tests/aoj/0549.test.py
       title: tests/aoj/0549.test.py
     - icon: ':heavy_check_mark:'
