@@ -10,30 +10,41 @@ class SCC:
         self.V = []
         self.cid = [None] * N
         self.c_num = 0
-        self.traverse()
-        self.traverse2()
+        self._traverse()
+        self._traverse2()
 
         self.C = [[] for _ in range(self.c_num)]
         for i in range(self.N):
             c = self.cid[i]
             self.C[c].append(i)
 
-    def traverse(self):
+    def to_dag(self):
+        NE = [set() for _ in range(self.c_num)]
+        for i in range(self.N):
+            ci = self.cid[i]
+            for j in self.E[i]:
+                cj = self.cid[j]
+                if ci == cj:
+                    continue
+                NE[ci].add(cj)
+        return self.C, [list(ne) for ne in NE]
+
+    def _traverse(self):
         flag = [False] * self.N
         for i in range(self.N):
             if flag[i] is False:
-                self.dfs(i, flag)
+                self._dfs(i, flag)
         self.V.reverse()
 
-    def traverse2(self):
+    def _traverse2(self):
         flag = [False] * self.N
         cid = 0
         for v in self.V:
             if flag[v] is False:
-                self.dfs2(v, flag)
+                self._dfs2(v, flag)
                 self.c_num += 1
 
-    def dfs(self, v, flag):
+    def _dfs(self, v, flag):
         stack = [~v, v]
         while stack:
             v = stack.pop()
@@ -50,7 +61,7 @@ class SCC:
                     stack.append(~dest)
                     stack.append(dest)
 
-    def dfs2(self, v, flag):
+    def _dfs2(self, v, flag):
         stack = [v]
         while stack:
             v = stack.pop()
