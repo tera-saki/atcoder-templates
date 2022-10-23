@@ -4,12 +4,16 @@ class BIT:
         self.A = [0] * (N + 1)
 
     def add(self, i, x):
+        """add x to i-th element (0-indexed)"""
+        assert 0 <= i < self.N
         i += 1
         while i <= self.N:
             self.A[i] += x
             i += i & -i
 
     def sum(self, i):
+        """return sum(A[:i])"""
+        assert 0 <= i <= self.N
         s = 0
         while i > 0:
             s += self.A[i]
@@ -17,4 +21,5 @@ class BIT:
         return s
 
     def range_sum(self, l, r):
+        """return sum(A[l:r])"""
         return self.sum(r) - self.sum(l)
