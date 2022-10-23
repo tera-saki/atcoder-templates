@@ -112,6 +112,18 @@ data:
       path: tests/aoj/dsl_1_b.test.py
       title: tests/aoj/dsl_1_b.test.py
     - icon: ':heavy_check_mark:'
+      path: tests/aoj/dsl_2_f.test.py
+      title: tests/aoj/dsl_2_f.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/dsl_2_g.test.py
+      title: tests/aoj/dsl_2_g.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/dsl_2_h.test.py
+      title: tests/aoj/dsl_2_h.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/dsl_2_i.test.py
+      title: tests/aoj/dsl_2_i.test.py
+    - icon: ':heavy_check_mark:'
       path: tests/aoj/dsl_3_d.test.py
       title: tests/aoj/dsl_3_d.test.py
     - icon: ':heavy_check_mark:'

@@ -4,6 +4,18 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: tests/aoj/dsl_2_f.test.py
+    title: tests/aoj/dsl_2_f.test.py
+  - icon: ':heavy_check_mark:'
+    path: tests/aoj/dsl_2_g.test.py
+    title: tests/aoj/dsl_2_g.test.py
+  - icon: ':heavy_check_mark:'
+    path: tests/aoj/dsl_2_h.test.py
+    title: tests/aoj/dsl_2_h.test.py
+  - icon: ':heavy_check_mark:'
+    path: tests/aoj/dsl_2_i.test.py
+    title: tests/aoj/dsl_2_i.test.py
+  - icon: ':heavy_check_mark:'
     path: tests/yosupo/range_affine_range_sum.test.py
     title: tests/yosupo/range_affine_range_sum.test.py
   _isVerificationFailed: false
@@ -74,9 +86,13 @@ data:
   isVerificationFile: false
   path: library/lazy_segment_tree.py
   requiredBy: []
-  timestamp: '2022-10-22 16:14:30+09:00'
+  timestamp: '2022-10-23 13:51:01+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - tests/aoj/dsl_2_h.test.py
+  - tests/aoj/dsl_2_i.test.py
+  - tests/aoj/dsl_2_f.test.py
+  - tests/aoj/dsl_2_g.test.py
   - tests/yosupo/range_affine_range_sum.test.py
 documentation_of: library/lazy_segment_tree.py
 layout: document

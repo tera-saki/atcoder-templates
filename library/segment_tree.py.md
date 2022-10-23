@@ -34,7 +34,7 @@ data:
   isVerificationFile: false
   path: library/segment_tree.py
   requiredBy: []
-  timestamp: '2022-10-22 16:14:30+09:00'
+  timestamp: '2022-10-23 13:51:01+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yosupo/point_add_range_sum.test.py
