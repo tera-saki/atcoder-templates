@@ -11,6 +11,10 @@ class SegTree:
         for i in range(self.N)[::-1]:
             self.X[i] = self.func(self.X[i << 1], self.X[i << 1 | 1])
 
+    def get(self, i):
+        i += self.N
+        return self.X[i]
+
     def add(self, i, x):
         i += self.N
         self.X[i] += x
@@ -25,18 +29,18 @@ class SegTree:
             i >>= 1
             self.X[i] = self.func(self.X[i << 1], self.X[i << 1 | 1])
 
-    def query(self, L, R):
-        L += self.N
-        R += self.N
-        vL = self.e
-        vR = self.e
-        while L < R:
-            if L & 1:
-                vL = self.func(vL, self.X[L])
-                L += 1
-            if R & 1:
-                R -= 1
-                vR = self.func(self.X[R], vR)
-            L >>= 1
-            R >>= 1
-        return self.func(vL, vR)
+    def query(self, l, r):
+        l += self.N
+        r += self.N
+        vl = self.e
+        vr = self.e
+        while l < r:
+            if l & 1:
+                vl = self.func(vl, self.X[l])
+                l += 1
+            if r & 1:
+                r -= 1
+                vr = self.func(self.X[r], vr)
+            l >>= 1
+            r >>= 1
+        return self.func(vl, vr)
