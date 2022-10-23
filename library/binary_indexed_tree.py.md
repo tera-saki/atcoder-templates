@@ -19,16 +19,18 @@ data:
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "class BIT:\n    def __init__(self, N):\n        self.N = N\n        self.A\
-    \ = [0] * (N + 1)\n\n    def add(self, i, x):\n        i += 1\n        while i\
-    \ <= self.N:\n            self.A[i] += x\n            i += i & -i\n\n    def sum(self,\
-    \ i):\n        s = 0\n        while i > 0:\n            s += self.A[i]\n     \
-    \       i -= i & -i\n        return s\n\n    def range_sum(self, l, r):\n    \
-    \    return self.sum(r) - self.sum(l)\n"
+    \ = [0] * (N + 1)\n\n    def add(self, i, x):\n        \"\"\"add x to i-th element\
+    \ (0-indexed)\"\"\"\n        assert 0 <= i < self.N\n        i += 1\n        while\
+    \ i <= self.N:\n            self.A[i] += x\n            i += i & -i\n\n    def\
+    \ sum(self, i):\n        \"\"\"return sum(A[:i])\"\"\"\n        assert 0 <= i\
+    \ <= self.N\n        s = 0\n        while i > 0:\n            s += self.A[i]\n\
+    \            i -= i & -i\n        return s\n\n    def range_sum(self, l, r):\n\
+    \        \"\"\"return sum(A[l:r])\"\"\"\n        return self.sum(r) - self.sum(l)\n"
   dependsOn: []
   isVerificationFile: false
   path: library/binary_indexed_tree.py
   requiredBy: []
-  timestamp: '2022-10-23 14:24:32+09:00'
+  timestamp: '2022-10-23 16:02:40+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/alds1_5_d.test.py

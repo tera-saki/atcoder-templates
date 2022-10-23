@@ -19,22 +19,23 @@ data:
     \        self.func = func\n        self.X = [e] * (N << 1)\n        self.e = e\n\
     \n    def build(self, seq):\n        for i in range(self.N):\n            self.X[self.N\
     \ + i] = seq[i]\n        for i in range(self.N)[::-1]:\n            self.X[i]\
-    \ = self.func(self.X[i << 1], self.X[i << 1 | 1])\n\n    def add(self, i, x):\n\
-    \        i += self.N\n        self.X[i] += x\n        while i > 1:\n         \
-    \   i >>= 1\n            self.X[i] = self.func(self.X[i << 1], self.X[i << 1 |\
-    \ 1])\n\n    def update(self, i, x):\n        i += self.N\n        self.X[i] =\
-    \ x\n        while i > 1:\n            i >>= 1\n            self.X[i] = self.func(self.X[i\
-    \ << 1], self.X[i << 1 | 1])\n\n    def query(self, L, R):\n        L += self.N\n\
-    \        R += self.N\n        vL = self.e\n        vR = self.e\n        while\
-    \ L < R:\n            if L & 1:\n                vL = self.func(vL, self.X[L])\n\
-    \                L += 1\n            if R & 1:\n                R -= 1\n     \
-    \           vR = self.func(self.X[R], vR)\n            L >>= 1\n            R\
-    \ >>= 1\n        return self.func(vL, vR)\n"
+    \ = self.func(self.X[i << 1], self.X[i << 1 | 1])\n\n    def get(self, i):\n \
+    \       i += self.N\n        return self.X[i]\n\n    def add(self, i, x):\n  \
+    \      i += self.N\n        self.X[i] += x\n        while i > 1:\n           \
+    \ i >>= 1\n            self.X[i] = self.func(self.X[i << 1], self.X[i << 1 | 1])\n\
+    \n    def update(self, i, x):\n        i += self.N\n        self.X[i] = x\n  \
+    \      while i > 1:\n            i >>= 1\n            self.X[i] = self.func(self.X[i\
+    \ << 1], self.X[i << 1 | 1])\n\n    def query(self, l, r):\n        l += self.N\n\
+    \        r += self.N\n        vl = self.e\n        vr = self.e\n        while\
+    \ l < r:\n            if l & 1:\n                vl = self.func(vl, self.X[l])\n\
+    \                l += 1\n            if r & 1:\n                r -= 1\n     \
+    \           vr = self.func(self.X[r], vr)\n            l >>= 1\n            r\
+    \ >>= 1\n        return self.func(vl, vr)\n"
   dependsOn: []
   isVerificationFile: false
   path: library/segment_tree.py
   requiredBy: []
-  timestamp: '2022-10-23 14:24:32+09:00'
+  timestamp: '2022-10-23 16:12:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yosupo/point_add_range_sum.test.py

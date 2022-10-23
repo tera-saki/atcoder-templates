@@ -32,7 +32,7 @@ data:
   isVerificationFile: true
   path: tests/aoj/dsl_2_i.test.py
   requiredBy: []
-  timestamp: '2022-10-23 14:24:32+09:00'
+  timestamp: '2022-10-23 16:02:40+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/aoj/dsl_2_i.test.py
