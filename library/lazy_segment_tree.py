@@ -19,6 +19,16 @@ class LazySegTree:
             mapping (Callable[[F, S], S]): dataに作用させる関数
             composition (Callable[[F, F], F]): lazyに作用させる関数 f(g(x))
             id (F): 全てのaに対して mapping(id, a) = a が成り立つ恒等写像
+
+        Note:
+            任意の x, y ∈ S, f, g ∈ F に対して、
+            - f(op(x, y)) = op(f(x), f(y))
+            - f(g(x)) = (g ∘ f)(x) 
+            であることが必要
+
+            例) RMQ and RAQ
+            - min(x, y) + a = min(x + a, y + a)
+            - ((x + b) + a) = x + (a + b)
         """
         self.N = N
         self.op = op
