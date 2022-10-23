@@ -44,15 +44,20 @@ data:
     \ S], S]): data\u306B\u4F5C\u7528\u3055\u305B\u308B\u95A2\u6570\n            composition\
     \ (Callable[[F, F], F]): lazy\u306B\u4F5C\u7528\u3055\u305B\u308B\u95A2\u6570\
     \ f(g(x))\n            id (F): \u5168\u3066\u306Ea\u306B\u5BFE\u3057\u3066 mapping(id,\
-    \ a) = a \u304C\u6210\u308A\u7ACB\u3064\u6052\u7B49\u5199\u50CF\n        \"\"\"\
-    \n        self.N = N\n        self.op = op\n        self.e = e\n        self.mapping\
-    \ = mapping\n        self.composition = composition\n        self.id = id\n\n\
-    \        self.K = (self.N - 1).bit_length()\n        self.size = 1 << (self.K)\n\
-    \n        self.data = [e] * (self.size << 1)\n        self.lazy = [id] * (self.size)\n\
-    \n    def build(self, A: List[S]) -> None:\n        for i in range(self.N):\n\
-    \            self.data[self.size + i] = A[i]\n        for i in range(self.size\
-    \ - 1, 0, -1):\n            self.data[i] = self.op(self.data[i << 1], self.data[i\
-    \ << 1 | 1])\n\n    def _eval_at(self, i: int, f: F) -> None:\n        self.data[i]\
+    \ a) = a \u304C\u6210\u308A\u7ACB\u3064\u6052\u7B49\u5199\u50CF\n\n        Note:\n\
+    \            \u4EFB\u610F\u306E x, y \u2208 S, f, g \u2208 F \u306B\u5BFE\u3057\
+    \u3066\u3001\n            - f(op(x, y)) = op(f(x), f(y))\n            - f(g(x))\
+    \ = (g \u2218 f)(x) \n            \u3067\u3042\u308B\u3053\u3068\u304C\u5FC5\u8981\
+    \n\n            \u4F8B) RMQ and RAQ\n            - min(x, y) + a = min(x + a,\
+    \ y + a)\n            - ((x + b) + a) = x + (a + b)\n        \"\"\"\n        self.N\
+    \ = N\n        self.op = op\n        self.e = e\n        self.mapping = mapping\n\
+    \        self.composition = composition\n        self.id = id\n\n        self.K\
+    \ = (self.N - 1).bit_length()\n        self.size = 1 << (self.K)\n\n        self.data\
+    \ = [e] * (self.size << 1)\n        self.lazy = [id] * (self.size)\n\n    def\
+    \ build(self, A: List[S]) -> None:\n        for i in range(self.N):\n        \
+    \    self.data[self.size + i] = A[i]\n        for i in range(self.size - 1, 0,\
+    \ -1):\n            self.data[i] = self.op(self.data[i << 1], self.data[i << 1\
+    \ | 1])\n\n    def _eval_at(self, i: int, f: F) -> None:\n        self.data[i]\
     \ = self.mapping(f, self.data[i])\n        if i < self.size:\n            self.lazy[i]\
     \ = self.composition(f, self.lazy[i])\n\n    def _propagate_at(self, i: int) ->\
     \ None:\n        self._eval_at(i << 1, self.lazy[i])\n        self._eval_at(i\
@@ -86,7 +91,7 @@ data:
   isVerificationFile: false
   path: library/lazy_segment_tree.py
   requiredBy: []
-  timestamp: '2022-10-23 13:51:01+09:00'
+  timestamp: '2022-10-23 14:24:32+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/dsl_2_h.test.py
