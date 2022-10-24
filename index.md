@@ -51,6 +51,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/prime_table.py
       title: library/prime_table.py
+    - icon: ':heavy_check_mark:'
+      path: library/rerooting.py
+      title: library/rerooting.py
     - icon: ':warning:'
       path: library/rle.py
       title: library/rle.py
@@ -96,6 +99,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/0560.test.py
       title: tests/aoj/0560.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/1595.test.py
+      title: tests/aoj/1595.test.py
     - icon: ':heavy_check_mark:'
       path: tests/aoj/2320.test.py
       title: tests/aoj/2320.test.py
