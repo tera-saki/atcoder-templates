@@ -37,7 +37,7 @@ data:
   isVerificationFile: false
   path: library/tree_diameter.py
   requiredBy: []
-  timestamp: '2022-10-25 20:08:11+09:00'
+  timestamp: '2022-10-26 01:57:58+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yosupo/tree_diameter.test.py

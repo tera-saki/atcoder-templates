@@ -33,7 +33,7 @@ data:
     \ if v < 0:\n                v = ~v\n                acc = self.e\n          \
     \      for i, (c, d) in enumerate(self.E[v]):\n                    if d == p:\n\
     \                        continue\n                    self.dp[v][i] = ret[d]\n\
-    \                    acc = self.merge(acc, self.f(ret[d], d, v, c))\n        \
+    \                    acc = self.merge(acc, self.f(ret[d], v, d, c))\n        \
     \        ret[v] = self.g(acc, v)\n                continue\n\n            stack.append((~v,\
     \ p))\n            for i, (c, d) in enumerate(self.E[v]):\n                if\
     \ d == p:\n                    continue\n                stack.append((d, v))\n\
@@ -43,19 +43,19 @@ data:
     \ = from_par\n                    break\n            ch = len(self.E[v])\n   \
     \         Sr = [self.e] * (ch + 1)\n            for i in range(ch, 0, -1):\n \
     \               c, d = self.E[v][i - 1]\n                Sr[i - 1] = self.merge(Sr[i],\
-    \ self.f(self.dp[v][i - 1], d, v, c))\n            Sl = self.e\n            for\
+    \ self.f(self.dp[v][i - 1], v, d, c))\n            Sl = self.e\n            for\
     \ i, (c, d) in enumerate(self.E[v]):\n                if d != p:\n           \
     \         val = self.merge(Sl, Sr[i + 1])\n                    stack.append((d,\
     \ v, self.g(val, v)))\n                Sl = self.merge(Sl, self.f(self.dp[v][i],\
-    \ d, v, c))\n\n    def _calculate(self, root=0):\n        self._dfs1(root)\n \
+    \ v, d, c))\n\n    def _calculate(self, root=0):\n        self._dfs1(root)\n \
     \       self._dfs2(root)\n\n    def solve(self, v):\n        ans = self.e\n  \
     \      for i, (c, d) in enumerate(self.E[v]):\n            ans = self.merge(ans,\
-    \ self.f(self.dp[v][i], d, v, c))\n        return self.g(ans, v)\n"
+    \ self.f(self.dp[v][i], v, d, c))\n        return self.g(ans, v)\n"
   dependsOn: []
   isVerificationFile: false
   path: library/rerooting.py
   requiredBy: []
-  timestamp: '2022-10-25 20:08:11+09:00'
+  timestamp: '2022-10-26 01:57:58+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/1595.test.py

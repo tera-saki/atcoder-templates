@@ -28,7 +28,7 @@ data:
   isVerificationFile: true
   path: tests/yosupo/lca.test.py
   requiredBy: []
-  timestamp: '2022-10-25 20:08:11+09:00'
+  timestamp: '2022-10-26 01:57:58+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/yosupo/lca.test.py
