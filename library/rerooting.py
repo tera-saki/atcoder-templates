@@ -37,7 +37,7 @@ class Rerooting:
                     if d == p:
                         continue
                     self.dp[v][i] = ret[d]
-                    acc = self.merge(acc, self.f(ret[d], d, v, c))
+                    acc = self.merge(acc, self.f(ret[d], v, d, c))
                 ret[v] = self.g(acc, v)
                 continue
 
@@ -59,13 +59,13 @@ class Rerooting:
             Sr = [self.e] * (ch + 1)
             for i in range(ch, 0, -1):
                 c, d = self.E[v][i - 1]
-                Sr[i - 1] = self.merge(Sr[i], self.f(self.dp[v][i - 1], d, v, c))
+                Sr[i - 1] = self.merge(Sr[i], self.f(self.dp[v][i - 1], v, d, c))
             Sl = self.e
             for i, (c, d) in enumerate(self.E[v]):
                 if d != p:
                     val = self.merge(Sl, Sr[i + 1])
                     stack.append((d, v, self.g(val, v)))
-                Sl = self.merge(Sl, self.f(self.dp[v][i], d, v, c))
+                Sl = self.merge(Sl, self.f(self.dp[v][i], v, d, c))
 
     def _calculate(self, root=0):
         self._dfs1(root)
@@ -74,5 +74,5 @@ class Rerooting:
     def solve(self, v):
         ans = self.e
         for i, (c, d) in enumerate(self.E[v]):
-            ans = self.merge(ans, self.f(self.dp[v][i], d, v, c))
+            ans = self.merge(ans, self.f(self.dp[v][i], v, d, c))
         return self.g(ans, v)

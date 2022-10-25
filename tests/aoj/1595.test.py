@@ -14,7 +14,7 @@ for _ in range(N - 1):
     E[v].append((1, u))
 
 
-def f(a, ch, v, cost):
+def f(a, v, ch, cost):
     return a + 1
 
 
