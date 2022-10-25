@@ -10,9 +10,22 @@ for _ in range(N - 1):
     u, v = map(int, input().split())
     u -= 1
     v -= 1
-    E[u].append(v)
-    E[v].append(u)
+    E[u].append((1, v))
+    E[v].append((1, u))
 
-solver = Rerooting(N, E, lambda a, _: a + 1, lambda a, _: a, max, 0)
+
+def f(a, ch, v, cost):
+    return a + 1
+
+
+def g(a, v):
+    return a
+
+
+def merge(a, b):
+    return max(a, b)
+
+
+solver = Rerooting(N, E, f, g, merge, 0)
 for i in range(N):
     print(2 * (N - 1) - solver.solve(i))
