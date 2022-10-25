@@ -39,7 +39,7 @@ data:
   isVerificationFile: false
   path: library/dijkstra.py
   requiredBy: []
-  timestamp: '2022-10-25 01:31:24+09:00'
+  timestamp: '2022-10-25 20:08:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yosupo/shortest_path.test.py
