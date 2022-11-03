@@ -28,7 +28,7 @@ data:
   isVerificationFile: true
   path: tests/yosupo/scc.test.py
   requiredBy: []
-  timestamp: '2022-10-26 01:57:58+09:00'
+  timestamp: '2022-11-03 15:53:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/yosupo/scc.test.py

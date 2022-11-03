@@ -21,7 +21,7 @@ data:
     import sys\nfrom library.dijkstra import Dijkstra\n\ninput = sys.stdin.readline\n\
     \nN, M, s, t = map(int, input().split())\nE = [[] for _ in range(N)]\nfor _ in\
     \ range(M):\n    a, b, c = map(int, input().split())\n    E[a].append((c, b))\n\
-    \nsolver = Dijkstra(N, E, start=s)\ncost = solver.get_cost(t)\nif cost is None:\n\
+    \nsolver = Dijkstra(N, E, start=s)\ncost = solver.get_cost(t)\nif cost == solver.inf:\n\
     \    print(-1)\n    exit()\np = solver.get_path(t)\nprint(cost, len(p) - 1)\n\
     for a, b in zip(p[:-1], p[1:]):\n    print(a, b)\n"
   dependsOn:
@@ -29,7 +29,7 @@ data:
   isVerificationFile: true
   path: tests/yosupo/shortest_path.test.py
   requiredBy: []
-  timestamp: '2022-10-26 01:57:58+09:00'
+  timestamp: '2022-11-03 15:53:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/yosupo/shortest_path.test.py

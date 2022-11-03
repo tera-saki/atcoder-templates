@@ -21,14 +21,14 @@ data:
     \ = E\n        self.start = start\n        self.inf = inf\n\n        self.C =\
     \ [self.inf] * N\n        self.prev = [None] * N\n        self._calculate()\n\n\
     \    def get_cost(self, i: int) -> Optional[int]:\n        \"\"\"return cost to\
-    \ i-th vertex if reachable otherwise None\"\"\"\n        return self.C[i] if self.reachable(i)\
-    \ else None\n\n    def get_path(self, i) -> Optional[List[int]]:\n        \"\"\
+    \ i-th vertex. return inf if the vertex is unreachable.\"\"\"\n        return\
+    \ self.C[i]\n\n    def get_path(self, i) -> Optional[List[int]]:\n        \"\"\
     \"return shortest path to i-th vertex if reachable otherwise None\"\"\"\n    \
     \    if not self.reachable(i):\n            return None\n\n        p = []\n  \
     \      cur = i\n        while cur is not None:\n            p.append(cur)\n  \
     \          cur = self.prev[cur]\n        p.reverse()\n        return p\n\n   \
-    \ def reachable(self, i) -> bool:\n        \"\"\"return whether i-th vertex from\
-    \ start is reachable\"\"\"\n        return self.C[i] < self.inf\n\n    def _calculate(self)\
+    \ def reachable(self, i) -> bool:\n        \"\"\"return whether i-th vertex is\
+    \ reachable from start\"\"\"\n        return self.C[i] < self.inf\n\n    def _calculate(self)\
     \ -> None:\n        h = [(0, self.start)]\n        self.C[self.start] = 0\n  \
     \      visited = [False] * self.N\n\n        while h:\n            _, v = heapq.heappop(h)\n\
     \            if visited[v] is True:\n                continue\n            visited[v]\
@@ -39,7 +39,7 @@ data:
   isVerificationFile: false
   path: library/dijkstra.py
   requiredBy: []
-  timestamp: '2022-10-26 01:57:58+09:00'
+  timestamp: '2022-11-03 15:59:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yosupo/shortest_path.test.py
