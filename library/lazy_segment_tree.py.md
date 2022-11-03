@@ -91,7 +91,7 @@ data:
   isVerificationFile: false
   path: library/lazy_segment_tree.py
   requiredBy: []
-  timestamp: '2022-11-03 15:53:19+09:00'
+  timestamp: '2022-11-03 15:59:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/dsl_2_h.test.py
