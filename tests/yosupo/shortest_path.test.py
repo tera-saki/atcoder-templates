@@ -12,7 +12,7 @@ for _ in range(M):
 
 solver = Dijkstra(N, E, start=s)
 cost = solver.get_cost(t)
-if cost is None:
+if cost == solver.inf:
     print(-1)
     exit()
 p = solver.get_path(t)

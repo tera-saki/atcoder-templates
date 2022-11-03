@@ -15,8 +15,8 @@ class Dijkstra:
         self._calculate()
 
     def get_cost(self, i: int) -> Optional[int]:
-        """return cost to i-th vertex if reachable otherwise None"""
-        return self.C[i] if self.reachable(i) else None
+        """return cost to i-th vertex. return inf if the vertex is unreachable."""
+        return self.C[i]
 
     def get_path(self, i) -> Optional[List[int]]:
         """return shortest path to i-th vertex if reachable otherwise None"""
