@@ -32,7 +32,7 @@ class Dijkstra:
         return p
 
     def reachable(self, i) -> bool:
-        """return whether i-th vertex from start is reachable"""
+        """return whether i-th vertex is reachable from start"""
         return self.C[i] < self.inf
 
     def _calculate(self) -> None:
