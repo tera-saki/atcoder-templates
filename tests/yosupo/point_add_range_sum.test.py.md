@@ -28,7 +28,7 @@ data:
   isVerificationFile: true
   path: tests/yosupo/point_add_range_sum.test.py
   requiredBy: []
-  timestamp: '2022-11-03 15:59:06+09:00'
+  timestamp: '2022-11-03 23:59:45+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/yosupo/point_add_range_sum.test.py
