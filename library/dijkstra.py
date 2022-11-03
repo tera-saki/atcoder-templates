@@ -14,7 +14,7 @@ class Dijkstra:
         self.prev = [None] * N
         self._calculate()
 
-    def get_cost(self, i: int) -> Optional[int]:
+    def get_cost(self, i: int) -> int:
         """return cost to i-th vertex. return inf if the vertex is unreachable."""
         return self.C[i]
 
