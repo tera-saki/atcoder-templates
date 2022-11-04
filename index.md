@@ -136,6 +136,9 @@ data:
       path: tests/aoj/grl_1_b.test.py
       title: tests/aoj/grl_1_b.test.py
     - icon: ':heavy_check_mark:'
+      path: tests/aoj/grl_5_a.test.py
+      title: tests/aoj/grl_5_a.test.py
+    - icon: ':heavy_check_mark:'
       path: tests/aoj/grl_6_a.test.py
       title: tests/aoj/grl_6_a.test.py
     - icon: ':heavy_check_mark:'

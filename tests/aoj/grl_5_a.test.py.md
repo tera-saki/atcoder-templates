@@ -10,33 +10,33 @@ data:
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/1595
+    PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_A
     links:
-    - https://onlinejudge.u-aizu.ac.jp/problems/1595
+    - https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_A
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
-  code: "# verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/1595\n\
+  code: "# verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_A\n\
     import sys\nfrom library.rerooting import Rerooting\n\ninput = sys.stdin.readline\n\
-    \nN = int(input())\nE = [[] for _ in range(N)]\nfor _ in range(N - 1):\n    u,\
-    \ v = map(int, input().split())\n    u -= 1\n    v -= 1\n    E[u].append((1, v))\n\
-    \    E[v].append((1, u))\n\n\ndef f(a, v, ch, cost):\n    return a + 1\n\n\ndef\
-    \ g(a, v):\n    return a\n\n\ndef merge(a, b):\n    return max(a, b)\n\n\nsolver\
-    \ = Rerooting(N, E, f, g, merge, 0)\nfor i in range(N):\n    print(2 * (N - 1)\
-    \ - solver.solve(i))\n"
+    \nN = int(input())\nE = [[] for _ in range(N)]\nfor _ in range(N - 1):\n    s,\
+    \ t, w = map(int, input().split())\n    E[s].append((w, t))\n    E[t].append((w,\
+    \ s))\n\n\ndef f(a, v, ch, cost):\n    return a + cost\n\n\ndef g(a, v):\n   \
+    \ return a\n\n\ndef merge(a, b):\n    return max(a, b)\n\n\nsolver = Rerooting(N,\
+    \ E, f, g, merge, 0)\nans = 0\nfor i in range(N):\n    v = solver.solve(i)\n \
+    \   ans = max(ans, v)\nprint(ans)\n"
   dependsOn:
   - library/rerooting.py
   isVerificationFile: true
-  path: tests/aoj/1595.test.py
+  path: tests/aoj/grl_5_a.test.py
   requiredBy: []
   timestamp: '2022-11-04 20:44:25+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: tests/aoj/1595.test.py
+documentation_of: tests/aoj/grl_5_a.test.py
 layout: document
 redirect_from:
-- /verify/tests/aoj/1595.test.py
-- /verify/tests/aoj/1595.test.py.html
-title: tests/aoj/1595.test.py
+- /verify/tests/aoj/grl_5_a.test.py
+- /verify/tests/aoj/grl_5_a.test.py.html
+title: tests/aoj/grl_5_a.test.py
 ---

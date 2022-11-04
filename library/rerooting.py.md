@@ -6,6 +6,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/1595.test.py
     title: tests/aoj/1595.test.py
+  - icon: ':heavy_check_mark:'
+    path: tests/aoj/grl_5_a.test.py
+    title: tests/aoj/grl_5_a.test.py
   _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -55,10 +58,11 @@ data:
   isVerificationFile: false
   path: library/rerooting.py
   requiredBy: []
-  timestamp: '2022-11-03 23:59:45+09:00'
+  timestamp: '2022-11-04 20:44:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/1595.test.py
+  - tests/aoj/grl_5_a.test.py
 documentation_of: library/rerooting.py
 layout: document
 redirect_from:

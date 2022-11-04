@@ -28,7 +28,7 @@ data:
   isVerificationFile: true
   path: tests/yosupo/jump_on_tree.test.py
   requiredBy: []
-  timestamp: '2022-11-03 23:59:45+09:00'
+  timestamp: '2022-11-04 20:44:25+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/yosupo/jump_on_tree.test.py
