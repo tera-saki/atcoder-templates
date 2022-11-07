@@ -40,7 +40,7 @@ data:
   isVerificationFile: true
   path: tests/yosupo/static_range_inversions_query.test.py
   requiredBy: []
-  timestamp: '2022-11-04 20:44:25+09:00'
+  timestamp: '2022-11-07 23:13:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/yosupo/static_range_inversions_query.test.py

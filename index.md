@@ -28,6 +28,9 @@ data:
       path: library/doubling.py
       title: library/doubling.py
     - icon: ':heavy_check_mark:'
+      path: library/euler_tour.py
+      title: library/euler_tour.py
+    - icon: ':heavy_check_mark:'
       path: library/lazy_segment_tree.py
       title: library/lazy_segment_tree.py
     - icon: ':heavy_check_mark:'
@@ -105,6 +108,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/2320.test.py
       title: tests/aoj/2320.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/2871.test.py
+      title: tests/aoj/2871.test.py
     - icon: ':heavy_check_mark:'
       path: tests/aoj/alds1_14_b.test.py
       title: tests/aoj/alds1_14_b.test.py
