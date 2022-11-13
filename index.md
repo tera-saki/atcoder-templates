@@ -90,6 +90,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/weighted_union_find.py
       title: library/weighted_union_find.py
+    - icon: ':heavy_check_mark:'
+      path: library/zaatsu.py
+      title: library/zaatsu.py
   verificationCategories:
   - name: tests/aoj
     pages:
@@ -138,6 +141,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/dsl_3_d.test.py
       title: tests/aoj/dsl_3_d.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/dsl_4_a.test.py
+      title: tests/aoj/dsl_4_a.test.py
     - icon: ':heavy_check_mark:'
       path: tests/aoj/grl_1_b.test.py
       title: tests/aoj/grl_1_b.test.py

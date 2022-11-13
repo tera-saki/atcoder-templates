@@ -29,7 +29,7 @@ data:
   isVerificationFile: false
   path: library/math.py
   requiredBy: []
-  timestamp: '2022-11-10 20:58:44+09:00'
+  timestamp: '2022-11-13 15:06:02+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/ntl_1_e.test.py
