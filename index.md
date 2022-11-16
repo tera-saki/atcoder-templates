@@ -7,6 +7,9 @@ data:
       path: library/bellman_ford.py
       title: library/bellman_ford.py
     - icon: ':heavy_check_mark:'
+      path: library/bfs.py
+      title: library/bfs.py
+    - icon: ':heavy_check_mark:'
       path: library/binary_indexed_tree.py
       title: library/binary_indexed_tree.py
     - icon: ':heavy_check_mark:'
@@ -114,6 +117,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/2871.test.py
       title: tests/aoj/2871.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/alds1_11_c.test.py
+      title: tests/aoj/alds1_11_c.test.py
     - icon: ':heavy_check_mark:'
       path: tests/aoj/alds1_14_b.test.py
       title: tests/aoj/alds1_14_b.test.py
