@@ -40,7 +40,7 @@ data:
   isVerificationFile: false
   path: library/bellman_ford.py
   requiredBy: []
-  timestamp: '2022-11-16 21:06:11+09:00'
+  timestamp: '2022-11-16 21:30:49+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/grl_1_b.test.py
