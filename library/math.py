@@ -1,7 +1,7 @@
-from typing import Tuple, Optional
+from typing import List, Tuple, Optional
 
 
-def divisors(n):
+def divisors(n) -> List[int]:
     """return divisors of given integer"""
     d = []
     for i in range(1, n + 1):
@@ -16,7 +16,7 @@ def divisors(n):
     return sorted(d)
 
 
-def factorize(n):
+def factorize(n) -> List[int]:
     """return prime factors of given integer"""
     f = []
     m = n
