@@ -160,6 +160,12 @@ data:
       path: tests/aoj/grl_6_a.test.py
       title: tests/aoj/grl_6_a.test.py
     - icon: ':heavy_check_mark:'
+      path: tests/aoj/itp1_3_d.test.py
+      title: tests/aoj/itp1_3_d.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/ntl_1_a.test.py
+      title: tests/aoj/ntl_1_a.test.py
+    - icon: ':heavy_check_mark:'
       path: tests/aoj/ntl_1_e.test.py
       title: tests/aoj/ntl_1_e.test.py
   - name: tests/yosupo
