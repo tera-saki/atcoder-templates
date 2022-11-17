@@ -19,12 +19,17 @@ data:
     \    'return smallest index s.t. A[i] > x or len(a) if it does not exist'\n  \
     \  return bisect.bisect_right(a, x)\n\n\ndef index_ge(a, x):\n    'return smallest\
     \ index s.t. A[i] >= x or len(a) if it does not exist'\n    return bisect.bisect_left(a,\
-    \ x)\n"
+    \ x)\n\n\ndef popcount(n):\n    c = (n & 0x5555555555555555) + ((n >> 1) & 0x5555555555555555)\n\
+    \    c = (c & 0x3333333333333333) + ((c >> 2) & 0x3333333333333333)\n    c = (c\
+    \ & 0x0f0f0f0f0f0f0f0f) + ((c >> 4) & 0x0f0f0f0f0f0f0f0f)\n    c = (c & 0x00ff00ff00ff00ff)\
+    \ + ((c >> 8) & 0x00ff00ff00ff00ff)\n    c = (c & 0x0000ffff0000ffff) + ((c >>\
+    \ 16) & 0x0000ffff0000ffff)\n    c = (c & 0x00000000ffffffff) + ((c >> 32) & 0x00000000ffffffff)\n\
+    \    return c\n"
   dependsOn: []
   isVerificationFile: false
   path: library/utils.py
   requiredBy: []
-  timestamp: '2022-11-16 21:30:49+09:00'
+  timestamp: '2022-11-17 21:56:10+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: library/utils.py
