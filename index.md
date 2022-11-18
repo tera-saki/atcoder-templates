@@ -21,6 +21,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/cumulative_sum_2d.py
       title: library/cumulative_sum_2d.py
+    - icon: ':warning:'
+      path: library/dict_union_find.py
+      title: library/dict_union_find.py
     - icon: ':heavy_check_mark:'
       path: library/dijkstra.py
       title: library/dijkstra.py

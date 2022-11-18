@@ -28,7 +28,7 @@ data:
   isVerificationFile: false
   path: library/lis.py
   requiredBy: []
-  timestamp: '2022-11-17 21:56:10+09:00'
+  timestamp: '2022-11-18 20:46:41+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/dpl_1_d.test.py
