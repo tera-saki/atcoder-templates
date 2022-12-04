@@ -94,15 +94,15 @@ data:
   isVerificationFile: false
   path: library/lazy_segment_tree.py
   requiredBy: []
-  timestamp: '2022-11-18 20:46:41+09:00'
+  timestamp: '2022-12-04 10:32:58+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/aoj/dsl_2_h.test.py
+  - tests/yosupo/range_affine_range_sum.test.py
   - tests/aoj/dsl_2_i.test.py
-  - tests/aoj/dsl_2_f.test.py
   - tests/aoj/2871.test.py
   - tests/aoj/dsl_2_g.test.py
-  - tests/yosupo/range_affine_range_sum.test.py
+  - tests/aoj/dsl_2_f.test.py
+  - tests/aoj/dsl_2_h.test.py
 documentation_of: library/lazy_segment_tree.py
 layout: document
 redirect_from:

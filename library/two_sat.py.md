@@ -38,11 +38,11 @@ data:
   isVerificationFile: false
   path: library/two_sat.py
   requiredBy: []
-  timestamp: '2022-11-18 20:46:41+09:00'
+  timestamp: '2022-12-04 10:32:58+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/yuki/1955.test.py
   - tests/yosupo/two_sat.test.py
+  - tests/yuki/1955.test.py
 documentation_of: library/two_sat.py
 layout: document
 redirect_from:

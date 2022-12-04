@@ -45,7 +45,7 @@ data:
   isVerificationFile: false
   path: library/lca.py
   requiredBy: []
-  timestamp: '2022-11-18 20:46:41+09:00'
+  timestamp: '2022-12-04 10:32:58+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yosupo/lca.test.py

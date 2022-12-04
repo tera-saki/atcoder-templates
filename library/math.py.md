@@ -44,12 +44,12 @@ data:
   isVerificationFile: false
   path: library/math.py
   requiredBy: []
-  timestamp: '2022-11-18 20:46:41+09:00'
+  timestamp: '2022-12-04 10:32:58+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/ntl_1_e.test.py
-  - tests/aoj/ntl_1_a.test.py
   - tests/aoj/itp1_3_d.test.py
+  - tests/aoj/ntl_1_a.test.py
 documentation_of: library/math.py
 layout: document
 redirect_from:

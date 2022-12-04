@@ -17,22 +17,22 @@ data:
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "class WeightedUnionFind:\n    def __init__(self, N):\n        self.N = N\n\
     \        self.par = [-1] * N\n        self.weight = [0] * N\n\n    def find(self,\
-    \ x, w=0):\n        if self.par[x] < 0:\n            return x, w\n        else:\n\
-    \            return self.find(self.par[x], w + self.weight[x])\n\n    def merge(self,\
-    \ x, y, z):\n        \"Wy = Wx + z\"\n        x, wx = self.find(x)\n        y,\
-    \ wy = self.find(y)\n\n        if x == y:\n            return False\n        if\
-    \ self.par[x] > self.par[y]:\n            x, y = y, x\n            wx, wy = wy,\
-    \ wx\n            z = -z\n\n        self.par[x] += self.par[y]\n        self.par[y]\
-    \ = x\n        self.weight[y] = z + wx - wy\n        return True\n\n    def diff(self,\
-    \ x, y):\n        \"return Wy - Wx if calculable otherwise None\"\n        x,\
-    \ wx = self.find(x)\n        y, wy = self.find(y)\n\n        if x != y:\n    \
-    \        return None\n        return wy - wx\n\n    def same(self, x, y):\n  \
-    \      return self.find(x)[0] == self.find(y)[0]\n"
+    \ x):\n        if self.par[x] < 0:\n            return x\n        p = self.find(self.par[x])\n\
+    \        self.weight[x] += self.weight[self.par[x]]\n        self.par[x] = p\n\
+    \        return self.par[x]\n\n    def merge(self, x, y, z):\n        \"Wy = Wx\
+    \ + z\"\n        x_, y_ = x, y\n        x = self.find(x)\n        y = self.find(y)\n\
+    \        wx = self.weight[x_]\n        wy = self.weight[y_]\n\n        if x ==\
+    \ y:\n            return False\n        if self.par[x] > self.par[y]:\n      \
+    \      x, y = y, x\n            wx, wy = wy, wx\n            z = -z\n\n      \
+    \  self.par[x] += self.par[y]\n        self.par[y] = x\n        self.weight[y]\
+    \ = z + wx - wy\n        return True\n\n    def diff(self, x, y):\n        \"\
+    return Wy - Wx if calculable otherwise None\"\n        if self.find(x) != self.find(y):\n\
+    \            return None\n        return self.weight[y] - self.weight[x]\n"
   dependsOn: []
   isVerificationFile: false
   path: library/weighted_union_find.py
   requiredBy: []
-  timestamp: '2022-11-18 20:46:41+09:00'
+  timestamp: '2022-12-04 10:32:58+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/dsl_1_b.test.py
