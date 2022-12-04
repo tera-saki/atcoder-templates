@@ -4,16 +4,21 @@ class WeightedUnionFind:
         self.par = [-1] * N
         self.weight = [0] * N
 
-    def find(self, x, w=0):
+    def find(self, x):
         if self.par[x] < 0:
-            return x, w
-        else:
-            return self.find(self.par[x], w + self.weight[x])
+            return x
+        p = self.find(self.par[x])
+        self.weight[x] += self.weight[self.par[x]]
+        self.par[x] = p
+        return self.par[x]
 
     def merge(self, x, y, z):
         "Wy = Wx + z"
-        x, wx = self.find(x)
-        y, wy = self.find(y)
+        x_, y_ = x, y
+        x = self.find(x)
+        y = self.find(y)
+        wx = self.weight[x_]
+        wy = self.weight[y_]
 
         if x == y:
             return False
@@ -29,12 +34,6 @@ class WeightedUnionFind:
 
     def diff(self, x, y):
         "return Wy - Wx if calculable otherwise None"
-        x, wx = self.find(x)
-        y, wy = self.find(y)
-
-        if x != y:
+        if self.find(x) != self.find(y):
             return None
-        return wy - wx
-
-    def same(self, x, y):
-        return self.find(x)[0] == self.find(y)[0]
+        return self.weight[y] - self.weight[x]
