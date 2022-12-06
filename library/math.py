@@ -61,7 +61,9 @@ def solve_ax_b(a: int, b: int, m: int) -> Optional[int]:
 
 
 def solve_discrete_logarithm(x: int, y: int, m: int, start: int = 0) -> Optional[int]:
-    """return the smallest k that satisfies x^k ≡ y (mod m) if exist, otherwise None"""
+    """return the smallest k that satisfies x^k ≡ y (mod m) if exist, otherwise None
+    reference: https://qiita.com/suisen_cp/items/d597c8ec576ae32ee2d7
+    """
     if m == 1:
         return 0
     x %= m
@@ -71,8 +73,7 @@ def solve_discrete_logarithm(x: int, y: int, m: int, start: int = 0) -> Optional
     let g = gcd(x^d, m)
     <=> x^t ≡ y/g * (x^d / g)^(-1) (mod m/g)
     <=> x^t ≡ y * (x^d)^(-1) (mod m/g)
-    let y' ≡ y * (x^d)^(-1) and m' = m/g
-    <=> x^t ≡ y' (mod m')
+    <=> x^t ≡ y' (mod m') where y' ≡ y * (x^d)^(-1) and m' = m/g
     """
     d = m.bit_length()
     pow_x = pow(x, start, m)
@@ -106,8 +107,7 @@ def solve_discrete_logarithm(x: int, y: int, m: int, start: int = 0) -> Optional
     x^k ≡ y
     <=> x^(p*i+q) ≡ y
     <=> x^q ≡ y * ((x^(-1))^p)^i
-    let a = (x^(-1))^p
-    <=> x^q ≡ y * a^i
+    <=> x^q ≡ y * a^i where a = (x^(-1))^p
     """
     p = ceil_sqrt(m)
     a = pow(modinv(x, m), p, m)
