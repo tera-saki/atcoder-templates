@@ -19,7 +19,8 @@ data:
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links: []
+    links:
+    - https://qiita.com/suisen_cp/items/d597c8ec576ae32ee2d7
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
@@ -44,33 +45,33 @@ data:
     \ b % g > 0:\n        return None\n    a, b, m = a // g, b // g, m // g\n    return\
     \ x * b % m\n\n\ndef solve_discrete_logarithm(x: int, y: int, m: int, start: int\
     \ = 0) -> Optional[int]:\n    \"\"\"return the smallest k that satisfies x^k \u2261\
-    \ y (mod m) if exist, otherwise None\"\"\"\n    if m == 1:\n        return 0\n\
-    \    x %= m\n    y %= m\n    \"\"\"\n    suppose x^d * x^t \u2261 y (d >= 0)\n\
-    \    let g = gcd(x^d, m)\n    <=> x^t \u2261 y/g * (x^d / g)^(-1) (mod m/g)\n\
-    \    <=> x^t \u2261 y * (x^d)^(-1) (mod m/g)\n    let y' \u2261 y * (x^d)^(-1)\
-    \ and m' = m/g\n    <=> x^t \u2261 y' (mod m')\n    \"\"\"\n    d = m.bit_length()\n\
-    \    pow_x = pow(x, start, m)\n    for k in range(start, d):\n        if pow_x\
-    \ == y:\n            return k\n        pow_x = pow_x * x % m\n    g = math.gcd(pow_x,\
-    \ m)\n    if y % g != 0:\n        return None\n    m //= g\n    x %= m\n    y\
-    \ = y * modinv(pow_x, m) % m\n    if x == 0:\n        return d + 1 if y == 0 else\
-    \ d if y == 1 else None\n\n    def ceil_sqrt(n: int) -> int:\n        \"\"\"find\
-    \ sqrt(ceil(n))\"\"\"\n        l = -1\n        r = n\n        while r - l > 1:\n\
-    \            c = (l + r) >> 1\n            if c * c >= n:\n                r =\
-    \ c\n            else:\n                l = c\n        return r\n\n    \"\"\"\n\
-    \    let p = ceil(sqrt(m)) and k = p * i + q (0 <= q < p)\n    x^k \u2261 y\n\
-    \    <=> x^(p*i+q) \u2261 y\n    <=> x^q \u2261 y * ((x^(-1))^p)^i\n    let a\
-    \ = (x^(-1))^p\n    <=> x^q \u2261 y * a^i\n    \"\"\"\n    p = ceil_sqrt(m)\n\
-    \    a = pow(modinv(x, m), p, m)\n\n    D = {}\n    pow_x = 1\n    for i in range(p):\n\
-    \        D.setdefault(pow_x, i)\n        pow_x = pow_x * x % m\n    pow_a = 1\n\
-    \    for i in range(p):\n        val = y * pow_a % m\n        q = D.get(val)\n\
-    \        if q is not None:\n            k = p * i + q + d\n            if k >=\
-    \ start:\n                return k\n        pow_a = pow_a * a % m\n    return\
-    \ None\n"
+    \ y (mod m) if exist, otherwise None\n    reference: https://qiita.com/suisen_cp/items/d597c8ec576ae32ee2d7\n\
+    \    \"\"\"\n    if m == 1:\n        return 0\n    x %= m\n    y %= m\n    \"\"\
+    \"\n    suppose x^d * x^t \u2261 y (d >= 0)\n    let g = gcd(x^d, m)\n    <=>\
+    \ x^t \u2261 y/g * (x^d / g)^(-1) (mod m/g)\n    <=> x^t \u2261 y * (x^d)^(-1)\
+    \ (mod m/g)\n    <=> x^t \u2261 y' (mod m') where y' \u2261 y * (x^d)^(-1) and\
+    \ m' = m/g\n    \"\"\"\n    d = m.bit_length()\n    pow_x = pow(x, start, m)\n\
+    \    for k in range(start, d):\n        if pow_x == y:\n            return k\n\
+    \        pow_x = pow_x * x % m\n    g = math.gcd(pow_x, m)\n    if y % g != 0:\n\
+    \        return None\n    m //= g\n    x %= m\n    y = y * modinv(pow_x, m) %\
+    \ m\n    if x == 0:\n        return d + 1 if y == 0 else d if y == 1 else None\n\
+    \n    def ceil_sqrt(n: int) -> int:\n        \"\"\"find sqrt(ceil(n))\"\"\"\n\
+    \        l = -1\n        r = n\n        while r - l > 1:\n            c = (l +\
+    \ r) >> 1\n            if c * c >= n:\n                r = c\n            else:\n\
+    \                l = c\n        return r\n\n    \"\"\"\n    let p = ceil(sqrt(m))\
+    \ and k = p * i + q (0 <= q < p)\n    x^k \u2261 y\n    <=> x^(p*i+q) \u2261 y\n\
+    \    <=> x^q \u2261 y * ((x^(-1))^p)^i\n    <=> x^q \u2261 y * a^i where a = (x^(-1))^p\n\
+    \    \"\"\"\n    p = ceil_sqrt(m)\n    a = pow(modinv(x, m), p, m)\n\n    D =\
+    \ {}\n    pow_x = 1\n    for i in range(p):\n        D.setdefault(pow_x, i)\n\
+    \        pow_x = pow_x * x % m\n    pow_a = 1\n    for i in range(p):\n      \
+    \  val = y * pow_a % m\n        q = D.get(val)\n        if q is not None:\n  \
+    \          k = p * i + q + d\n            if k >= start:\n                return\
+    \ k\n        pow_a = pow_a * a % m\n    return None\n"
   dependsOn: []
   isVerificationFile: false
   path: library/math.py
   requiredBy: []
-  timestamp: '2022-12-06 18:26:43+09:00'
+  timestamp: '2022-12-06 18:49:38+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yosupo/discrete_logarithm_mod.test.py

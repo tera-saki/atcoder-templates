@@ -28,7 +28,7 @@ data:
   isVerificationFile: false
   path: library/dict_union_find.py
   requiredBy: []
-  timestamp: '2022-12-06 18:26:43+09:00'
+  timestamp: '2022-12-06 18:49:38+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: library/dict_union_find.py
