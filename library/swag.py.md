@@ -33,7 +33,7 @@ data:
   isVerificationFile: false
   path: library/swag.py
   requiredBy: []
-  timestamp: '2022-12-04 10:32:58+09:00'
+  timestamp: '2022-12-06 18:26:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/dsl_3_d.test.py

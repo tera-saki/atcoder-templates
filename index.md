@@ -174,6 +174,9 @@ data:
   - name: tests/yosupo
     pages:
     - icon: ':heavy_check_mark:'
+      path: tests/yosupo/discrete_logarithm_mod.test.py
+      title: tests/yosupo/discrete_logarithm_mod.test.py
+    - icon: ':heavy_check_mark:'
       path: tests/yosupo/jump_on_tree.test.py
       title: tests/yosupo/jump_on_tree.test.py
     - icon: ':heavy_check_mark:'
