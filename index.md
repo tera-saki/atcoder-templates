@@ -58,6 +58,9 @@ data:
       path: library/osa_k.py
       title: library/osa_k.py
     - icon: ':heavy_check_mark:'
+      path: library/primal_dual.py
+      title: library/primal_dual.py
+    - icon: ':heavy_check_mark:'
       path: library/prime_table.py
       title: library/prime_table.py
     - icon: ':heavy_check_mark:'
@@ -162,6 +165,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/grl_6_a.test.py
       title: tests/aoj/grl_6_a.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/grl_6_b.test.py
+      title: tests/aoj/grl_6_b.test.py
     - icon: ':heavy_check_mark:'
       path: tests/aoj/itp1_3_d.test.py
       title: tests/aoj/itp1_3_d.test.py

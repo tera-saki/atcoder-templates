@@ -30,7 +30,7 @@ data:
   isVerificationFile: false
   path: library/euler_tour.py
   requiredBy: []
-  timestamp: '2022-12-07 12:47:06+09:00'
+  timestamp: '2022-12-07 17:50:30+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/2871.test.py
