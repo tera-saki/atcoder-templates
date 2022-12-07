@@ -45,11 +45,11 @@ data:
   isVerificationFile: false
   path: library/lca.py
   requiredBy: []
-  timestamp: '2022-12-06 18:49:38+09:00'
+  timestamp: '2022-12-07 12:47:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/yosupo/lca.test.py
   - tests/yosupo/jump_on_tree.test.py
+  - tests/yosupo/lca.test.py
 documentation_of: library/lca.py
 layout: document
 redirect_from:

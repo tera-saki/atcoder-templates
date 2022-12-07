@@ -30,7 +30,7 @@ data:
   isVerificationFile: true
   path: tests/aoj/grl_5_a.test.py
   requiredBy: []
-  timestamp: '2022-12-06 18:49:38+09:00'
+  timestamp: '2022-12-07 12:47:06+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/aoj/grl_5_a.test.py

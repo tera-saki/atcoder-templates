@@ -46,9 +46,9 @@ data:
     \ x * b % m\n\n\ndef solve_discrete_logarithm(x: int, y: int, m: int, start: int\
     \ = 0) -> Optional[int]:\n    \"\"\"return the smallest k that satisfies x^k \u2261\
     \ y (mod m) if exist, otherwise None\n    reference: https://qiita.com/suisen_cp/items/d597c8ec576ae32ee2d7\n\
-    \    \"\"\"\n    if m == 1:\n        return 0\n    x %= m\n    y %= m\n    \"\"\
-    \"\n    suppose x^d * x^t \u2261 y (d >= 0)\n    let g = gcd(x^d, m)\n    <=>\
-    \ x^t \u2261 y/g * (x^d / g)^(-1) (mod m/g)\n    <=> x^t \u2261 y * (x^d)^(-1)\
+    \    \"\"\"\n    if m == 1:\n        return start\n    x %= m\n    y %= m\n  \
+    \  \"\"\"\n    suppose x^d * x^t \u2261 y (d >= 0)\n    let g = gcd(x^d, m)\n\
+    \    <=> x^t \u2261 y/g * (x^d / g)^(-1) (mod m/g)\n    <=> x^t \u2261 y * (x^d)^(-1)\
     \ (mod m/g)\n    <=> x^t \u2261 y' (mod m') where y' \u2261 y * (x^d)^(-1) and\
     \ m' = m/g\n    \"\"\"\n    d = m.bit_length()\n    pow_x = pow(x, start, m)\n\
     \    for k in range(start, d):\n        if pow_x == y:\n            return k\n\
@@ -71,13 +71,13 @@ data:
   isVerificationFile: false
   path: library/math.py
   requiredBy: []
-  timestamp: '2022-12-06 18:49:38+09:00'
+  timestamp: '2022-12-07 12:47:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yosupo/discrete_logarithm_mod.test.py
-  - tests/aoj/ntl_1_e.test.py
-  - tests/aoj/itp1_3_d.test.py
   - tests/aoj/ntl_1_a.test.py
+  - tests/aoj/itp1_3_d.test.py
+  - tests/aoj/ntl_1_e.test.py
 documentation_of: library/math.py
 layout: document
 redirect_from:
