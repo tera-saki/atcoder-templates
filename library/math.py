@@ -65,7 +65,7 @@ def solve_discrete_logarithm(x: int, y: int, m: int, start: int = 0) -> Optional
     reference: https://qiita.com/suisen_cp/items/d597c8ec576ae32ee2d7
     """
     if m == 1:
-        return 0
+        return start
     x %= m
     y %= m
     """
