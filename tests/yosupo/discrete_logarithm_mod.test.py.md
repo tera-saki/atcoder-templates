@@ -27,7 +27,7 @@ data:
   isVerificationFile: true
   path: tests/yosupo/discrete_logarithm_mod.test.py
   requiredBy: []
-  timestamp: '2022-12-07 17:50:30+09:00'
+  timestamp: '2022-12-07 19:04:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/yosupo/discrete_logarithm_mod.test.py

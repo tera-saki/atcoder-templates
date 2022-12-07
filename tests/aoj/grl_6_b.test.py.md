@@ -21,13 +21,13 @@ data:
     import sys\nfrom library.primal_dual import PrimalDual\n\ninput = sys.stdin.readline\n\
     \nN, M, F = map(int, input().split())\nsolver = PrimalDual(N)\nfor _ in range(M):\n\
     \    u, v, cap, cost = map(int, input().split())\n    solver.add_edge(u, v, cap,\
-    \ cost)\nans = solver.flow(0, N - 1, F)\nprint(ans if ans is not None else -1)\n"
+    \ cost)\nf, c = solver.flow(0, N - 1, F)\nprint(c if f == F else -1)\n"
   dependsOn:
   - library/primal_dual.py
   isVerificationFile: true
   path: tests/aoj/grl_6_b.test.py
   requiredBy: []
-  timestamp: '2022-12-07 17:50:30+09:00'
+  timestamp: '2022-12-07 19:04:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/aoj/grl_6_b.test.py

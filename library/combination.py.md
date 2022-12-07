@@ -35,7 +35,7 @@ data:
   isVerificationFile: false
   path: library/combination.py
   requiredBy: []
-  timestamp: '2022-12-07 17:50:30+09:00'
+  timestamp: '2022-12-07 19:04:35+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yuki/117.test.py

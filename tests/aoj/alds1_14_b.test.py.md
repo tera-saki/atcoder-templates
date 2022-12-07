@@ -29,7 +29,7 @@ data:
   isVerificationFile: true
   path: tests/aoj/alds1_14_b.test.py
   requiredBy: []
-  timestamp: '2022-12-07 17:50:30+09:00'
+  timestamp: '2022-12-07 19:04:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/aoj/alds1_14_b.test.py
