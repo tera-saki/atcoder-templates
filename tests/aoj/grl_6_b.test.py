@@ -9,5 +9,5 @@ solver = PrimalDual(N)
 for _ in range(M):
     u, v, cap, cost = map(int, input().split())
     solver.add_edge(u, v, cap, cost)
-ans = solver.flow(0, N - 1, F)
-print(ans if ans is not None else -1)
+f, c = solver.flow(0, N - 1, F)
+print(c if f == F else -1)

@@ -1,13 +1,14 @@
+from typing import Tuple
 import heapq
 
 
 class PrimalDual:
-    def __init__(self, N, inf=1 << 50):
+    def __init__(self, N: int, inf: int = 1 << 50):
         self.N = N
         self.G = [[] for _ in range(N)]
         self.inf = inf
 
-    def add_edge(self, u, v, cap, cost):
+    def add_edge(self, u: int, v: int, cap: int, cost: int) -> None:
         assert cap >= 0 and cost >= 0
         forward = [cap, v, cost, None]
         backward = [0, u, -cost, None]
@@ -16,8 +17,9 @@ class PrimalDual:
         self.G[u].append(forward)
         self.G[v].append(backward)
 
-    def flow(self, s, t, f):
-        ret = 0
+    def flow(self, s: int, t: int, f: int) -> Tuple[int, int]:
+        retf = 0
+        retc = 0
         H = [0] * self.N
         prev = [None] * self.N
 
@@ -44,7 +46,7 @@ class PrimalDual:
                         heapq.heappush(h, (C[d], d))
 
             if not visited[t]:
-                return None
+                return retf, retc
 
             for i in range(self.N):
                 H[i] += C[i]
@@ -56,7 +58,8 @@ class PrimalDual:
                 min_cap = min(min_cap, pe[0])
                 cur = pv
             f -= min_cap
-            ret += min_cap * H[t]
+            retf += min_cap
+            retc += min_cap * H[t]
 
             cur = t
             while cur != s:
@@ -64,4 +67,4 @@ class PrimalDual:
                 pe[0] -= min_cap
                 pe[3][0] += min_cap
                 cur = pv
-        return ret
+        return retf, retc
