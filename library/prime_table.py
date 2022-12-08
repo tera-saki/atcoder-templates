@@ -7,7 +7,7 @@ class PrimeTable:
         for i in range(2, N + 1):
             if i * i > N:
                 break
-            if self.is_prime[i] is False:
+            if not self.is_prime[i]:
                 continue
             for j in range(2, N + 1):
                 if i * j > N:

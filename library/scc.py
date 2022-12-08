@@ -32,7 +32,7 @@ class SCC:
     def _traverse(self):
         flag = [False] * self.N
         for i in range(self.N):
-            if flag[i] is False:
+            if not flag[i]:
                 self._dfs(i, flag)
         self.V.reverse()
 
@@ -40,7 +40,7 @@ class SCC:
         flag = [False] * self.N
         cid = 0
         for v in self.V:
-            if flag[v] is False:
+            if not flag[v]:
                 self._dfs2(v, flag)
                 self.c_num += 1
 
@@ -52,12 +52,12 @@ class SCC:
                 self.V.append(~v)
                 continue
 
-            if flag[v] is True:
+            if flag[v]:
                 stack.pop()
                 continue
             flag[v] = True
             for dest in self.E[v]:
-                if flag[dest] is False:
+                if not flag[dest]:
                     stack.append(~dest)
                     stack.append(dest)
 
@@ -65,10 +65,10 @@ class SCC:
         stack = [v]
         while stack:
             v = stack.pop()
-            if flag[v] is True:
+            if flag[v]:
                 continue
             flag[v] = True
             self.cid[v] = self.c_num
             for dest in self.I[v]:
-                if flag[dest] is False:
+                if not flag[dest]:
                     stack.append(dest)

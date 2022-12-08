@@ -42,7 +42,7 @@ class Dijkstra:
 
         while h:
             _, v = heapq.heappop(h)
-            if visited[v] is True:
+            if visited[v]:
                 continue
             visited[v] = True
 
