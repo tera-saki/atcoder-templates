@@ -21,15 +21,15 @@ data:
   code: "class PrimeTable:\n    def __init__(self, N):\n        self.is_prime = [True]\
     \ * (N + 1)\n\n        self.is_prime[0] = False\n        self.is_prime[1] = False\n\
     \        for i in range(2, N + 1):\n            if i * i > N:\n              \
-    \  break\n            if self.is_prime[i] is False:\n                continue\n\
-    \            for j in range(2, N + 1):\n                if i * j > N:\n      \
-    \              break\n                self.is_prime[i * j] = False\n\n       \
-    \ self.primes = [n for n in range(2, N + 1) if self.is_prime[n]]\n"
+    \  break\n            if not self.is_prime[i]:\n                continue\n   \
+    \         for j in range(2, N + 1):\n                if i * j > N:\n         \
+    \           break\n                self.is_prime[i * j] = False\n\n        self.primes\
+    \ = [n for n in range(2, N + 1) if self.is_prime[n]]\n"
   dependsOn: []
   isVerificationFile: false
   path: library/prime_table.py
   requiredBy: []
-  timestamp: '2022-12-07 19:04:35+09:00'
+  timestamp: '2022-12-08 23:20:27+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yuki/1955.test.py

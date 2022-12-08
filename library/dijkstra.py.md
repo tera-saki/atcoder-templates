@@ -31,15 +31,15 @@ data:
     \    return self.C[i] < self.inf\n\n    def _calculate(self) -> None:\n      \
     \  h = [(0, self.start)]\n        self.C[self.start] = 0\n        visited = [False]\
     \ * self.N\n\n        while h:\n            _, v = heapq.heappop(h)\n        \
-    \    if visited[v] is True:\n                continue\n            visited[v]\
-    \ = True\n\n            for c, d in self.E[v]:\n                if self.C[d] >\
-    \ self.C[v] + c:\n                    self.C[d] = self.C[v] + c\n            \
-    \        self.prev[d] = v\n                    heapq.heappush(h, (self.C[d], d))\n"
+    \    if visited[v]:\n                continue\n            visited[v] = True\n\
+    \n            for c, d in self.E[v]:\n                if self.C[d] > self.C[v]\
+    \ + c:\n                    self.C[d] = self.C[v] + c\n                    self.prev[d]\
+    \ = v\n                    heapq.heappush(h, (self.C[d], d))\n"
   dependsOn: []
   isVerificationFile: false
   path: library/dijkstra.py
   requiredBy: []
-  timestamp: '2022-12-07 19:04:35+09:00'
+  timestamp: '2022-12-08 23:20:27+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yosupo/shortest_path.test.py

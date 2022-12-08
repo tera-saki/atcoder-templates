@@ -28,7 +28,7 @@ data:
   isVerificationFile: false
   path: library/osa_k.py
   requiredBy: []
-  timestamp: '2022-12-07 19:04:35+09:00'
+  timestamp: '2022-12-08 23:20:27+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yuki/1006.test.py
