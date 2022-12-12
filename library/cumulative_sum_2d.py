@@ -3,12 +3,15 @@ class CumulativeSum2D:
         self.A = A
         self.H = len(A)
         self.W = len(A[0])
-        self.S = [[0 for _ in range(self.W + 1)] for _ in range(self.H + 1)]
+        self.S = [0] * ((self.W + 1) * (self.H + 1))
 
         for i in range(self.H):
             for j in range(self.W):
-                self.S[i + 1][j + 1] = self.S[i + 1][j] + self.S[i][j + 1] - self.S[i][j] + self.A[i][j]
+                self.S[self.id(i + 1, j + 1)] = self.S[self.id(i + 1, j)] + self.S[(self.id(i, j + 1))] - self.S[(self.id(i, j))] + self.A[i][j]
 
     def sum(self, lx, ly, rx, ry):
         """return sum of area s.t. lx <= x < rx and ly <= y < ry (0-indexed)"""
-        return self.S[rx][ry] - self.S[lx][ry] - self.S[rx][ly] + self.S[lx][ly]
+        return self.S[self.id(rx, ry)] - self.S[self.id(lx, ry)] - self.S[self.id(rx, ly)] + self.S[self.id(lx, ly)]
+
+    def id(self, x, y):
+        return x * self.W + y
