@@ -45,7 +45,7 @@ data:
   isVerificationFile: false
   path: library/primal_dual.py
   requiredBy: []
-  timestamp: '2022-12-08 23:20:27+09:00'
+  timestamp: '2022-12-12 21:09:36+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/grl_6_b.test.py
