@@ -45,6 +45,39 @@ def extgcd(a: int, b: int) -> Tuple[int, int, int]:
     return a, x, y
 
 
+def crt(P: List[Tuple[int, int]]) -> Tuple[int, int]:
+    """return the smallest x that satisfies x ≡ a (mod m) for all (a, m) pairs and lcm(M)
+    # reference: https://qiita.com/drken/items/ae02240cd1f8edfc86fd
+    """
+    """
+    let g = gcd(m1, m2).
+    if there exist x s.t. x ≡ a1 (mod m1) and x ≡ a2 (mod m2),
+    since m1 and m2 are multiple of g, x ≡ a1 (mod g) and x ≡ a2 (mod g).
+    therefore a1 ≡ a2 (mod g).
+
+    there exist (p, q) s.t. m1 * p + m2 * q = gcd(m1, m2). (this can be obtained by extgcd)
+    let s = (a2 - a1) / g
+    then m1 * p + m2 * q = g
+    <=> m1 * p + m2 * q = (a2 - a1) / s
+    <=> s * m1 * p + s * m2 * q = a2 - a1
+    <=> a1 + s + m1 + p = a2 - s * m2 * q
+
+    let x = a1 + s * m1 * p (= a2 - s * m2 * q)
+    then x ≡ a1 (mod m1), x ≡ a2 (mod m2).
+    """
+    r = 0
+    M = 1
+    for a, m in P:
+        g, p, q = extgcd(M, m)
+        if (a - r) % g != 0:
+            return (0, -1)
+        s = (a - r) // g
+        tmp = s * p % (m // g)
+        r += M * tmp
+        M *= m // g
+    return (r, M)
+
+
 def modinv(a: int, m: int) -> Optional[int]:
     """return modular multiplicative inverse if exists otherwise None"""
     g, x, _ = extgcd(a, m)
