@@ -227,6 +227,9 @@ data:
       path: tests/yuki/117.test.py
       title: tests/yuki/117.test.py
     - icon: ':heavy_check_mark:'
+      path: tests/yuki/186.test.py
+      title: tests/yuki/186.test.py
+    - icon: ':heavy_check_mark:'
       path: tests/yuki/1955.test.py
       title: tests/yuki/1955.test.py
 layout: toppage
