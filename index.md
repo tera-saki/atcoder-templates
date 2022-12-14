@@ -78,6 +78,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/segment_tree.py
       title: library/segment_tree.py
+    - icon: ':warning:'
+      path: library/string.py
+      title: library/string.py
     - icon: ':heavy_check_mark:'
       path: library/swag.py
       title: library/swag.py
@@ -102,6 +105,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/zaatsu.py
       title: library/zaatsu.py
+  - name: tests/yosupo
+    pages:
+    - icon: ':warning:'
+      path: tests/yosupo/zalgorithm.py
+      title: tests/yosupo/zalgorithm.py
   verificationCategories:
   - name: tests/aoj
     pages:
