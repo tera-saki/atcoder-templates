@@ -30,11 +30,11 @@ data:
   isVerificationFile: false
   path: library/binary_indexed_tree.py
   requiredBy: []
-  timestamp: '2022-12-14 18:34:44+09:00'
+  timestamp: '2022-12-14 19:31:01+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/yosupo/static_range_inversions_query.test.py
   - tests/aoj/alds1_5_d.test.py
+  - tests/yosupo/static_range_inversions_query.test.py
 documentation_of: library/binary_indexed_tree.py
 layout: document
 redirect_from:

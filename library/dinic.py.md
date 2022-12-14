@@ -40,7 +40,7 @@ data:
   isVerificationFile: false
   path: library/dinic.py
   requiredBy: []
-  timestamp: '2022-12-14 18:34:44+09:00'
+  timestamp: '2022-12-14 19:31:01+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/grl_6_a.test.py

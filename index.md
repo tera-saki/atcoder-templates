@@ -21,6 +21,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/cumulative_sum_2d.py
       title: library/cumulative_sum_2d.py
+    - icon: ':heavy_check_mark:'
+      path: library/dfs_tree.py
+      title: library/dfs_tree.py
     - icon: ':warning:'
       path: library/dict_union_find.py
       title: library/dict_union_find.py
@@ -45,9 +48,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/lis.py
       title: library/lis.py
-    - icon: ':heavy_check_mark:'
-      path: library/lowlink.py
-      title: library/lowlink.py
     - icon: ':heavy_check_mark:'
       path: library/math.py
       title: library/math.py
@@ -191,6 +191,9 @@ data:
       title: tests/aoj/ntl_1_e.test.py
   - name: tests/yosupo
     pages:
+    - icon: ':heavy_check_mark:'
+      path: tests/yosupo/cycle_detection_undirected.test.py
+      title: tests/yosupo/cycle_detection_undirected.test.py
     - icon: ':heavy_check_mark:'
       path: tests/yosupo/discrete_logarithm_mod.test.py
       title: tests/yosupo/discrete_logarithm_mod.test.py

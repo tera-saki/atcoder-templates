@@ -90,14 +90,14 @@ data:
   isVerificationFile: false
   path: library/math.py
   requiredBy: []
-  timestamp: '2022-12-14 18:34:44+09:00'
+  timestamp: '2022-12-14 19:31:01+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - tests/aoj/ntl_1_a.test.py
+  - tests/aoj/ntl_1_e.test.py
+  - tests/aoj/itp1_3_d.test.py
   - tests/yuki/186.test.py
   - tests/yosupo/discrete_logarithm_mod.test.py
-  - tests/aoj/ntl_1_a.test.py
-  - tests/aoj/itp1_3_d.test.py
-  - tests/aoj/ntl_1_e.test.py
 documentation_of: library/math.py
 layout: document
 redirect_from:

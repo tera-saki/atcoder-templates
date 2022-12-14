@@ -35,7 +35,7 @@ data:
   isVerificationFile: true
   path: tests/yosupo/range_affine_range_sum.test.py
   requiredBy: []
-  timestamp: '2022-12-14 18:34:44+09:00'
+  timestamp: '2022-12-14 19:31:01+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/yosupo/range_affine_range_sum.test.py
