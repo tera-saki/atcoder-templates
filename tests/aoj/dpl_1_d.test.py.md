@@ -40,7 +40,7 @@ data:
   isVerificationFile: true
   path: tests/aoj/dpl_1_d.test.py
   requiredBy: []
-  timestamp: '2022-12-14 17:50:25+09:00'
+  timestamp: '2022-12-14 18:34:44+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/aoj/dpl_1_d.test.py

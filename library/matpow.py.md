@@ -31,7 +31,7 @@ data:
   isVerificationFile: false
   path: library/matpow.py
   requiredBy: []
-  timestamp: '2022-12-14 17:50:25+09:00'
+  timestamp: '2022-12-14 18:34:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yuki/1073.test.py

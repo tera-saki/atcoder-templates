@@ -46,6 +46,9 @@ data:
       path: library/lis.py
       title: library/lis.py
     - icon: ':heavy_check_mark:'
+      path: library/lowlink.py
+      title: library/lowlink.py
+    - icon: ':heavy_check_mark:'
       path: library/math.py
       title: library/math.py
     - icon: ':heavy_check_mark:'
@@ -162,6 +165,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/grl_1_b.test.py
       title: tests/aoj/grl_1_b.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/grl_3_a.test.py
+      title: tests/aoj/grl_3_a.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/grl_3_b.test.py
+      title: tests/aoj/grl_3_b.test.py
     - icon: ':heavy_check_mark:'
       path: tests/aoj/grl_5_a.test.py
       title: tests/aoj/grl_5_a.test.py
