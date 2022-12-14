@@ -1,6 +1,6 @@
 # verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/GRL_3_B
 import sys
-from library.lowlink import Lowlink
+from library.dfs_tree import DFSTree
 
 input = sys.stdin.readline
 
@@ -11,7 +11,7 @@ for _ in range(M):
     E[s].append(t)
     E[t].append(s)
 
-bridges = Lowlink(N, E).bridges()
+bridges = DFSTree(N, E).bridges()
 bridges = [(s, t) if s < t else (t, s) for s, t in bridges]
 for s, t in sorted(bridges):
     print(s, t)

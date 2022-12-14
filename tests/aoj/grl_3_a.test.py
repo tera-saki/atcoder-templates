@@ -1,6 +1,6 @@
 # verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/GRL_3_A
 import sys
-from library.lowlink import Lowlink
+from library.dfs_tree import DFSTree
 
 input = sys.stdin.readline
 
@@ -11,6 +11,6 @@ for _ in range(M):
     E[s].append(t)
     E[t].append(s)
 
-points = Lowlink(N, E).articulation_points()
+points = DFSTree(N, E).articulation_points()
 for p in points:
     print(p)
