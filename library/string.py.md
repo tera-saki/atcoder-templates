@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: tests/yosupo/zalgorithm.py
-    title: tests/yosupo/zalgorithm.py
-  _extendedVerifiedWith: []
+  _extendedRequiredBy: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: tests/yosupo/zalgorithm.test.py
+    title: tests/yosupo/zalgorithm.test.py
   _isVerificationFailed: false
   _pathExtension: py
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://qiita.com/Pro_ktmr/items/16904c9570aa0953bf05
@@ -28,11 +28,11 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: library/string.py
-  requiredBy:
-  - tests/yosupo/zalgorithm.py
+  requiredBy: []
   timestamp: '2022-12-14 17:50:25+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - tests/yosupo/zalgorithm.test.py
 documentation_of: library/string.py
 layout: document
 redirect_from:

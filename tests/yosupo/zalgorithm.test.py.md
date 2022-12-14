@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: library/string.py
     title: library/string.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: py
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     PROBLEM: https://judge.yosupo.jp/problem/zalgorithm
     links:
@@ -34,16 +34,16 @@ data:
     '
   dependsOn:
   - library/string.py
-  isVerificationFile: false
-  path: tests/yosupo/zalgorithm.py
+  isVerificationFile: true
+  path: tests/yosupo/zalgorithm.test.py
   requiredBy: []
   timestamp: '2022-12-14 17:50:25+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: tests/yosupo/zalgorithm.py
+documentation_of: tests/yosupo/zalgorithm.test.py
 layout: document
 redirect_from:
-- /library/tests/yosupo/zalgorithm.py
-- /library/tests/yosupo/zalgorithm.py.html
-title: tests/yosupo/zalgorithm.py
+- /verify/tests/yosupo/zalgorithm.test.py
+- /verify/tests/yosupo/zalgorithm.test.py.html
+title: tests/yosupo/zalgorithm.test.py
 ---
