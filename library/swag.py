@@ -10,7 +10,7 @@ class SWAG:
             self.back.append((a, a))
         else:
             _, acc = self.back[-1]
-            self.back.append((a, self.op(a, acc)))
+            self.back.append((a, self.op(acc, a)))
 
     def pop(self):
         assert self.front or self.back
