@@ -29,7 +29,7 @@ data:
   isVerificationFile: false
   path: library/utils.py
   requiredBy: []
-  timestamp: '2022-12-14 19:31:01+09:00'
+  timestamp: '2022-12-15 18:12:26+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: library/utils.py

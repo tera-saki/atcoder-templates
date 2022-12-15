@@ -35,7 +35,7 @@ data:
   isVerificationFile: false
   path: library/bfs.py
   requiredBy: []
-  timestamp: '2022-12-14 19:31:01+09:00'
+  timestamp: '2022-12-15 18:12:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/alds1_11_c.test.py

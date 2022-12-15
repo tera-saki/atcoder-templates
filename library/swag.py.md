@@ -20,7 +20,7 @@ data:
     \    def __init__(self, op):\n        self.op = op\n        self.front = []\n\
     \        self.back = []\n\n    def push(self, a):\n        if not self.back:\n\
     \            self.back.append((a, a))\n        else:\n            _, acc = self.back[-1]\n\
-    \            self.back.append((a, self.op(a, acc)))\n\n    def pop(self):\n  \
+    \            self.back.append((a, self.op(acc, a)))\n\n    def pop(self):\n  \
     \      assert self.front or self.back\n        if not self.front:\n          \
     \  a, _ = self.back.pop()\n            self.front.append((a, a))\n           \
     \ while self.back:\n                a, _ = self.back.pop()\n                _,\
@@ -33,7 +33,7 @@ data:
   isVerificationFile: false
   path: library/swag.py
   requiredBy: []
-  timestamp: '2022-12-14 19:31:01+09:00'
+  timestamp: '2022-12-15 18:12:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/dsl_3_d.test.py
