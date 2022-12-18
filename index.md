@@ -37,6 +37,9 @@ data:
       path: library/doubling.py
       title: library/doubling.py
     - icon: ':heavy_check_mark:'
+      path: library/dual_segment_tree.py
+      title: library/dual_segment_tree.py
+    - icon: ':heavy_check_mark:'
       path: library/euler_tour.py
       title: library/euler_tour.py
     - icon: ':heavy_check_mark:'
@@ -144,6 +147,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/dsl_1_b.test.py
       title: tests/aoj/dsl_1_b.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/dsl_2_d.test.py
+      title: tests/aoj/dsl_2_d.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/dsl_2_e.test.py
+      title: tests/aoj/dsl_2_e.test.py
     - icon: ':heavy_check_mark:'
       path: tests/aoj/dsl_2_f.test.py
       title: tests/aoj/dsl_2_f.test.py

@@ -47,7 +47,7 @@ data:
   isVerificationFile: false
   path: library/mo.py
   requiredBy: []
-  timestamp: '2022-12-15 18:12:26+09:00'
+  timestamp: '2022-12-18 13:51:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yosupo/static_range_inversions_query.test.py
