@@ -5,12 +5,12 @@ from library.dual_segment_tree import DualSegTree
 input = sys.stdin.readline
 
 N, Q = map(int, input().split())
-dst = DualSegTree(N, lambda a, b: b, (1 << 31) - 1)
-for _ in range(Q):
+dst = DualSegTree(N, lambda a, b: max(a, b), (-1, (1 << 31) - 1))
+for i in range(Q):
     t, *q = map(int, input().split())
     if t == 0:
         a, b, x = q
-        dst.query(a, b + 1, x)
+        dst.query(a, b + 1, (i, x))
     else:
         i, = q
-        print(dst.get(i))
+        print(dst.get(i)[1])
