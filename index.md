@@ -231,6 +231,9 @@ data:
       path: tests/yosupo/tree_diameter.test.py
       title: tests/yosupo/tree_diameter.test.py
     - icon: ':heavy_check_mark:'
+      path: tests/yosupo/two_edge_connected_components.test.py
+      title: tests/yosupo/two_edge_connected_components.test.py
+    - icon: ':heavy_check_mark:'
       path: tests/yosupo/two_sat.test.py
       title: tests/yosupo/two_sat.test.py
     - icon: ':heavy_check_mark:'

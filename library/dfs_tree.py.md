@@ -12,6 +12,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/yosupo/cycle_detection_undirected.test.py
     title: tests/yosupo/cycle_detection_undirected.test.py
+  - icon: ':heavy_check_mark:'
+    path: tests/yosupo/two_edge_connected_components.test.py
+    title: tests/yosupo/two_edge_connected_components.test.py
   _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -64,11 +67,12 @@ data:
   isVerificationFile: false
   path: library/dfs_tree.py
   requiredBy: []
-  timestamp: '2022-12-18 14:07:14+09:00'
+  timestamp: '2022-12-20 01:37:04+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/grl_3_b.test.py
   - tests/aoj/grl_3_a.test.py
+  - tests/yosupo/two_edge_connected_components.test.py
   - tests/yosupo/cycle_detection_undirected.test.py
 documentation_of: library/dfs_tree.py
 layout: document

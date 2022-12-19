@@ -28,7 +28,7 @@ data:
   isVerificationFile: true
   path: tests/yosupo/tree_diameter.test.py
   requiredBy: []
-  timestamp: '2022-12-18 14:07:14+09:00'
+  timestamp: '2022-12-20 01:37:04+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/yosupo/tree_diameter.test.py
