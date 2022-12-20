@@ -26,14 +26,13 @@ data:
     \nN, M = map(int, input().split())\nE = [[] for _ in range(N)]\nedges = [tuple(map(int,\
     \ input().split())) for _ in range(M)]\nedges = [(u, v) if u < v else (v, u) for\
     \ u, v in edges]\ncnt = defaultdict(int)\nfor a, b in edges:\n    E[a].append(b)\n\
-    \    E[b].append(a)\n    if a > b:\n        a, b = b, a\n    cnt[(a, b)] += 1\n\
-    dups = set((a, b) for (a, b) in edges if cnt[(a, b)] > 1)\n\nbridges = DFSTree(N,\
-    \ E).bridges()\nB = set((u, v) if u < v else (v, u) for u, v in bridges)\nfor\
-    \ u, v in dups:\n    B.discard((u, v))\nuf = UnionFind(N)\nfor u, v in edges:\n\
-    \    if (u, v) in B:\n        continue\n    uf.unite(u, v)\n\ngroups = [[] for\
-    \ _ in range(N)]\nfor i in range(N):\n    par = uf.find(i)\n    groups[par].append(i)\n\
-    groups = [g for g in groups if g]\nprint(len(groups))\nfor g in groups:\n    print(len(g),\
-    \ *g)\n"
+    \    E[b].append(a)\n    cnt[(a, b)] += 1\ndups = set((a, b) for (a, b) in edges\
+    \ if cnt[(a, b)] > 1)\n\nbridges = DFSTree(N, E).bridges()\nB = set((u, v) if\
+    \ u < v else (v, u) for u, v in bridges)\nfor u, v in dups:\n    B.discard((u,\
+    \ v))\nuf = UnionFind(N)\nfor u, v in edges:\n    if (u, v) in B:\n        continue\n\
+    \    uf.unite(u, v)\n\ngroups = [[] for _ in range(N)]\nfor i in range(N):\n \
+    \   par = uf.find(i)\n    groups[par].append(i)\ngroups = [g for g in groups if\
+    \ g]\nprint(len(groups))\nfor g in groups:\n    print(len(g), *g)\n"
   dependsOn:
   - library/dfs_tree.py
   - library/union_find.py
