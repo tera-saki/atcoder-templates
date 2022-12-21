@@ -40,12 +40,14 @@ data:
     \            retc += min_cap * H[t]\n\n            cur = t\n            while\
     \ cur != s:\n                pv, pe = prev[cur]\n                pe[0] -= min_cap\n\
     \                pe[3][0] += min_cap\n                cur = pv\n        return\
-    \ retf, retc\n"
+    \ retf, retc\n\n    def edges(self):\n        E = []\n        for i in range(self.N):\n\
+    \            for cap, j, _, _ in solver.G[i]:\n                E.append((i, j,\
+    \ cap))\n        return E\n"
   dependsOn: []
   isVerificationFile: false
   path: library/primal_dual.py
   requiredBy: []
-  timestamp: '2022-12-21 19:02:29+09:00'
+  timestamp: '2022-12-21 22:20:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/grl_6_b.test.py

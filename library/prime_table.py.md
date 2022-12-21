@@ -29,7 +29,7 @@ data:
   isVerificationFile: false
   path: library/prime_table.py
   requiredBy: []
-  timestamp: '2022-12-21 19:02:29+09:00'
+  timestamp: '2022-12-21 22:20:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yuki/1140.test.py
