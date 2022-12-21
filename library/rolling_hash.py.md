@@ -28,7 +28,7 @@ data:
   isVerificationFile: false
   path: library/rolling_hash.py
   requiredBy: []
-  timestamp: '2022-12-20 01:37:04+09:00'
+  timestamp: '2022-12-21 19:02:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/alds1_14_b.test.py

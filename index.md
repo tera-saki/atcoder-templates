@@ -12,6 +12,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/binary_indexed_tree.py
       title: library/binary_indexed_tree.py
+    - icon: ':warning:'
+      path: library/bipartite_matching.py
+      title: library/bipartite_matching.py
     - icon: ':heavy_check_mark:'
       path: library/combination.py
       title: library/combination.py
@@ -111,6 +114,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/zaatsu.py
       title: library/zaatsu.py
+  - name: tests/yosupo
+    pages:
+    - icon: ':warning:'
+      path: tests/yosupo/bipartite_matching.py
+      title: tests/yosupo/bipartite_matching.py
   verificationCategories:
   - name: tests/aoj
     pages:
