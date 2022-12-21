@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: tests/yosupo/bipartite_matching.py
-    title: tests/yosupo/bipartite_matching.py
-  _extendedVerifiedWith: []
+  _extendedRequiredBy: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: tests/yosupo/bipartite_matching.test.py
+    title: tests/yosupo/bipartite_matching.test.py
   _isVerificationFailed: false
   _pathExtension: py
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://snuke.hatenablog.com/entry/2019/05/07/013609
@@ -23,7 +23,8 @@ data:
     \        self.pair_l = [None] * self.L\n        self.pair_r = [None] * self.R\n\
     \n    def add_edge(self, a: int, b: int) -> None:\n        \"\"\"add edges\n\n\
     \        Args:\n            a (int): left vertex index (0 <= a < L)\n        \
-    \    b (int): right vertex index (0 <= b < R)\n        \"\"\"\n        self.G[a].append(b)\n\
+    \    b (int): right vertex index (0 <= b < R)\n        \"\"\"\n        assert\
+    \ 0 <= a < self.L\n        assert 0 <= b < self.R\n        self.G[a].append(b)\n\
     \n    def solve(self) -> int:\n        ret = 0\n        while True:\n        \
     \    pre = [None] * self.L\n            root = [None] * self.L\n            update\
     \ = False\n\n            dq = deque()\n            for i in range(self.L):\n \
@@ -45,11 +46,11 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: library/bipartite_matching.py
-  requiredBy:
-  - tests/yosupo/bipartite_matching.py
+  requiredBy: []
   timestamp: '2022-12-21 19:02:29+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - tests/yosupo/bipartite_matching.test.py
 documentation_of: library/bipartite_matching.py
 layout: document
 redirect_from:

@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: library/bipartite_matching.py
     title: library/bipartite_matching.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: py
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     PROBLEM: https://judge.yosupo.jp/problem/bipartitematching
     links:
@@ -25,16 +25,16 @@ data:
     \ pairs:\n    print(l, r)\n"
   dependsOn:
   - library/bipartite_matching.py
-  isVerificationFile: false
-  path: tests/yosupo/bipartite_matching.py
+  isVerificationFile: true
+  path: tests/yosupo/bipartite_matching.test.py
   requiredBy: []
   timestamp: '2022-12-21 19:02:29+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: tests/yosupo/bipartite_matching.py
+documentation_of: tests/yosupo/bipartite_matching.test.py
 layout: document
 redirect_from:
-- /library/tests/yosupo/bipartite_matching.py
-- /library/tests/yosupo/bipartite_matching.py.html
-title: tests/yosupo/bipartite_matching.py
+- /verify/tests/yosupo/bipartite_matching.test.py
+- /verify/tests/yosupo/bipartite_matching.test.py.html
+title: tests/yosupo/bipartite_matching.test.py
 ---
