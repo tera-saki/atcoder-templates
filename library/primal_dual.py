@@ -68,3 +68,10 @@ class PrimalDual:
                 pe[3][0] += min_cap
                 cur = pv
         return retf, retc
+
+    def edges(self):
+        E = []
+        for i in range(self.N):
+            for cap, j, _, _ in solver.G[i]:
+                E.append((i, j, cap))
+        return E
