@@ -6,40 +6,29 @@ input = sys.stdin.readline
 
 
 N, M = map(int, input().split())
-E = [[] for _ in range(N)]
-eidx = {}
+dfs_tree = DFSTree(N)
 for i in range(M):
     u, v = map(int, input().split())
-    E[u].append(v)
-    E[v].append(u)
-    if u > v:
-        u, v = v, u
-    j = eidx.get((u, v))
-    if j is None:
-        eidx[(u, v)] = i
-    else:
-        print(2)
-        print(u, v)
-        print(i, j)
-        exit()
+    dfs_tree.add_edge(u, v)
+dfs_tree.build()
 
-solver = DFSTree(N, E)
-back_edges = solver.back_edge
 for i in range(N):
-    if not back_edges[i]:
+    if not dfs_tree.back_edge[i]:
         continue
-    backto = back_edges[i][0]
-    path = solver.get_path(i)
-    ansv = path[path.index(backto):]
-    anse = []
-    for s, t in zip(ansv, ansv[1:]):
-        if s > t:
-            s, t = t, s
-        anse.append(eidx[(s, t)])
-    anse.append(eidx[min(i, backto), max(i, backto)])
-    print(len(ansv))
-    print(*ansv)
-    print(*anse)
+    backto, eidx = dfs_tree.back_edge[i][0]
+    V = [backto]
+    E = [eidx]
+    cur = i
+    while True:
+        if cur == backto:
+            break
+        v, eidx = dfs_tree.par[cur]
+        V.append(cur)
+        E.append(eidx)
+        cur = v
+    print(len(V))
+    print(*V)
+    print(*E)
     break
 else:
     print(-1)

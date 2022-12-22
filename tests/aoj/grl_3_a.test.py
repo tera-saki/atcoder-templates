@@ -5,12 +5,12 @@ from library.dfs_tree import DFSTree
 input = sys.stdin.readline
 
 N, M = map(int, input().split())
-E = [[] for _ in range(N)]
+dfs_tree = DFSTree(N)
 for _ in range(M):
     s, t = map(int, input().split())
-    E[s].append(t)
-    E[t].append(s)
+    dfs_tree.add_edge(s, t)
+dfs_tree.build()
 
-points = DFSTree(N, E).articulation_points()
+points = dfs_tree.articulation_points()
 for p in points:
     print(p)
