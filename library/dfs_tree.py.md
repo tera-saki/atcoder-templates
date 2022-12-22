@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tests/aoj/grl_3_a.test.py
     title: tests/aoj/grl_3_a.test.py
   - icon: ':heavy_check_mark:'
@@ -15,9 +15,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/yosupo/two_edge_connected_components.test.py
     title: tests/yosupo/two_edge_connected_components.test.py
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: py
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://codeforces.com/blog/entry/68138
@@ -45,9 +45,9 @@ data:
     \   else:\n                    if ~self.ord[v]:\n                        continue\n\
     \                    self.ord[v] = cnt\n                    self.low[v] = cnt\n\
     \                    cnt += 1\n                    # p -> v is span-edge.\n  \
-    \                  self.par[v] = (p, p_eid)\n                    if ~p:\n    \
-    \                    self.span_edge[p].append((v, p_eid))\n                  \
-    \  stack.append((~v, p, p_eid))\n\n                    for d, eid in self.E[v][::-1]:\n\
+    \                  if ~p:\n                        self.par[v] = (p, p_eid)\n\
+    \                        self.span_edge[p].append((v, p_eid))\n              \
+    \      stack.append((~v, p, p_eid))\n\n                    for d, eid in self.E[v][::-1]:\n\
     \                        if eid == p_eid:\n                            continue\n\
     \                        if ~self.ord[d]:\n                            # v ->\
     \ d is back-edge since v is already visited.\n                            self.back_edge[v].append((d,\
@@ -67,10 +67,15 @@ data:
     \       if ~tecc_id[d] or self.is_bridge[eid]:\n                        continue\n\
     \                    stack.append(d)\n            cnt += 1\n        ret = [[]\
     \ for _ in range(cnt)]\n        for i, tid in enumerate(tecc_id):\n          \
-    \  ret[tid].append(i)\n        return ret\n\n    def _search_bridge(self) -> None:\n\
-    \        for u in range(self.N):\n            for v, i in self.span_edge[u]:\n\
-    \                # (u, v) is bridge if vertex u has child v\n                #\
-    \ that does not have lowlink to pass over its parent\n                self.is_bridge[i]\
+    \  ret[tid].append(i)\n        return ret\n\n    def biconnected_components(self)\
+    \ -> List[List[int]]:\n        bc_id = [-1] * len(self.edges)\n        visited\
+    \ = [False] * self.N\n        cnt = 0\n        for i in range(self.N):\n     \
+    \       if visited[i]:\n                continue\n            stack = [i]\n  \
+    \          while stack:\n                v = stack.pop()\n                if visited[v]:\n\
+    \                    continue\n\n    def _search_bridge(self) -> None:\n     \
+    \   for u in range(self.N):\n            for v, i in self.span_edge[u]:\n    \
+    \            # (u, v) is bridge if vertex u has child v\n                # that\
+    \ does not have lowlink to pass over its parent\n                self.is_bridge[i]\
     \ = self.ord[u] < self.low[v]\n\n    def _search_articulation_points(self) ->\
     \ None:\n        for u in range(self.N):\n            if self.par[u] is None:\n\
     \                self.is_art[u] = len(self.span_edge[u]) >= 2\n            else:\n\
@@ -82,7 +87,7 @@ data:
   path: library/dfs_tree.py
   requiredBy: []
   timestamp: '2022-12-22 18:55:39+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/grl_3_b.test.py
   - tests/aoj/grl_3_a.test.py

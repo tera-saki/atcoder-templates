@@ -24,7 +24,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/cumulative_sum_2d.py
       title: library/cumulative_sum_2d.py
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: library/dfs_tree.py
       title: library/dfs_tree.py
     - icon: ':warning:'
@@ -177,7 +177,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/grl_1_b.test.py
       title: tests/aoj/grl_1_b.test.py
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: tests/aoj/grl_3_a.test.py
       title: tests/aoj/grl_3_a.test.py
     - icon: ':heavy_check_mark:'
