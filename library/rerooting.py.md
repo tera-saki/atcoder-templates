@@ -58,7 +58,7 @@ data:
   isVerificationFile: false
   path: library/rerooting.py
   requiredBy: []
-  timestamp: '2022-12-21 22:20:16+09:00'
+  timestamp: '2022-12-22 18:55:39+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/grl_5_a.test.py

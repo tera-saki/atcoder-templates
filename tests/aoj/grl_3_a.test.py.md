@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: library/dfs_tree.py
     title: library/dfs_tree.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: py
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/GRL_3_A
     links:
@@ -19,16 +19,16 @@ data:
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "# verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/GRL_3_A\n\
     import sys\nfrom library.dfs_tree import DFSTree\n\ninput = sys.stdin.readline\n\
-    \nN, M = map(int, input().split())\nE = [[] for _ in range(N)]\nfor _ in range(M):\n\
-    \    s, t = map(int, input().split())\n    E[s].append(t)\n    E[t].append(s)\n\
-    \npoints = DFSTree(N, E).articulation_points()\nfor p in points:\n    print(p)\n"
+    \nN, M = map(int, input().split())\ndfs_tree = DFSTree(N)\nfor _ in range(M):\n\
+    \    s, t = map(int, input().split())\n    dfs_tree.add_edge(s, t)\ndfs_tree.build()\n\
+    \npoints = dfs_tree.articulation_points()\nfor p in points:\n    print(p)\n"
   dependsOn:
   - library/dfs_tree.py
   isVerificationFile: true
   path: tests/aoj/grl_3_a.test.py
   requiredBy: []
-  timestamp: '2022-12-21 22:20:16+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-12-22 18:55:39+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: tests/aoj/grl_3_a.test.py
 layout: document

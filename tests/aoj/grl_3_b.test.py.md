@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: library/dfs_tree.py
     title: library/dfs_tree.py
   _extendedRequiredBy: []
@@ -19,16 +19,16 @@ data:
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "# verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/GRL_3_B\n\
     import sys\nfrom library.dfs_tree import DFSTree\n\ninput = sys.stdin.readline\n\
-    \nN, M = map(int, input().split())\nE = [[] for _ in range(N)]\nfor _ in range(M):\n\
-    \    s, t = map(int, input().split())\n    E[s].append(t)\n    E[t].append(s)\n\
-    \nbridges = DFSTree(N, E).bridges()\nbridges = [(s, t) if s < t else (t, s) for\
-    \ s, t in bridges]\nfor s, t in sorted(bridges):\n    print(s, t)\n"
+    \nN, M = map(int, input().split())\ndfs_tree = DFSTree(N)\nfor _ in range(M):\n\
+    \    s, t = map(int, input().split())\n    dfs_tree.add_edge(s, t)\ndfs_tree.build()\n\
+    bridges = dfs_tree.bridges()\nbridges = [(s, t) if s < t else (t, s) for s, t\
+    \ in bridges]\nfor s, t in sorted(bridges):\n    print(s, t)\n"
   dependsOn:
   - library/dfs_tree.py
   isVerificationFile: true
   path: tests/aoj/grl_3_b.test.py
   requiredBy: []
-  timestamp: '2022-12-21 22:20:16+09:00'
+  timestamp: '2022-12-22 18:55:39+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/aoj/grl_3_b.test.py

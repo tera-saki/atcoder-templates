@@ -4,9 +4,6 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: tests/yosupo/two_edge_connected_components.test.py
-    title: tests/yosupo/two_edge_connected_components.test.py
-  - icon: ':heavy_check_mark:'
     path: tests/yosupo/union_find.test.py
     title: tests/yosupo/union_find.test.py
   _isVerificationFailed: false
@@ -32,10 +29,9 @@ data:
   isVerificationFile: false
   path: library/union_find.py
   requiredBy: []
-  timestamp: '2022-12-21 22:20:16+09:00'
+  timestamp: '2022-12-22 18:55:39+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/yosupo/two_edge_connected_components.test.py
   - tests/yosupo/union_find.test.py
 documentation_of: library/union_find.py
 layout: document
