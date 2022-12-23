@@ -204,6 +204,9 @@ data:
   - name: tests/yosupo
     pages:
     - icon: ':heavy_check_mark:'
+      path: tests/yosupo/biconnected_components.test.py
+      title: tests/yosupo/biconnected_components.test.py
+    - icon: ':heavy_check_mark:'
       path: tests/yosupo/bipartite_matching.test.py
       title: tests/yosupo/bipartite_matching.test.py
     - icon: ':heavy_check_mark:'
