@@ -78,10 +78,10 @@ data:
     \       if ~tecc_id[d] or self.is_bridge[eid]:\n                        continue\n\
     \                    stack.append(d)\n            cnt += 1\n        ret = [[]\
     \ for _ in range(cnt)]\n        for i, tid in enumerate(tecc_id):\n          \
-    \  ret[tid].append(i)\n        return ret\n\n    def biconnected_components(self)\
-    \ -> List[List[int]]:\n        assert self.built\n        ret = [set() for _ in\
-    \ range(self.bcc_num)]\n        for eid, tid in enumerate(self.tvcc_id):\n   \
-    \         assert ~eid\n            u, v = self.edges[eid]\n            ret[tid].add(u)\n\
+    \  assert ~tid\n            ret[tid].append(i)\n        return ret\n\n    def\
+    \ biconnected_components(self) -> List[List[int]]:\n        assert self.built\n\
+    \        ret = [set() for _ in range(self.bcc_num)]\n        for eid, tid in enumerate(self.tvcc_id):\n\
+    \            assert ~tid\n            u, v = self.edges[eid]\n            ret[tid].add(u)\n\
     \            ret[tid].add(v)\n        ret = [list(s) for s in ret]\n        for\
     \ i in range(self.N):\n            if not self.E[i]:\n                ret.append([i])\n\
     \        return ret\n\n    def _search_bridge(self) -> None:\n        for u in\
@@ -98,7 +98,7 @@ data:
   isVerificationFile: false
   path: library/dfs_tree.py
   requiredBy: []
-  timestamp: '2022-12-22 18:55:39+09:00'
+  timestamp: '2022-12-24 12:53:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/grl_3_b.test.py
