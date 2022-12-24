@@ -112,6 +112,7 @@ class DFSTree:
             cnt += 1
         ret = [[] for _ in range(cnt)]
         for i, tid in enumerate(tecc_id):
+            assert ~tid
             ret[tid].append(i)
         return ret
 
@@ -119,7 +120,7 @@ class DFSTree:
         assert self.built
         ret = [set() for _ in range(self.bcc_num)]
         for eid, tid in enumerate(self.tvcc_id):
-            assert ~eid
+            assert ~tid
             u, v = self.edges[eid]
             ret[tid].add(u)
             ret[tid].add(v)
