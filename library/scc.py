@@ -18,6 +18,9 @@ class SCC:
             c = self.cid[i]
             self.C[c].append(i)
 
+    def get_components(self):
+        return self.C
+
     def to_dag(self):
         NE = [set() for _ in range(self.c_num)]
         for i in range(self.N):
@@ -45,21 +48,19 @@ class SCC:
                 self.c_num += 1
 
     def _dfs(self, v, flag):
-        stack = [~v, v]
+        stack = [v]
         while stack:
             v = stack.pop()
             if v < 0:
                 self.V.append(~v)
-                continue
-
-            if flag[v]:
-                stack.pop()
-                continue
-            flag[v] = True
-            for dest in self.E[v]:
-                if not flag[dest]:
-                    stack.append(~dest)
-                    stack.append(dest)
+            else:
+                if flag[v]:
+                    continue
+                flag[v] = True
+                stack.append(~v)
+                for d in self.E[v]:
+                    if not flag[d]:
+                        stack.append(d)
 
     def _dfs2(self, v, flag):
         stack = [v]
