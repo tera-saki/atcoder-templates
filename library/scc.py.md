@@ -27,32 +27,32 @@ data:
     \ = []\n        self.cid = [None] * N\n        self.c_num = 0\n        self._traverse()\n\
     \        self._traverse2()\n\n        self.C = [[] for _ in range(self.c_num)]\n\
     \        for i in range(self.N):\n            c = self.cid[i]\n            self.C[c].append(i)\n\
-    \n    def to_dag(self):\n        NE = [set() for _ in range(self.c_num)]\n   \
-    \     for i in range(self.N):\n            ci = self.cid[i]\n            for j\
-    \ in self.E[i]:\n                cj = self.cid[j]\n                if ci == cj:\n\
-    \                    continue\n                NE[ci].add(cj)\n        return\
-    \ self.C, [list(ne) for ne in NE]\n\n    def _traverse(self):\n        flag =\
-    \ [False] * self.N\n        for i in range(self.N):\n            if not flag[i]:\n\
-    \                self._dfs(i, flag)\n        self.V.reverse()\n\n    def _traverse2(self):\n\
-    \        flag = [False] * self.N\n        cid = 0\n        for v in self.V:\n\
-    \            if not flag[v]:\n                self._dfs2(v, flag)\n          \
-    \      self.c_num += 1\n\n    def _dfs(self, v, flag):\n        stack = [~v, v]\n\
-    \        while stack:\n            v = stack.pop()\n            if v < 0:\n  \
-    \              self.V.append(~v)\n                continue\n\n            if flag[v]:\n\
-    \                stack.pop()\n                continue\n            flag[v] =\
-    \ True\n            for dest in self.E[v]:\n                if not flag[dest]:\n\
-    \                    stack.append(~dest)\n                    stack.append(dest)\n\
-    \n    def _dfs2(self, v, flag):\n        stack = [v]\n        while stack:\n \
-    \           v = stack.pop()\n            if flag[v]:\n                continue\n\
-    \            flag[v] = True\n            self.cid[v] = self.c_num\n          \
-    \  for dest in self.I[v]:\n                if not flag[dest]:\n              \
-    \      stack.append(dest)\n"
+    \n    def get_components(self):\n        return self.C\n\n    def to_dag(self):\n\
+    \        NE = [set() for _ in range(self.c_num)]\n        for i in range(self.N):\n\
+    \            ci = self.cid[i]\n            for j in self.E[i]:\n             \
+    \   cj = self.cid[j]\n                if ci == cj:\n                    continue\n\
+    \                NE[ci].add(cj)\n        return self.C, [list(ne) for ne in NE]\n\
+    \n    def _traverse(self):\n        flag = [False] * self.N\n        for i in\
+    \ range(self.N):\n            if not flag[i]:\n                self._dfs(i, flag)\n\
+    \        self.V.reverse()\n\n    def _traverse2(self):\n        flag = [False]\
+    \ * self.N\n        cid = 0\n        for v in self.V:\n            if not flag[v]:\n\
+    \                self._dfs2(v, flag)\n                self.c_num += 1\n\n    def\
+    \ _dfs(self, v, flag):\n        stack = [v]\n        while stack:\n          \
+    \  v = stack.pop()\n            if v < 0:\n                self.V.append(~v)\n\
+    \            else:\n                if flag[v]:\n                    continue\n\
+    \                flag[v] = True\n                stack.append(~v)\n          \
+    \      for d in self.E[v]:\n                    if not flag[d]:\n            \
+    \            stack.append(d)\n\n    def _dfs2(self, v, flag):\n        stack =\
+    \ [v]\n        while stack:\n            v = stack.pop()\n            if flag[v]:\n\
+    \                continue\n            flag[v] = True\n            self.cid[v]\
+    \ = self.c_num\n            for dest in self.I[v]:\n                if not flag[dest]:\n\
+    \                    stack.append(dest)\n"
   dependsOn: []
   isVerificationFile: false
   path: library/scc.py
   requiredBy:
   - library/two_sat.py
-  timestamp: '2022-12-24 12:53:33+09:00'
+  timestamp: '2022-12-31 22:10:55+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/0366.test.py
