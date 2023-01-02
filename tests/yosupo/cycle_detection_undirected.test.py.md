@@ -32,7 +32,7 @@ data:
   isVerificationFile: true
   path: tests/yosupo/cycle_detection_undirected.test.py
   requiredBy: []
-  timestamp: '2022-12-31 22:10:55+09:00'
+  timestamp: '2023-01-02 14:29:55+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/yosupo/cycle_detection_undirected.test.py

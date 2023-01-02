@@ -56,7 +56,7 @@ data:
   isVerificationFile: false
   path: library/dual_segment_tree.py
   requiredBy: []
-  timestamp: '2022-12-31 22:10:55+09:00'
+  timestamp: '2023-01-02 14:29:55+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/dsl_2_e.test.py

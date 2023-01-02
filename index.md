@@ -93,7 +93,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/swag.py
       title: library/swag.py
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: library/topological_sort.py
       title: library/topological_sort.py
     - icon: ':heavy_check_mark:'
@@ -183,6 +183,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/grl_3_b.test.py
       title: tests/aoj/grl_3_b.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/grl_4_a.test.py
+      title: tests/aoj/grl_4_a.test.py
     - icon: ':heavy_check_mark:'
       path: tests/aoj/grl_5_a.test.py
       title: tests/aoj/grl_5_a.test.py
