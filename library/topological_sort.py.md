@@ -31,7 +31,7 @@ data:
   isVerificationFile: false
   path: library/topological_sort.py
   requiredBy: []
-  timestamp: '2023-01-02 14:29:55+09:00'
+  timestamp: '2023-01-02 17:52:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/grl_4_a.test.py
