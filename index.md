@@ -52,6 +52,9 @@ data:
       path: library/lca.py
       title: library/lca.py
     - icon: ':heavy_check_mark:'
+      path: library/li_chao_tree.py
+      title: library/li_chao_tree.py
+    - icon: ':heavy_check_mark:'
       path: library/lis.py
       title: library/lis.py
     - icon: ':heavy_check_mark:'
@@ -231,6 +234,9 @@ data:
       path: tests/yosupo/lca.test.py
       title: tests/yosupo/lca.test.py
     - icon: ':heavy_check_mark:'
+      path: tests/yosupo/line_add_get_min.test.py
+      title: tests/yosupo/line_add_get_min.test.py
+    - icon: ':heavy_check_mark:'
       path: tests/yosupo/point_add_range_sum.test.py
       title: tests/yosupo/point_add_range_sum.test.py
     - icon: ':heavy_check_mark:'
@@ -239,6 +245,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/yosupo/scc.test.py
       title: tests/yosupo/scc.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/yosupo/segment_add_get_min.test.py
+      title: tests/yosupo/segment_add_get_min.test.py
     - icon: ':heavy_check_mark:'
       path: tests/yosupo/shortest_path.test.py
       title: tests/yosupo/shortest_path.test.py
