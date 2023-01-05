@@ -24,17 +24,16 @@ data:
     X = []\nfor l, r, a, b in lines:\n    X.append(l)\n    X.append(r)\nfor t, *q\
     \ in query:\n    if t == 0:\n        l, r, a, b = q\n        X.append(l)\n   \
     \     X.append(r)\n    else:\n        p, = q\n        X.append(p)\n\nX = sorted(set(X))\n\
-    idx = {x: i for i, x in enumerate(X)}\n\nsolver = LiChaoTree(X)\nfor l, r, a,\
-    \ b in lines:\n    solver.add_line_segment((a, b), idx[l], idx[r])\nfor t, *q\
-    \ in query:\n    if t == 0:\n        l, r, a, b = q\n        solver.add_line_segment((a,\
-    \ b), idx[l], idx[r])\n    else:\n        p, = q\n        v = solver.query(idx[p])\n\
-    \        print(v if v < solver.inf else 'INFINITY')\n"
+    solver = LiChaoTree(X)\nfor l, r, a, b in lines:\n    solver.add_line_segment((a,\
+    \ b), l, r)\nfor t, *q in query:\n    if t == 0:\n        l, r, a, b = q\n   \
+    \     solver.add_line_segment((a, b), l, r)\n    else:\n        p, = q\n     \
+    \   v = solver.query(p)\n        print(v if v < solver.inf else 'INFINITY')\n"
   dependsOn:
   - library/li_chao_tree.py
   isVerificationFile: true
   path: tests/yosupo/segment_add_get_min.test.py
   requiredBy: []
-  timestamp: '2023-01-05 18:27:34+09:00'
+  timestamp: '2023-01-05 19:39:10+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/yosupo/segment_add_get_min.test.py

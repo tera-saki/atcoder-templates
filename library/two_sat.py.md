@@ -38,7 +38,7 @@ data:
   isVerificationFile: false
   path: library/two_sat.py
   requiredBy: []
-  timestamp: '2023-01-05 18:27:34+09:00'
+  timestamp: '2023-01-05 19:39:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yuki/1955.test.py

@@ -22,15 +22,15 @@ data:
     \nN, Q = map(int, input().split())\nlines = [tuple(map(int, input().split()))\
     \ for _ in range(N)]\nquery = [tuple(map(int, input().split())) for _ in range(Q)]\n\
     X = []\nfor t, *q in query:\n    if t == 1:\n        p, = q\n        X.append(p)\n\
-    X = sorted(set(X))\nidx = {x: i for i, x in enumerate(X)}\n\nsolver = LiChaoTree(X)\n\
-    for line in lines:\n    solver.add_line(line)\nfor t, *q in query:\n    if t ==\
-    \ 0:\n        solver.add_line(q)\n    else:\n        p, = q\n        print(solver.query(idx[p]))\n"
+    X = sorted(set(X))\nsolver = LiChaoTree(X)\nfor line in lines:\n    solver.add_line(line)\n\
+    for t, *q in query:\n    if t == 0:\n        solver.add_line(q)\n    else:\n \
+    \       p, = q\n        print(solver.query(p))\n"
   dependsOn:
   - library/li_chao_tree.py
   isVerificationFile: true
   path: tests/yosupo/line_add_get_min.test.py
   requiredBy: []
-  timestamp: '2023-01-05 18:27:34+09:00'
+  timestamp: '2023-01-05 19:39:10+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/yosupo/line_add_get_min.test.py
