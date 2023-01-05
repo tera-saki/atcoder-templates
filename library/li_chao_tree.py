@@ -4,15 +4,14 @@ from typing import List, Tuple
 class LiChaoTree:
     # reference: https://smijake3.hatenablog.com/entry/2018/06/16/144548
     def __init__(self, X: List[int], inf: int = int(1e20)):
-        self.N = len(X)
+        for i in range(len(X) - 1):
+            assert X[i] < X[i + 1]
+        self.X = X
+        self.idx = {x: i for i, x in enumerate(self.X)}
+        self.N = len(self.X)
         self.K = (self.N - 1).bit_length()
         self.size = 1 << self.K
         self.data = [None] * (self.size << 1)
-
-        for i in range(self.N - 1):
-            assert X[i] <= X[i + 1]
-
-        self.X = X
         self.inf = inf
         for i in range(self.N, self.size):
             self.X.append(self.inf)
@@ -23,6 +22,7 @@ class LiChaoTree:
 
     def add_line_segment(self, line: Tuple[int, int], l: int, r: int) -> None:
         """add line segment to [l, r) range"""
+        l, r = self.idx[l], self.idx[r]
         l0, r0 = l, r
         l += self.size
         r += self.size
@@ -40,8 +40,8 @@ class LiChaoTree:
             r >>= 1
             sz <<= 1
 
-    def query(self, i: int) -> int:
-        x = self.X[i]
+    def query(self, x: int) -> int:
+        i = self.idx[x]
         i += self.size
         ret = self.inf
         while i:

@@ -21,16 +21,14 @@ for t, *q in query:
         X.append(p)
 
 X = sorted(set(X))
-idx = {x: i for i, x in enumerate(X)}
-
 solver = LiChaoTree(X)
 for l, r, a, b in lines:
-    solver.add_line_segment((a, b), idx[l], idx[r])
+    solver.add_line_segment((a, b), l, r)
 for t, *q in query:
     if t == 0:
         l, r, a, b = q
-        solver.add_line_segment((a, b), idx[l], idx[r])
+        solver.add_line_segment((a, b), l, r)
     else:
         p, = q
-        v = solver.query(idx[p])
+        v = solver.query(p)
         print(v if v < solver.inf else 'INFINITY')

@@ -13,8 +13,6 @@ for t, *q in query:
         p, = q
         X.append(p)
 X = sorted(set(X))
-idx = {x: i for i, x in enumerate(X)}
-
 solver = LiChaoTree(X)
 for line in lines:
     solver.add_line(line)
@@ -23,4 +21,4 @@ for t, *q in query:
         solver.add_line(q)
     else:
         p, = q
-        print(solver.query(idx[p]))
+        print(solver.query(p))
