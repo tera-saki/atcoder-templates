@@ -71,7 +71,7 @@ class DFSTree:
                         if eid == p_eid:
                             continue
                         if ~self.ord[d]:
-                            # v -> d is back-edge since v is already visited.
+                            # v -> d is back-edge since d is already visited.
                             self.back_edge[v].append((d, eid))
                             self.low[v] = min(self.low[v], self.ord[d])
                             estack.append(eid)
