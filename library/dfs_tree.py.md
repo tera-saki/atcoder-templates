@@ -59,7 +59,7 @@ data:
     \ p, p_eid))\n\n                    for d, eid in self.E[v][::-1]:\n         \
     \               if eid == p_eid:\n                            continue\n     \
     \                   if ~self.ord[d]:\n                            # v -> d is\
-    \ back-edge since v is already visited.\n                            self.back_edge[v].append((d,\
+    \ back-edge since d is already visited.\n                            self.back_edge[v].append((d,\
     \ eid))\n                            self.low[v] = min(self.low[v], self.ord[d])\n\
     \                            estack.append(eid)\n                            continue\n\
     \                        stack.append((d, v, eid))\n\n        self._search_bridge()\n\
@@ -98,7 +98,7 @@ data:
   isVerificationFile: false
   path: library/dfs_tree.py
   requiredBy: []
-  timestamp: '2023-01-06 19:38:20+09:00'
+  timestamp: '2023-01-06 21:27:55+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/grl_3_b.test.py
