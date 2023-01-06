@@ -20,7 +20,7 @@ data:
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
-  code: "class BitVector:\n    # reference: https://tiramister.net/blog/posts/bitvector/\n\
+  code: "import bisect\n\n\nclass BitVector:\n    # reference: https://tiramister.net/blog/posts/bitvector/\n\
     \    # (reference implemention is succinct, but this implemention is not succinct.)\n\
     \    def __init__(self, N):\n        self.N = N\n        self.block_num = (N +\
     \ 31) >> 5\n        self.bit = [0] * self.block_num\n        self.sum = [0] *\
@@ -65,21 +65,32 @@ data:
     \ for k in range(self.digit)[::-1]:\n            if x >> k & 1:\n            \
     \    i = self.B[k].rank(i) + self.offset[k]\n            else:\n             \
     \   i -= self.B[k].rank(i)\n        return i - self.start_index[x]\n\n    def\
-    \ range_freq(self, l, r, x):\n        \"\"\"return the number of x's in [l, r)\
-    \ range\"\"\"\n        return self.rank(r, x) - self.rank(l, x)\n\n    def quantile(self,\
-    \ l, r, n):\n        \"\"\"return n-th (0-indexed) smallest value in [l, r) range\"\
-    \"\"\n        assert 0 <= n < r - l\n        ret = 0\n        for k in range(self.digit)[::-1]:\n\
-    \            rank_l = self.B[k].rank(l)\n            rank_r = self.B[k].rank(r)\n\
-    \            ones = rank_r - rank_l\n            zeros = r - l - ones\n      \
-    \      if zeros <= n:\n                ret |= 1 << k\n                l = rank_l\
-    \ + self.offset[k]\n                r = rank_r + self.offset[k]\n            \
-    \    n -= zeros\n            else:\n                l -= rank_l\n            \
-    \    r -= rank_r\n        return self.nums[ret]\n"
+    \ quantile(self, l, r, n):\n        \"\"\"return n-th (0-indexed) smallest value\
+    \ in [l, r) range\"\"\"\n        assert 0 <= n < r - l\n        ret = 0\n    \
+    \    for k in range(self.digit)[::-1]:\n            rank_l = self.B[k].rank(l)\n\
+    \            rank_r = self.B[k].rank(r)\n            ones = rank_r - rank_l\n\
+    \            zeros = r - l - ones\n            if zeros <= n:\n              \
+    \  ret |= 1 << k\n                l = rank_l + self.offset[k]\n              \
+    \  r = rank_r + self.offset[k]\n                n -= zeros\n            else:\n\
+    \                l -= rank_l\n                r -= rank_r\n        return self.nums[ret]\n\
+    \n    def range_freq(self, l, r, lower, upper):\n        \"\"\"return the number\
+    \ of values s.t. lower <= x < upper\"\"\"\n        return self.range_freq_upper(l,\
+    \ r, upper) - self.range_freq_upper(l, r, lower)\n\n    def range_freq_upper(self,\
+    \ l, r, upper):\n        \"\"\"return the number of values s.t. x < upper in [l,\
+    \ r) range\"\"\"\n        if l >= r:\n            return 0\n        if upper >\
+    \ self.nums[-1]:\n            return r - l\n        if upper <= self.nums[0]:\n\
+    \            return 0\n        upper = bisect.bisect_left(self.nums, upper)\n\
+    \        ret = 0\n        for k in range(self.digit)[::-1]:\n            rank_l\
+    \ = self.B[k].rank(l)\n            rank_r = self.B[k].rank(r)\n            ones\
+    \ = rank_r - rank_l\n            zeros = r - l - ones\n            if upper >>\
+    \ k & 1:\n                ret += zeros\n                l = rank_l + self.offset[k]\n\
+    \                r = rank_r + self.offset[k]\n            else:\n            \
+    \    l -= rank_l\n                r -= rank_r\n        return ret\n"
   dependsOn: []
   isVerificationFile: false
   path: library/wavelet_matrix.py
   requiredBy: []
-  timestamp: '2023-01-06 21:27:55+09:00'
+  timestamp: '2023-01-07 00:50:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yosupo/static_range_frequency.test.py

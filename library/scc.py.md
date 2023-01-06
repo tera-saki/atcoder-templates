@@ -52,7 +52,7 @@ data:
   path: library/scc.py
   requiredBy:
   - library/two_sat.py
-  timestamp: '2023-01-06 21:27:55+09:00'
+  timestamp: '2023-01-07 00:50:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/0366.test.py
