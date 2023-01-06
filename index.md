@@ -115,6 +115,9 @@ data:
       path: library/utils.py
       title: library/utils.py
     - icon: ':heavy_check_mark:'
+      path: library/wavelet_matrix.py
+      title: library/wavelet_matrix.py
+    - icon: ':heavy_check_mark:'
       path: library/weighted_union_find.py
       title: library/weighted_union_find.py
     - icon: ':heavy_check_mark:'
@@ -243,6 +246,9 @@ data:
       path: tests/yosupo/range_affine_range_sum.test.py
       title: tests/yosupo/range_affine_range_sum.test.py
     - icon: ':heavy_check_mark:'
+      path: tests/yosupo/range_kth_smallest.test.py
+      title: tests/yosupo/range_kth_smallest.test.py
+    - icon: ':heavy_check_mark:'
       path: tests/yosupo/scc.test.py
       title: tests/yosupo/scc.test.py
     - icon: ':heavy_check_mark:'
@@ -251,6 +257,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/yosupo/shortest_path.test.py
       title: tests/yosupo/shortest_path.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/yosupo/static_range_frequency.test.py
+      title: tests/yosupo/static_range_frequency.test.py
     - icon: ':heavy_check_mark:'
       path: tests/yosupo/static_range_inversions_query.test.py
       title: tests/yosupo/static_range_inversions_query.test.py
