@@ -1,3 +1,6 @@
+import bisect
+
+
 class BitVector:
     # reference: https://tiramister.net/blog/posts/bitvector/
     # (reference implemention is succinct, but this implemention is not succinct.)
@@ -109,10 +112,6 @@ class WaveletMatrix:
                 i -= self.B[k].rank(i)
         return i - self.start_index[x]
 
-    def range_freq(self, l, r, x):
-        """return the number of x's in [l, r) range"""
-        return self.rank(r, x) - self.rank(l, x)
-
     def quantile(self, l, r, n):
         """return n-th (0-indexed) smallest value in [l, r) range"""
         assert 0 <= n < r - l
@@ -131,3 +130,31 @@ class WaveletMatrix:
                 l -= rank_l
                 r -= rank_r
         return self.nums[ret]
+
+    def range_freq(self, l, r, lower, upper):
+        """return the number of values s.t. lower <= x < upper"""
+        return self.range_freq_upper(l, r, upper) - self.range_freq_upper(l, r, lower)
+
+    def range_freq_upper(self, l, r, upper):
+        """return the number of values s.t. x < upper in [l, r) range"""
+        if l >= r:
+            return 0
+        if upper > self.nums[-1]:
+            return r - l
+        if upper <= self.nums[0]:
+            return 0
+        upper = bisect.bisect_left(self.nums, upper)
+        ret = 0
+        for k in range(self.digit)[::-1]:
+            rank_l = self.B[k].rank(l)
+            rank_r = self.B[k].rank(r)
+            ones = rank_r - rank_l
+            zeros = r - l - ones
+            if upper >> k & 1:
+                ret += zeros
+                l = rank_l + self.offset[k]
+                r = rank_r + self.offset[k]
+            else:
+                l -= rank_l
+                r -= rank_r
+        return ret
