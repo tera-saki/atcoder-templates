@@ -51,26 +51,26 @@ data:
     \ = {a: i for i, a in enumerate(self.nums)}\n        self.A = [self.idx[a] for\
     \ a in A]\n\n        self.digit = (len(self.nums) - 1).bit_length()\n        self.B\
     \ = [None] * self.digit\n        self.offset = [None] * self.digit\n        self.start_index\
-    \ = {}\n\n        T = self.A\n        for k in range(self.digit)[::-1]:\n    \
-    \        self.B[k] = BitVector(len(T) + 1)\n            zeros = []\n         \
-    \   ones = []\n            for i, a in enumerate(T):\n                if a >>\
-    \ k & 1:\n                    self.B[k].set(i)\n                    ones.append(a)\n\
+    \ = [-1] * len(self.nums)\n\n        T = self.A\n        for k in range(self.digit)[::-1]:\n\
+    \            self.B[k] = BitVector(len(T) + 1)\n            zeros = []\n     \
+    \       ones = []\n            for i, a in enumerate(T):\n                if a\
+    \ >> k & 1:\n                    self.B[k].set(i)\n                    ones.append(a)\n\
     \                else:\n                    zeros.append(a)\n            self.B[k].build()\n\
     \            self.offset[k] = len(zeros)\n            T = zeros + ones\n     \
-    \   for i, a in enumerate(T):\n            self.start_index.setdefault(a, i)\n\
-    \n    def access(self, i):\n        \"\"\"return i-th value\"\"\"\n        ret\
-    \ = 0\n        cur = i\n        for k in range(self.digit)[::-1]:\n          \
-    \  if self.B[k].access(cur):\n                ret |= (1 << k)\n              \
-    \  cur = self.B[k].rank(cur) + self.offset[k]\n            else:\n           \
-    \     cur -= self.B[k].rank(cur)\n        return self.nums[ret]\n\n    def rank(self,\
-    \ i, x):\n        \"\"\"return the number of x's in [0, i) range\"\"\"\n     \
-    \   x = self.idx.get(x)\n        if x is None:\n            return 0\n       \
-    \ for k in range(self.digit)[::-1]:\n            if x >> k & 1:\n            \
-    \    i = self.B[k].rank(i) + self.offset[k]\n            else:\n             \
-    \   i -= self.B[k].rank(i)\n        return i - self.start_index[x]\n\n    def\
-    \ quantile(self, l, r, n):\n        \"\"\"return n-th (0-indexed) smallest value\
-    \ in [l, r) range\"\"\"\n        assert 0 <= n < r - l\n        ret = 0\n    \
-    \    for k in range(self.digit)[::-1]:\n            rank_l = self.B[k].rank(l)\n\
+    \   for i, a in enumerate(T):\n            if self.start_index[a] < 0:\n     \
+    \           self.start_index[a] = i\n\n    def access(self, i):\n        \"\"\"\
+    return i-th value\"\"\"\n        ret = 0\n        cur = i\n        for k in range(self.digit)[::-1]:\n\
+    \            if self.B[k].access(cur):\n                ret |= (1 << k)\n    \
+    \            cur = self.B[k].rank(cur) + self.offset[k]\n            else:\n \
+    \               cur -= self.B[k].rank(cur)\n        return self.nums[ret]\n\n\
+    \    def rank(self, i, x):\n        \"\"\"return the number of x's in [0, i) range\"\
+    \"\"\n        x = self.idx.get(x)\n        if x is None:\n            return 0\n\
+    \        for k in range(self.digit)[::-1]:\n            if x >> k & 1:\n     \
+    \           i = self.B[k].rank(i) + self.offset[k]\n            else:\n      \
+    \          i -= self.B[k].rank(i)\n        return i - self.start_index[x]\n\n\
+    \    def quantile(self, l, r, n):\n        \"\"\"return n-th (0-indexed) smallest\
+    \ value in [l, r) range\"\"\"\n        assert 0 <= n < r - l\n        ret = 0\n\
+    \        for k in range(self.digit)[::-1]:\n            rank_l = self.B[k].rank(l)\n\
     \            rank_r = self.B[k].rank(r)\n            ones = rank_r - rank_l\n\
     \            zeros = r - l - ones\n            if zeros <= n:\n              \
     \  ret |= 1 << k\n                l = rank_l + self.offset[k]\n              \
@@ -100,7 +100,7 @@ data:
   isVerificationFile: false
   path: library/wavelet_matrix.py
   requiredBy: []
-  timestamp: '2023-01-07 12:45:37+09:00'
+  timestamp: '2023-01-07 17:30:41+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/1549.test.py

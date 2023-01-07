@@ -23,7 +23,7 @@ data:
   isVerificationFile: false
   path: library/zaatsu.py
   requiredBy: []
-  timestamp: '2023-01-07 12:45:37+09:00'
+  timestamp: '2023-01-07 17:30:41+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/dsl_4_a.test.py
