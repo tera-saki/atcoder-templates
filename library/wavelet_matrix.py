@@ -135,6 +135,20 @@ class WaveletMatrix:
         """return the number of values s.t. lower <= x < upper"""
         return self.range_freq_upper(l, r, upper) - self.range_freq_upper(l, r, lower)
 
+    def prev_value(self, l, r, upper):
+        """return maximum x s.t. x < upper in [l, r) range if exist, otherwise None"""
+        cnt = self.range_freq_upper(l, r, upper)
+        if cnt == 0:
+            return None
+        return self.quantile(l, r, cnt - 1)
+
+    def next_value(self, l, r, lower):
+        """return minimum x s.t. x >= lower in [l, r) range if exist, otherwise None"""
+        cnt = self.range_freq_upper(l, r, lower)
+        if cnt == r - l:
+            return None
+        return self.quantile(l, r, cnt)
+
     def range_freq_upper(self, l, r, upper):
         """return the number of values s.t. x < upper in [l, r) range"""
         if l >= r:
