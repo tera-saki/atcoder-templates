@@ -19,17 +19,16 @@ data:
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "# verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_14_B\n\
     import sys\nimport random\nfrom library.rolling_hash import RollingHash\n\ninput\
-    \ = sys.stdin.readline\n\nT = input()[:-1]\nP = input()[:-1]\n\nmod = (1 << 61)\
-    \ - 1\nbase = random.randint(100, mod - 1)\nRT = RollingHash(T, mod=mod, base=base)\n\
-    RP = RollingHash(P, mod=mod, base=base)\n\ntarget = RP.get(0, len(P))\nfor i in\
-    \ range(len(T)):\n    if i + len(P) > len(T):\n        break\n    h = RT.get(i,\
-    \ i + len(P))\n    if h == target:\n        print(i)\n"
+    \ = sys.stdin.readline\n\nT = input()[:-1]\nP = input()[:-1]\n\nRT = RollingHash(T)\n\
+    RP = RollingHash(P, base=RT.base)\n\ntarget = RP.get(0, len(P))\nfor i in range(len(T)):\n\
+    \    if i + len(P) > len(T):\n        break\n    h = RT.get(i, i + len(P))\n \
+    \   if h == target:\n        print(i)\n"
   dependsOn:
   - library/rolling_hash.py
   isVerificationFile: true
   path: tests/aoj/alds1_14_b.test.py
   requiredBy: []
-  timestamp: '2023-01-07 17:30:41+09:00'
+  timestamp: '2023-01-08 00:45:23+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/aoj/alds1_14_b.test.py

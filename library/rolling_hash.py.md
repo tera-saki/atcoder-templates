@@ -15,20 +15,27 @@ data:
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
-  code: "import random\n\n\nclass RollingHash:\n    def __init__(self, S, mod=(1 <<\
-    \ 61) - 1, base=None):\n        self.h = [0] * (len(S) + 1)\n        self.p =\
-    \ [1] * (len(S) + 1)\n        self.mod = mod\n\n        if base is None:\n   \
-    \         self.base = random.randint(2, self.mod - 2)\n        else:\n       \
-    \     self.base = base\n\n        for i in range(len(S)):\n            self.h[i\
-    \ + 1] = (self.h[i] * self.base + ord(S[i])) % self.mod\n        for i in range(len(S)):\n\
-    \            self.p[i + 1] = self.p[i] * self.base % self.mod\n\n    # S[l:r]\n\
-    \    def get(self, l, r):\n        return (self.h[r] - self.h[l] * self.p[r -\
-    \ l]) % self.mod\n"
+  code: "import random\n\n\nclass RollingHash:\n    MSK30 = (1 << 30) - 1\n    MSK31\
+    \ = (1 << 31) - 1\n    MOD = (1 << 61) - 1\n    MSK61 = MOD\n\n    def __init__(self,\
+    \ S, base=None):\n        self.h = [0] * (len(S) + 1)\n        self.p = [1] *\
+    \ (len(S) + 1)\n\n        if base is None:\n            self.base = random.randint(2,\
+    \ self.MOD - 2)\n        else:\n            self.base = base\n\n        for i\
+    \ in range(len(S)):\n            self.h[i + 1] = self._mod(self._mul(self.h[i],\
+    \ self.base) + ord(S[i]))\n        for i in range(len(S)):\n            self.p[i\
+    \ + 1] = self._mul(self.p[i], self.base)\n\n    # S[l:r]\n    def get(self, l,\
+    \ r):\n        return self._mod(self.h[r] - self._mul(self.h[l], self.p[r - l]))\n\
+    \n    def connect(self, h1, h2, l):\n        return self._mod(self._mul(h1, self.p[l])\
+    \ + h2)\n\n    def _mul(self, a, b):\n        au, ad = a >> 31, a & self.MSK31\n\
+    \        bu, bd = b >> 31, b & self.MSK31\n        mid = ad * bu + au * bd\n \
+    \       midu, midd = mid >> 30, mid & self.MSK30\n        return self._mod(au\
+    \ * bu * 2 + midu + (midd << 31) + ad * bd)\n\n    def _mod(self, x):\n      \
+    \  xu, xd = x >> 61, x & self.MSK61\n        ret = xu + xd\n        if ret >=\
+    \ self.MOD:\n            ret -= self.MOD\n        return ret\n"
   dependsOn: []
   isVerificationFile: false
   path: library/rolling_hash.py
   requiredBy: []
-  timestamp: '2023-01-07 17:30:41+09:00'
+  timestamp: '2023-01-08 00:45:23+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/alds1_14_b.test.py
