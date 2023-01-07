@@ -69,7 +69,7 @@ class WaveletMatrix:
         self.digit = (len(self.nums) - 1).bit_length()
         self.B = [None] * self.digit
         self.offset = [None] * self.digit
-        self.start_index = {}
+        self.start_index = [-1] * len(self.nums)
 
         T = self.A
         for k in range(self.digit)[::-1]:
@@ -86,7 +86,8 @@ class WaveletMatrix:
             self.offset[k] = len(zeros)
             T = zeros + ones
         for i, a in enumerate(T):
-            self.start_index.setdefault(a, i)
+            if self.start_index[a] < 0:
+                self.start_index[a] = i
 
     def access(self, i):
         """return i-th value"""
