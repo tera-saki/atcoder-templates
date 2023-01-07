@@ -8,10 +8,8 @@ input = sys.stdin.readline
 T = input()[:-1]
 P = input()[:-1]
 
-mod = (1 << 61) - 1
-base = random.randint(100, mod - 1)
-RT = RollingHash(T, mod=mod, base=base)
-RP = RollingHash(P, mod=mod, base=base)
+RT = RollingHash(T)
+RP = RollingHash(P, base=RT.base)
 
 target = RP.get(0, len(P))
 for i in range(len(T)):
