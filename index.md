@@ -136,6 +136,9 @@ data:
       path: tests/aoj/0560.test.py
       title: tests/aoj/0560.test.py
     - icon: ':heavy_check_mark:'
+      path: tests/aoj/1549.test.py
+      title: tests/aoj/1549.test.py
+    - icon: ':heavy_check_mark:'
       path: tests/aoj/1595.test.py
       title: tests/aoj/1595.test.py
     - icon: ':heavy_check_mark:'

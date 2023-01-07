@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: tests/aoj/1549.test.py
+    title: tests/aoj/1549.test.py
+  - icon: ':heavy_check_mark:'
     path: tests/yosupo/range_kth_smallest.test.py
     title: tests/yosupo/range_kth_smallest.test.py
   - icon: ':heavy_check_mark:'
@@ -75,7 +78,14 @@ data:
     \                l -= rank_l\n                r -= rank_r\n        return self.nums[ret]\n\
     \n    def range_freq(self, l, r, lower, upper):\n        \"\"\"return the number\
     \ of values s.t. lower <= x < upper\"\"\"\n        return self.range_freq_upper(l,\
-    \ r, upper) - self.range_freq_upper(l, r, lower)\n\n    def range_freq_upper(self,\
+    \ r, upper) - self.range_freq_upper(l, r, lower)\n\n    def prev_value(self, l,\
+    \ r, upper):\n        \"\"\"return maximum x s.t. x < upper in [l, r) range if\
+    \ exist, otherwise None\"\"\"\n        cnt = self.range_freq_upper(l, r, upper)\n\
+    \        if cnt == 0:\n            return None\n        return self.quantile(l,\
+    \ r, cnt - 1)\n\n    def next_value(self, l, r, lower):\n        \"\"\"return\
+    \ minimum x s.t. x >= lower in [l, r) range if exist, otherwise None\"\"\"\n \
+    \       cnt = self.range_freq_upper(l, r, lower)\n        if cnt == r - l:\n \
+    \           return None\n        return self.quantile(l, r, cnt)\n\n    def range_freq_upper(self,\
     \ l, r, upper):\n        \"\"\"return the number of values s.t. x < upper in [l,\
     \ r) range\"\"\"\n        if l >= r:\n            return 0\n        if upper >\
     \ self.nums[-1]:\n            return r - l\n        if upper <= self.nums[0]:\n\
@@ -90,9 +100,10 @@ data:
   isVerificationFile: false
   path: library/wavelet_matrix.py
   requiredBy: []
-  timestamp: '2023-01-07 00:50:42+09:00'
+  timestamp: '2023-01-07 12:45:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - tests/aoj/1549.test.py
   - tests/yosupo/static_range_frequency.test.py
   - tests/yosupo/range_kth_smallest.test.py
 documentation_of: library/wavelet_matrix.py
