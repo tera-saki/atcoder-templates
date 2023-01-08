@@ -33,7 +33,7 @@ data:
   isVerificationFile: true
   path: tests/yosupo/segment_add_get_min.test.py
   requiredBy: []
-  timestamp: '2023-01-08 00:45:23+09:00'
+  timestamp: '2023-01-08 11:42:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/yosupo/segment_add_get_min.test.py
