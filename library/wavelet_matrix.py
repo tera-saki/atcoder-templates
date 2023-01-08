@@ -3,34 +3,60 @@ import bisect
 
 class BitVector:
     # reference: https://tiramister.net/blog/posts/bitvector/
-    # (reference implemention is succinct, but this implemention is not succinct.)
+    TABLE = bytes([
+        0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4,
+        1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
+        1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+        1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+        3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
+        1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+        3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+        3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
+        3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
+        4, 5, 5, 6, 5, 6, 6, 7, 5, 6, 6, 7, 6, 7, 7, 8,
+    ])
+
     def __init__(self, N):
-        self.N = N
-        self.block_num = (N + 31) >> 5
-        self.bit = [0] * self.block_num
-        self.sum = [0] * self.block_num
+        self.cnum = (N + 255) >> 8
+
+        self.bit = bytearray(self.cnum << 5)
+        self.chunk = [0] * (self.cnum + 1)
+        self.blocks = bytearray(self.cnum << 5)
 
         self.built = False
 
     def set(self, pos):
-        self.bit[pos >> 5] |= 1 << (pos & 31)
-
-    def build(self):
-        assert not self.built
-        for i in range(1, self.block_num):
-            self.sum[i] = self.sum[i - 1] + self.popcount(self.bit[i - 1])
-        self.built = True
+        self.bit[pos >> 3] |= 1 << (pos & 7)
 
     def access(self, pos):
-        """return pos-th bit"""
-        return self.bit[pos >> 5] >> (pos & 31) & 1
+        return self.bit[pos >> 3] >> (pos & 7) & 1
+
+    def popcount(self, num):
+        return self.TABLE[num]
+
+    def build(self):
+        for i in range(self.cnum):
+            k = i << 5
+            for j in range(31):
+                self.blocks[k + 1] = self.blocks[k] + self.popcount(self.bit[k])
+                k += 1
+            self.chunk[i + 1] = self.chunk[i] + self.blocks[k] + self.popcount(self.bit[k])
+        self.built = True
 
     def rank(self, pos):
-        """count 1's in [0, pos) range"""
         assert self.built
-        i = pos >> 5
-        offset = pos & 31
-        return self.sum[i] + self.popcount(self.bit[i] & ((1 << offset) - 1))
+        cpos, tmp = pos >> 8, pos & 255
+        bpos, offset = tmp >> 3, tmp & 7
+
+        i = cpos << 5 | bpos
+        rest = self.bit[i] & ((1 << offset) - 1)
+        return self.chunk[cpos] + self.blocks[i] + self.popcount(rest)
 
     def select(self, num):
         """return minimum i that satisfies rank(i) = num"""
@@ -49,14 +75,6 @@ class BitVector:
             else:
                 l = c
         return r
-
-    def popcount(self, n):
-        c = (n & 0x5555555555555555) + ((n >> 1) & 0x5555555555555555)
-        c = (c & 0x3333333333333333) + ((c >> 2) & 0x3333333333333333)
-        c = (c & 0x0f0f0f0f0f0f0f0f) + ((c >> 4) & 0x0f0f0f0f0f0f0f0f)
-        c = (c & 0x00ff00ff00ff00ff) + ((c >> 8) & 0x00ff00ff00ff00ff)
-        c = (c & 0x0000ffff0000ffff) + ((c >> 16) & 0x0000ffff0000ffff)
-        return c
 
 
 class WaveletMatrix:
