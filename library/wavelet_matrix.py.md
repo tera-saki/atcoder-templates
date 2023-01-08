@@ -24,34 +24,44 @@ data:
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "import bisect\n\n\nclass BitVector:\n    # reference: https://tiramister.net/blog/posts/bitvector/\n\
-    \    # (reference implemention is succinct, but this implemention is not succinct.)\n\
-    \    def __init__(self, N):\n        self.N = N\n        self.block_num = (N +\
-    \ 31) >> 5\n        self.bit = [0] * self.block_num\n        self.sum = [0] *\
-    \ self.block_num\n\n        self.built = False\n\n    def set(self, pos):\n  \
-    \      self.bit[pos >> 5] |= 1 << (pos & 31)\n\n    def build(self):\n       \
-    \ assert not self.built\n        for i in range(1, self.block_num):\n        \
-    \    self.sum[i] = self.sum[i - 1] + self.popcount(self.bit[i - 1])\n        self.built\
-    \ = True\n\n    def access(self, pos):\n        \"\"\"return pos-th bit\"\"\"\n\
-    \        return self.bit[pos >> 5] >> (pos & 31) & 1\n\n    def rank(self, pos):\n\
-    \        \"\"\"count 1's in [0, pos) range\"\"\"\n        assert self.built\n\
-    \        i = pos >> 5\n        offset = pos & 31\n        return self.sum[i] +\
-    \ self.popcount(self.bit[i] & ((1 << offset) - 1))\n\n    def select(self, num):\n\
-    \        \"\"\"return minimum i that satisfies rank(i) = num\"\"\"\n        assert\
-    \ self.built\n        if num == 0:\n            return 0\n        if self.rank(self.N)\
-    \ < num:\n            return -1\n\n        l = -1\n        r = self.N\n      \
-    \  while r - l > 1:\n            c = (l + r) >> 1\n            if self.rank(c)\
-    \ >= num:\n                r = c\n            else:\n                l = c\n \
-    \       return r\n\n    def popcount(self, n):\n        c = (n & 0x5555555555555555)\
-    \ + ((n >> 1) & 0x5555555555555555)\n        c = (c & 0x3333333333333333) + ((c\
-    \ >> 2) & 0x3333333333333333)\n        c = (c & 0x0f0f0f0f0f0f0f0f) + ((c >> 4)\
-    \ & 0x0f0f0f0f0f0f0f0f)\n        c = (c & 0x00ff00ff00ff00ff) + ((c >> 8) & 0x00ff00ff00ff00ff)\n\
-    \        c = (c & 0x0000ffff0000ffff) + ((c >> 16) & 0x0000ffff0000ffff)\n   \
-    \     return c\n\n\nclass WaveletMatrix:\n    # reference: https://miti-7.hatenablog.com/entry/2018/04/28/152259\n\
-    \    def __init__(self, A):\n        self.nums = sorted(set(A))\n        self.idx\
-    \ = {a: i for i, a in enumerate(self.nums)}\n        self.A = [self.idx[a] for\
-    \ a in A]\n\n        self.digit = (len(self.nums) - 1).bit_length()\n        self.B\
-    \ = [None] * self.digit\n        self.offset = [None] * self.digit\n        self.start_index\
-    \ = [-1] * len(self.nums)\n\n        T = self.A\n        for k in range(self.digit)[::-1]:\n\
+    \    TABLE = bytes([\n        0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4,\n\
+    \        1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,\n        1, 2, 2, 3,\
+    \ 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,\n        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4,\
+    \ 5, 4, 5, 5, 6,\n        1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,\n  \
+    \      2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,\n        2, 3, 3, 4, 3,\
+    \ 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,\n        3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6,\
+    \ 5, 6, 6, 7,\n        1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,\n     \
+    \   2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,\n        2, 3, 3, 4, 3, 4,\
+    \ 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,\n        3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5,\
+    \ 6, 6, 7,\n        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,\n        3,\
+    \ 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,\n        3, 4, 4, 5, 4, 5, 5, 6,\
+    \ 4, 5, 5, 6, 5, 6, 6, 7,\n        4, 5, 5, 6, 5, 6, 6, 7, 5, 6, 6, 7, 6, 7, 7,\
+    \ 8,\n    ])\n\n    def __init__(self, N):\n        self.cnum = (N + 255) >> 8\n\
+    \n        self.bit = bytearray(self.cnum << 5)\n        self.chunk = [0] * (self.cnum\
+    \ + 1)\n        self.blocks = bytearray(self.cnum << 5)\n\n        self.built\
+    \ = False\n\n    def set(self, pos):\n        self.bit[pos >> 3] |= 1 << (pos\
+    \ & 7)\n\n    def access(self, pos):\n        return self.bit[pos >> 3] >> (pos\
+    \ & 7) & 1\n\n    def popcount(self, num):\n        return self.TABLE[num]\n\n\
+    \    def build(self):\n        for i in range(self.cnum):\n            k = i <<\
+    \ 5\n            for j in range(31):\n                self.blocks[k + 1] = self.blocks[k]\
+    \ + self.popcount(self.bit[k])\n                k += 1\n            self.chunk[i\
+    \ + 1] = self.chunk[i] + self.blocks[k] + self.popcount(self.bit[k])\n       \
+    \ self.built = True\n\n    def rank(self, pos):\n        assert self.built\n \
+    \       cpos, tmp = pos >> 8, pos & 255\n        bpos, offset = tmp >> 3, tmp\
+    \ & 7\n\n        i = cpos << 5 | bpos\n        rest = self.bit[i] & ((1 << offset)\
+    \ - 1)\n        return self.chunk[cpos] + self.blocks[i] + self.popcount(rest)\n\
+    \n    def select(self, num):\n        \"\"\"return minimum i that satisfies rank(i)\
+    \ = num\"\"\"\n        assert self.built\n        if num == 0:\n            return\
+    \ 0\n        if self.rank(self.N) < num:\n            return -1\n\n        l =\
+    \ -1\n        r = self.N\n        while r - l > 1:\n            c = (l + r) >>\
+    \ 1\n            if self.rank(c) >= num:\n                r = c\n            else:\n\
+    \                l = c\n        return r\n\n\nclass WaveletMatrix:\n    # reference:\
+    \ https://miti-7.hatenablog.com/entry/2018/04/28/152259\n    def __init__(self,\
+    \ A):\n        self.nums = sorted(set(A))\n        self.idx = {a: i for i, a in\
+    \ enumerate(self.nums)}\n        self.A = [self.idx[a] for a in A]\n\n       \
+    \ self.digit = (len(self.nums) - 1).bit_length()\n        self.B = [None] * self.digit\n\
+    \        self.offset = [None] * self.digit\n        self.start_index = [-1] *\
+    \ len(self.nums)\n\n        T = self.A\n        for k in range(self.digit)[::-1]:\n\
     \            self.B[k] = BitVector(len(T) + 1)\n            zeros = []\n     \
     \       ones = []\n            for i, a in enumerate(T):\n                if a\
     \ >> k & 1:\n                    self.B[k].set(i)\n                    ones.append(a)\n\
@@ -100,7 +110,7 @@ data:
   isVerificationFile: false
   path: library/wavelet_matrix.py
   requiredBy: []
-  timestamp: '2023-01-08 11:42:28+09:00'
+  timestamp: '2023-01-08 15:25:01+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/1549.test.py
