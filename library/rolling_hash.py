@@ -2,6 +2,7 @@ import random
 
 
 class RollingHash:
+    # reference: https://qiita.com/keymoon/items/11fac5627672a6d6a9f6
     MSK30 = (1 << 30) - 1
     MSK31 = (1 << 31) - 1
     MOD = (1 << 61) - 1
@@ -23,10 +24,14 @@ class RollingHash:
 
     # S[l:r]
     def get(self, l, r):
+        """return hash of S[l:r]"""
         return self._mod(self.h[r] - self._mul(self.h[l], self.p[r - l]))
 
-    def connect(self, h1, h2, l):
-        return self._mod(self._mul(h1, self.p[l]) + h2)
+    def merge(self, l1, r1, l2, r2):
+        """return hash of S[l1:r1] + S[l2:r2]"""
+        h1 = self.get(l1, r1)
+        h2 = self.get(l2, r2)
+        return self._mod(self._mul(h1, self.p[r2 - l2]) + h2)
 
     def _mul(self, a, b):
         au, ad = a >> 31, a & self.MSK31
