@@ -252,6 +252,9 @@ data:
       path: tests/yosupo/range_kth_smallest.test.py
       title: tests/yosupo/range_kth_smallest.test.py
     - icon: ':heavy_check_mark:'
+      path: tests/yosupo/rectangle_sum.test.py
+      title: tests/yosupo/rectangle_sum.test.py
+    - icon: ':heavy_check_mark:'
       path: tests/yosupo/scc.test.py
       title: tests/yosupo/scc.test.py
     - icon: ':heavy_check_mark:'

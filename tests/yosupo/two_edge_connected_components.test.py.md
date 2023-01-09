@@ -28,7 +28,7 @@ data:
   isVerificationFile: true
   path: tests/yosupo/two_edge_connected_components.test.py
   requiredBy: []
-  timestamp: '2023-01-09 13:49:14+09:00'
+  timestamp: '2023-01-09 18:15:55+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/yosupo/two_edge_connected_components.test.py
