@@ -124,45 +124,46 @@ data:
     \ l: int, r: int, lower: int, upper: int):\n        \"\"\"return sum of values\
     \ s.t. lower <= x < upper in [l, r) range\n        must be constructed with weight\n\
     \        \"\"\"\n        assert self.weight\n        return self._range_sum_upper(l,\
-    \ r, upper) - self._range_sum_upper(l, r, lower)\n\n    def range_sum_topn(self,\
-    \ l: int, r: int, n: int):\n        \"\"\"return sum of top n (0-indexed) values\
-    \ in [l, r) range\n        must be constructed with weight\n        \"\"\"\n \
-    \       assert self.weight\n        assert 0 <= n < r - l\n        if self.digit\
-    \ == 0:\n            return self.nums[0] * (n + 1)\n        ret = 0\n        for\
-    \ k in range(self.digit)[::-1]:\n            rank_l = self.B[k].rank(l)\n    \
-    \        rank_r = self.B[k].rank(r)\n            ones = rank_r - rank_l\n    \
-    \        zeros = r - l - ones\n            if zeros <= n:\n                ret\
-    \ += self.S[k][r - rank_r] - self.S[k][l - rank_l]\n                l = rank_l\
-    \ + self.offset[k]\n                r = rank_r + self.offset[k]\n            \
-    \    n -= zeros\n            else:\n                l -= rank_l\n            \
-    \    r -= rank_r\n        ret += self.S[0][l + n + 1] - self.S[0][l]\n       \
-    \ return ret\n\n    def _range_freq_upper(self, l: int, r: int, upper: int):\n\
-    \        \"\"\"return the number of values s.t. x < upper in [l, r) range\"\"\"\
-    \n        if l >= r:\n            return 0\n        if upper > self.nums[-1]:\n\
-    \            return r - l\n        if upper <= self.nums[0]:\n            return\
+    \ r, upper) - self._range_sum_upper(l, r, lower)\n\n    def range_least_sum(self,\
+    \ l: int, r: int, n: int):\n        \"\"\"return sum of least n (**1-indexed**)\
+    \ values in [l, r) range\n        must be constructed with weight\n        \"\"\
+    \"\n        assert self.weight\n        assert 1 <= n <= r - l\n        if self.digit\
+    \ == 0:\n            return self.nums[0] * n\n        ret = 0\n        for k in\
+    \ range(self.digit)[::-1]:\n            rank_l = self.B[k].rank(l)\n         \
+    \   rank_r = self.B[k].rank(r)\n            ones = rank_r - rank_l\n         \
+    \   zeros = r - l - ones\n            if zeros <= n:\n                ret += self.S[k][r\
+    \ - rank_r] - self.S[k][l - rank_l]\n                l = rank_l + self.offset[k]\n\
+    \                r = rank_r + self.offset[k]\n                n -= zeros\n   \
+    \             if n == 0:\n                    return ret\n            else:\n\
+    \                l -= rank_l\n                r -= rank_r\n        ret += self.S[0][l\
+    \ + n] - self.S[0][l]\n        return ret\n\n    def _range_freq_upper(self, l:\
+    \ int, r: int, upper: int):\n        \"\"\"return the number of values s.t. x\
+    \ < upper in [l, r) range\"\"\"\n        if l >= r:\n            return 0\n  \
+    \      if upper > self.nums[-1]:\n            return r - l\n        if upper <=\
+    \ self.nums[0]:\n            return 0\n        upper = bisect.bisect_left(self.nums,\
+    \ upper)\n        ret = 0\n        for k in range(self.digit)[::-1]:\n       \
+    \     rank_l = self.B[k].rank(l)\n            rank_r = self.B[k].rank(r)\n   \
+    \         ones = rank_r - rank_l\n            zeros = r - l - ones\n         \
+    \   if upper >> k & 1:\n                ret += zeros\n                l = rank_l\
+    \ + self.offset[k]\n                r = rank_r + self.offset[k]\n            else:\n\
+    \                l -= rank_l\n                r -= rank_r\n        return ret\n\
+    \n    def _range_sum_upper(self, l: int, r: int, upper: int):\n        \"\"\"\
+    return sum of values s.t. x < upper in [l, r) range\"\"\"\n        if l >= r:\n\
+    \            return 0\n        if upper > self.nums[-1]:\n            return self.S[self.digit][r]\
+    \ - self.S[self.digit][l]\n        if upper <= self.nums[0]:\n            return\
     \ 0\n        upper = bisect.bisect_left(self.nums, upper)\n        ret = 0\n \
     \       for k in range(self.digit)[::-1]:\n            rank_l = self.B[k].rank(l)\n\
     \            rank_r = self.B[k].rank(r)\n            ones = rank_r - rank_l\n\
-    \            zeros = r - l - ones\n            if upper >> k & 1:\n          \
-    \      ret += zeros\n                l = rank_l + self.offset[k]\n           \
-    \     r = rank_r + self.offset[k]\n            else:\n                l -= rank_l\n\
-    \                r -= rank_r\n        return ret\n\n    def _range_sum_upper(self,\
-    \ l: int, r: int, upper: int):\n        \"\"\"return sum of values s.t. x < upper\
-    \ in [l, r) range\"\"\"\n        if l >= r:\n            return 0\n        if\
-    \ upper > self.nums[-1]:\n            return self.S[self.digit][r] - self.S[self.digit][l]\n\
-    \        if upper <= self.nums[0]:\n            return 0\n        upper = bisect.bisect_left(self.nums,\
-    \ upper)\n        ret = 0\n        for k in range(self.digit)[::-1]:\n       \
-    \     rank_l = self.B[k].rank(l)\n            rank_r = self.B[k].rank(r)\n   \
-    \         ones = rank_r - rank_l\n            zero = r - l - ones\n          \
-    \  if upper >> k & 1:\n                ret += self.S[k][r - rank_r] - self.S[k][l\
-    \ - rank_l]\n                l = rank_l + self.offset[k]\n                r =\
-    \ rank_r + self.offset[k]\n            else:\n                l -= rank_l\n  \
-    \              r -= rank_r\n        return ret\n"
+    \            zero = r - l - ones\n            if upper >> k & 1:\n           \
+    \     ret += self.S[k][r - rank_r] - self.S[k][l - rank_l]\n                l\
+    \ = rank_l + self.offset[k]\n                r = rank_r + self.offset[k]\n   \
+    \         else:\n                l -= rank_l\n                r -= rank_r\n  \
+    \      return ret\n"
   dependsOn: []
   isVerificationFile: false
   path: library/wavelet_matrix.py
   requiredBy: []
-  timestamp: '2023-01-09 18:15:55+09:00'
+  timestamp: '2023-01-09 20:43:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/1549.test.py
