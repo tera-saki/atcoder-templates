@@ -207,14 +207,14 @@ class WaveletMatrix:
         assert self.weight
         return self._range_sum_upper(l, r, upper) - self._range_sum_upper(l, r, lower)
 
-    def range_sum_topn(self, l: int, r: int, n: int):
-        """return sum of top n (0-indexed) values in [l, r) range
+    def range_least_sum(self, l: int, r: int, n: int):
+        """return sum of least n (**1-indexed**) values in [l, r) range
         must be constructed with weight
         """
         assert self.weight
-        assert 0 <= n < r - l
+        assert 1 <= n <= r - l
         if self.digit == 0:
-            return self.nums[0] * (n + 1)
+            return self.nums[0] * n
         ret = 0
         for k in range(self.digit)[::-1]:
             rank_l = self.B[k].rank(l)
@@ -226,10 +226,12 @@ class WaveletMatrix:
                 l = rank_l + self.offset[k]
                 r = rank_r + self.offset[k]
                 n -= zeros
+                if n == 0:
+                    return ret
             else:
                 l -= rank_l
                 r -= rank_r
-        ret += self.S[0][l + n + 1] - self.S[0][l]
+        ret += self.S[0][l + n] - self.S[0][l]
         return ret
 
     def _range_freq_upper(self, l: int, r: int, upper: int):
