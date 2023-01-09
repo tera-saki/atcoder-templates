@@ -28,7 +28,7 @@ data:
   isVerificationFile: false
   path: library/cumulative_sum_2d.py
   requiredBy: []
-  timestamp: '2023-01-08 15:25:01+09:00'
+  timestamp: '2023-01-09 13:49:14+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/0560.test.py

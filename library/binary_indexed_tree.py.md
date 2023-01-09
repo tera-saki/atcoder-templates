@@ -30,7 +30,7 @@ data:
   isVerificationFile: false
   path: library/binary_indexed_tree.py
   requiredBy: []
-  timestamp: '2023-01-08 15:25:01+09:00'
+  timestamp: '2023-01-09 13:49:14+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/alds1_5_d.test.py

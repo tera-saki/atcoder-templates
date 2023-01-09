@@ -301,5 +301,8 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/yuki/1955.test.py
       title: tests/yuki/1955.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/yuki/738.test.py
+      title: tests/yuki/738.test.py
 layout: toppage
 ---
