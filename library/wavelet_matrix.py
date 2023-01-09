@@ -1,3 +1,4 @@
+from typing import List
 import bisect
 
 
@@ -79,7 +80,7 @@ class BitVector:
 
 class WaveletMatrix:
     # reference: https://miti-7.hatenablog.com/entry/2018/04/28/152259
-    def __init__(self, A):
+    def __init__(self, A: List[int], cumulative_sum: bool = False):
         self.nums = sorted(set(A))
         self.idx = {a: i for i, a in enumerate(self.nums)}
         self.A = [self.idx[a] for a in A]
@@ -88,6 +89,12 @@ class WaveletMatrix:
         self.B = [None] * self.digit
         self.offset = [None] * self.digit
         self.start_index = [-1] * len(self.nums)
+
+        self.cumulative_sum = cumulative_sum
+        if self.cumulative_sum:
+            self.S = [[0 for _ in range(len(self.A) + 1)] for _ in range(self.digit + 1)]
+            for i, a in enumerate(self.A):
+                self.S[self.digit][i + 1] = self.S[self.digit][i] + self.nums[a]
 
         T = self.A
         for k in range(self.digit)[::-1]:
@@ -103,11 +110,14 @@ class WaveletMatrix:
             self.B[k].build()
             self.offset[k] = len(zeros)
             T = zeros + ones
+            if self.cumulative_sum:
+                for i, a in enumerate(T):
+                    self.S[k][i + 1] = self.S[k][i] + self.nums[a]
         for i, a in enumerate(T):
             if self.start_index[a] < 0:
                 self.start_index[a] = i
 
-    def access(self, i):
+    def access(self, i: int):
         """return i-th value"""
         ret = 0
         cur = i
@@ -119,7 +129,7 @@ class WaveletMatrix:
                 cur -= self.B[k].rank(cur)
         return self.nums[ret]
 
-    def rank(self, i, x):
+    def rank(self, i: int, x: int):
         """return the number of x's in [0, i) range"""
         x = self.idx.get(x)
         if x is None:
@@ -131,7 +141,7 @@ class WaveletMatrix:
                 i -= self.B[k].rank(i)
         return i - self.start_index[x]
 
-    def quantile(self, l, r, n):
+    def quantile(self, l: int, r: int, n: int):
         """return n-th (0-indexed) smallest value in [l, r) range"""
         assert 0 <= n < r - l
         ret = 0
@@ -150,25 +160,61 @@ class WaveletMatrix:
                 r -= rank_r
         return self.nums[ret]
 
-    def range_freq(self, l, r, lower, upper):
-        """return the number of values s.t. lower <= x < upper"""
-        return self.range_freq_upper(l, r, upper) - self.range_freq_upper(l, r, lower)
+    def rquantile(self, l: int, r: int, n: int):
+        """return n-th (0-indeed) largest value in [l, r) range"""
+        return self.quantile(l, r, r - l - 1 - n)
 
-    def prev_value(self, l, r, upper):
+    def range_freq(self, l: int, r: int, lower: int, upper: int):
+        """return the number of values s.t. lower <= x < upper"""
+        return self._range_freq_upper(l, r, upper) - self._range_freq_upper(l, r, lower)
+
+    def prev_value(self, l: int, r: int, upper: int):
         """return maximum x s.t. x < upper in [l, r) range if exist, otherwise None"""
-        cnt = self.range_freq_upper(l, r, upper)
+        cnt = self._range_freq_upper(l, r, upper)
         if cnt == 0:
             return None
         return self.quantile(l, r, cnt - 1)
 
-    def next_value(self, l, r, lower):
+    def next_value(self, l: int, r: int, lower: int):
         """return minimum x s.t. x >= lower in [l, r) range if exist, otherwise None"""
-        cnt = self.range_freq_upper(l, r, lower)
+        cnt = self._range_freq_upper(l, r, lower)
         if cnt == r - l:
             return None
         return self.quantile(l, r, cnt)
 
-    def range_freq_upper(self, l, r, upper):
+    def range_sum(self, l: int, r: int, lower: int, upper: int):
+        """return sum of values s.t. lower <= x < upper in [l, r) range
+        must be constructed with cumulative_sum = True
+        """
+        assert self.cumulative_sum
+        return self._range_sum_upper(l, r, upper) - self._range_sum_upper(l, r, lower)
+
+    def range_sum_topn(self, l: int, r: int, n: int):
+        """return sum of top n (0-indexed) values in [l, r) range
+        must be constructed with cumulative_sum = True
+        """
+        assert self.cumulative_sum
+        assert 0 <= n < r - l
+        if self.digit == 0:
+            return self.nums[0] * (n + 1)
+        ret = 0
+        for k in range(self.digit)[::-1]:
+            rank_l = self.B[k].rank(l)
+            rank_r = self.B[k].rank(r)
+            ones = rank_r - rank_l
+            zeros = r - l - ones
+            if zeros <= n:
+                ret += self.S[k][r - rank_r] - self.S[k][l - rank_l]
+                l = rank_l + self.offset[k]
+                r = rank_r + self.offset[k]
+                n -= zeros
+            else:
+                l -= rank_l
+                r -= rank_r
+        ret += self.S[0][l + n + 1] - self.S[0][l]
+        return ret
+
+    def _range_freq_upper(self, l: int, r: int, upper: int):
         """return the number of values s.t. x < upper in [l, r) range"""
         if l >= r:
             return 0
@@ -185,6 +231,30 @@ class WaveletMatrix:
             zeros = r - l - ones
             if upper >> k & 1:
                 ret += zeros
+                l = rank_l + self.offset[k]
+                r = rank_r + self.offset[k]
+            else:
+                l -= rank_l
+                r -= rank_r
+        return ret
+
+    def _range_sum_upper(self, l: int, r: int, upper: int):
+        """return sum of values s.t. x < upper in [l, r) range"""
+        if l >= r:
+            return 0
+        if upper > self.nums[-1]:
+            return self.S[self.digit][r] - self.S[self.digit][l]
+        if upper <= self.nums[0]:
+            return 0
+        upper = bisect.bisect_left(self.nums, upper)
+        ret = 0
+        for k in range(self.digit)[::-1]:
+            rank_l = self.B[k].rank(l)
+            rank_r = self.B[k].rank(r)
+            ones = rank_r - rank_l
+            zero = r - l - ones
+            if upper >> k & 1:
+                ret += self.S[k][r - rank_r] - self.S[k][l - rank_l]
                 l = rank_l + self.offset[k]
                 r = rank_r + self.offset[k]
             else:
