@@ -80,7 +80,7 @@ class BitVector:
 
 class WaveletMatrix:
     # reference: https://miti-7.hatenablog.com/entry/2018/04/28/152259
-    def __init__(self, A: List[int], cumulative_sum: bool = False):
+    def __init__(self, A: List[int], weight: List[int] = None):
         self.nums = sorted(set(A))
         self.idx = {a: i for i, a in enumerate(self.nums)}
         self.A = [self.idx[a] for a in A]
@@ -90,32 +90,50 @@ class WaveletMatrix:
         self.offset = [None] * self.digit
         self.start_index = [-1] * len(self.nums)
 
-        self.cumulative_sum = cumulative_sum
-        if self.cumulative_sum:
+        self.weight = weight
+        if self.weight:
             self.S = [[0 for _ in range(len(self.A) + 1)] for _ in range(self.digit + 1)]
             for i, a in enumerate(self.A):
-                self.S[self.digit][i + 1] = self.S[self.digit][i] + self.nums[a]
+                self.S[self.digit][i + 1] = self.S[self.digit][i] + self.weight[i]
 
-        T = self.A
-        for k in range(self.digit)[::-1]:
-            self.B[k] = BitVector(len(T) + 1)
-            zeros = []
-            ones = []
-            for i, a in enumerate(T):
-                if a >> k & 1:
-                    self.B[k].set(i)
-                    ones.append(a)
-                else:
-                    zeros.append(a)
-            self.B[k].build()
-            self.offset[k] = len(zeros)
-            T = zeros + ones
-            if self.cumulative_sum:
+        if self.weight:
+            T = list(zip(self.A, self.weight))
+            for k in range(self.digit)[::-1]:
+                self.B[k] = BitVector(len(T) + 1)
+                zeros = []
+                ones = []
+                for i, (a, w) in enumerate(T):
+                    if a >> k & 1:
+                        self.B[k].set(i)
+                        ones.append((a, w))
+                    else:
+                        zeros.append((a, w))
+                self.B[k].build()
+                self.offset[k] = len(zeros)
+                T = zeros + ones
+                for i, (a, w) in enumerate(T):
+                    self.S[k][i + 1] = self.S[k][i] + w
+            for i, (a, w) in enumerate(T):
+                if self.start_index[a] < 0:
+                    self.start_index[a] = i
+        else:
+            T = self.A
+            for k in range(self.digit)[::-1]:
+                self.B[k] = BitVector(len(T) + 1)
+                zeros = []
+                ones = []
                 for i, a in enumerate(T):
-                    self.S[k][i + 1] = self.S[k][i] + self.nums[a]
-        for i, a in enumerate(T):
-            if self.start_index[a] < 0:
-                self.start_index[a] = i
+                    if a >> k & 1:
+                        self.B[k].set(i)
+                        ones.append(a)
+                    else:
+                        zeros.append(a)
+                self.B[k].build()
+                self.offset[k] = len(zeros)
+                T = zeros + ones
+            for i, a in enumerate(T):
+                if self.start_index[a] < 0:
+                    self.start_index[a] = i
 
     def access(self, i: int):
         """return i-th value"""
@@ -184,16 +202,16 @@ class WaveletMatrix:
 
     def range_sum(self, l: int, r: int, lower: int, upper: int):
         """return sum of values s.t. lower <= x < upper in [l, r) range
-        must be constructed with cumulative_sum = True
+        must be constructed with weight
         """
-        assert self.cumulative_sum
+        assert self.weight
         return self._range_sum_upper(l, r, upper) - self._range_sum_upper(l, r, lower)
 
     def range_sum_topn(self, l: int, r: int, n: int):
         """return sum of top n (0-indexed) values in [l, r) range
-        must be constructed with cumulative_sum = True
+        must be constructed with weight
         """
-        assert self.cumulative_sum
+        assert self.weight
         assert 0 <= n < r - l
         if self.digit == 0:
             return self.nums[0] * (n + 1)

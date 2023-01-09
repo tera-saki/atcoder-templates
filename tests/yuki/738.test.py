@@ -7,7 +7,7 @@ input = sys.stdin.readline
 
 N, K = map(int, input().split())
 A = list(map(int, input().split()))
-W = WaveletMatrix(A, cumulative_sum=True)
+W = WaveletMatrix(A, A)
 INF = 1 << 50
 ans = INF
 for i in range(N - K + 1):
