@@ -88,7 +88,6 @@ class WaveletMatrix:
         self.digit = (len(self.nums) - 1).bit_length()
         self.B = [None] * self.digit
         self.offset = [None] * self.digit
-        self.start_index = [-1] * len(self.nums)
 
         self.weight = weight
         if self.weight:
@@ -113,9 +112,6 @@ class WaveletMatrix:
                 T = zeros + ones
                 for i, (a, w) in enumerate(T):
                     self.S[k][i + 1] = self.S[k][i] + w
-            for i, (a, w) in enumerate(T):
-                if self.start_index[a] < 0:
-                    self.start_index[a] = i
         else:
             T = self.A
             for k in range(self.digit)[::-1]:
@@ -131,9 +127,6 @@ class WaveletMatrix:
                 self.B[k].build()
                 self.offset[k] = len(zeros)
                 T = zeros + ones
-            for i, a in enumerate(T):
-                if self.start_index[a] < 0:
-                    self.start_index[a] = i
 
     def access(self, i: int):
         """return i-th value"""
@@ -147,17 +140,19 @@ class WaveletMatrix:
                 cur -= self.B[k].rank(cur)
         return self.nums[ret]
 
-    def rank(self, i: int, x: int):
-        """return the number of x's in [0, i) range"""
+    def rank(self, l: int, r: int, x: int):
+        """return the number of x's in [l, r) range"""
         x = self.idx.get(x)
         if x is None:
             return 0
         for k in range(self.digit)[::-1]:
             if x >> k & 1:
-                i = self.B[k].rank(i) + self.offset[k]
+                l = self.B[k].rank(l) + self.offset[k]
+                r = self.B[k].rank(r) + self.offset[k]
             else:
-                i -= self.B[k].rank(i)
-        return i - self.start_index[x]
+                l -= self.B[k].rank(l)
+                r -= self.B[k].rank(r)
+        return r - l
 
     def quantile(self, l: int, r: int, n: int):
         """return n-th (0-indexed) smallest value in [l, r) range"""
@@ -183,7 +178,9 @@ class WaveletMatrix:
         return self.quantile(l, r, r - l - 1 - n)
 
     def range_freq(self, l: int, r: int, lower: int, upper: int):
-        """return the number of values s.t. lower <= x < upper"""
+        """return the number of values s.t. lower <= x < upper in [l, r) range"""
+        if lower >= upper:
+            return 0
         return self._range_freq_upper(l, r, upper) - self._range_freq_upper(l, r, lower)
 
     def prev_value(self, l: int, r: int, upper: int):
@@ -207,12 +204,13 @@ class WaveletMatrix:
         assert self.weight
         return self._range_sum_upper(l, r, upper) - self._range_sum_upper(l, r, lower)
 
-    def range_least_sum(self, l: int, r: int, n: int):
-        """return sum of least n (**1-indexed**) values in [l, r) range
+    def range_nsmallest_sum(self, l: int, r: int, n: int):
+        """return sum of the first n (**1-indexed**) values ordered by ascending order in [l, r) range
         must be constructed with weight
         """
         assert self.weight
-        assert 1 <= n <= r - l
+        if l >= r:
+            return 0
         if self.digit == 0:
             return self.nums[0] * n
         ret = 0
@@ -222,7 +220,7 @@ class WaveletMatrix:
             ones = rank_r - rank_l
             zeros = r - l - ones
             if zeros <= n:
-                ret += self.S[k][r - rank_r] - self.S[k][l - rank_l]
+                ret += self._get_internal_sum(k, l - rank_l, r - rank_r)
                 l = rank_l + self.offset[k]
                 r = rank_r + self.offset[k]
                 n -= zeros
@@ -231,8 +229,15 @@ class WaveletMatrix:
             else:
                 l -= rank_l
                 r -= rank_r
-        ret += self.S[0][l + n] - self.S[0][l]
+        ret += self._get_internal_sum(0, l, l + n)
         return ret
+
+    def range_nlargest_sum(self, l: int, r: int, n: int):
+        """return sum of the first n (**1-indexed**) values ordered by descending order in [l, r) range
+        must be constructed with weight
+        """
+        assert self.weight
+        return self._get_internal_sum(self.digit, l, r) - self.range_nsmallest_sum(l, r, r - l - n)
 
     def _range_freq_upper(self, l: int, r: int, upper: int):
         """return the number of values s.t. x < upper in [l, r) range"""
@@ -263,7 +268,7 @@ class WaveletMatrix:
         if l >= r:
             return 0
         if upper > self.nums[-1]:
-            return self.S[self.digit][r] - self.S[self.digit][l]
+            return self._get_internal_sum(self.digit, l, r)
         if upper <= self.nums[0]:
             return 0
         upper = bisect.bisect_left(self.nums, upper)
@@ -274,10 +279,13 @@ class WaveletMatrix:
             ones = rank_r - rank_l
             zero = r - l - ones
             if upper >> k & 1:
-                ret += self.S[k][r - rank_r] - self.S[k][l - rank_l]
+                ret += self._get_internal_sum(k, l - rank_l,  r - rank_r)
                 l = rank_l + self.offset[k]
                 r = rank_r + self.offset[k]
             else:
                 l -= rank_l
                 r -= rank_r
         return ret
+
+    def _get_internal_sum(self, k: int, l: int, r: int):
+        return self.S[k][r] - self.S[k][l]

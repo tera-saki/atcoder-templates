@@ -11,8 +11,6 @@ W = WaveletMatrix(A, A)
 INF = 1 << 50
 ans = INF
 for i in range(N - K + 1):
-    med = W.quantile(i, i + K, K // 2)
-    upper_sum = W.range_sum(i, i + K, med, INF) - med * W.range_freq(i, i + K, med, INF)
-    lower_sum = med * W.range_freq(i, i + K, 0, med) - W.range_sum(i, i + K, 0, med)
-    ans = min(ans, upper_sum + lower_sum)
+    v = W.range_nlargest_sum(i, i + K, K // 2) - W.range_nsmallest_sum(i, i + K, K // 2)
+    ans = min(ans, v)
 print(ans)
