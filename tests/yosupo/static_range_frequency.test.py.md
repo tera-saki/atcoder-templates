@@ -21,13 +21,13 @@ data:
     import sys\nfrom library.wavelet_matrix import WaveletMatrix\n\ninput = sys.stdin.readline\n\
     \nN, Q = map(int, input().split())\nA = list(map(int, input().split()))\nWM =\
     \ WaveletMatrix(A)\nfor _ in range(Q):\n    l, r, x = map(int, input().split())\n\
-    \    print(WM.range_freq(l, r, x, x + 1))\n"
+    \    print(WM.rank(l, r, x))\n"
   dependsOn:
   - library/wavelet_matrix.py
   isVerificationFile: true
   path: tests/yosupo/static_range_frequency.test.py
   requiredBy: []
-  timestamp: '2023-01-09 20:43:44+09:00'
+  timestamp: '2023-01-10 19:45:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/yosupo/static_range_frequency.test.py

@@ -67,103 +67,107 @@ data:
     \        self.idx = {a: i for i, a in enumerate(self.nums)}\n        self.A =\
     \ [self.idx[a] for a in A]\n\n        self.digit = (len(self.nums) - 1).bit_length()\n\
     \        self.B = [None] * self.digit\n        self.offset = [None] * self.digit\n\
-    \        self.start_index = [-1] * len(self.nums)\n\n        self.weight = weight\n\
-    \        if self.weight:\n            self.S = [[0 for _ in range(len(self.A)\
-    \ + 1)] for _ in range(self.digit + 1)]\n            for i, a in enumerate(self.A):\n\
-    \                self.S[self.digit][i + 1] = self.S[self.digit][i] + self.weight[i]\n\
-    \n        if self.weight:\n            T = list(zip(self.A, self.weight))\n  \
-    \          for k in range(self.digit)[::-1]:\n                self.B[k] = BitVector(len(T)\
-    \ + 1)\n                zeros = []\n                ones = []\n              \
-    \  for i, (a, w) in enumerate(T):\n                    if a >> k & 1:\n      \
-    \                  self.B[k].set(i)\n                        ones.append((a, w))\n\
-    \                    else:\n                        zeros.append((a, w))\n   \
-    \             self.B[k].build()\n                self.offset[k] = len(zeros)\n\
-    \                T = zeros + ones\n                for i, (a, w) in enumerate(T):\n\
-    \                    self.S[k][i + 1] = self.S[k][i] + w\n            for i, (a,\
-    \ w) in enumerate(T):\n                if self.start_index[a] < 0:\n         \
-    \           self.start_index[a] = i\n        else:\n            T = self.A\n \
-    \           for k in range(self.digit)[::-1]:\n                self.B[k] = BitVector(len(T)\
+    \n        self.weight = weight\n        if self.weight:\n            self.S =\
+    \ [[0 for _ in range(len(self.A) + 1)] for _ in range(self.digit + 1)]\n     \
+    \       for i, a in enumerate(self.A):\n                self.S[self.digit][i +\
+    \ 1] = self.S[self.digit][i] + self.weight[i]\n\n        if self.weight:\n   \
+    \         T = list(zip(self.A, self.weight))\n            for k in range(self.digit)[::-1]:\n\
+    \                self.B[k] = BitVector(len(T) + 1)\n                zeros = []\n\
+    \                ones = []\n                for i, (a, w) in enumerate(T):\n \
+    \                   if a >> k & 1:\n                        self.B[k].set(i)\n\
+    \                        ones.append((a, w))\n                    else:\n    \
+    \                    zeros.append((a, w))\n                self.B[k].build()\n\
+    \                self.offset[k] = len(zeros)\n                T = zeros + ones\n\
+    \                for i, (a, w) in enumerate(T):\n                    self.S[k][i\
+    \ + 1] = self.S[k][i] + w\n        else:\n            T = self.A\n           \
+    \ for k in range(self.digit)[::-1]:\n                self.B[k] = BitVector(len(T)\
     \ + 1)\n                zeros = []\n                ones = []\n              \
     \  for i, a in enumerate(T):\n                    if a >> k & 1:\n           \
     \             self.B[k].set(i)\n                        ones.append(a)\n     \
     \               else:\n                        zeros.append(a)\n             \
     \   self.B[k].build()\n                self.offset[k] = len(zeros)\n         \
-    \       T = zeros + ones\n            for i, a in enumerate(T):\n            \
-    \    if self.start_index[a] < 0:\n                    self.start_index[a] = i\n\
-    \n    def access(self, i: int):\n        \"\"\"return i-th value\"\"\"\n     \
-    \   ret = 0\n        cur = i\n        for k in range(self.digit)[::-1]:\n    \
-    \        if self.B[k].access(cur):\n                ret |= (1 << k)\n        \
-    \        cur = self.B[k].rank(cur) + self.offset[k]\n            else:\n     \
-    \           cur -= self.B[k].rank(cur)\n        return self.nums[ret]\n\n    def\
-    \ rank(self, i: int, x: int):\n        \"\"\"return the number of x's in [0, i)\
-    \ range\"\"\"\n        x = self.idx.get(x)\n        if x is None:\n          \
-    \  return 0\n        for k in range(self.digit)[::-1]:\n            if x >> k\
-    \ & 1:\n                i = self.B[k].rank(i) + self.offset[k]\n            else:\n\
-    \                i -= self.B[k].rank(i)\n        return i - self.start_index[x]\n\
-    \n    def quantile(self, l: int, r: int, n: int):\n        \"\"\"return n-th (0-indexed)\
-    \ smallest value in [l, r) range\"\"\"\n        assert 0 <= n < r - l\n      \
-    \  ret = 0\n        for k in range(self.digit)[::-1]:\n            rank_l = self.B[k].rank(l)\n\
+    \       T = zeros + ones\n\n    def access(self, i: int):\n        \"\"\"return\
+    \ i-th value\"\"\"\n        ret = 0\n        cur = i\n        for k in range(self.digit)[::-1]:\n\
+    \            if self.B[k].access(cur):\n                ret |= (1 << k)\n    \
+    \            cur = self.B[k].rank(cur) + self.offset[k]\n            else:\n \
+    \               cur -= self.B[k].rank(cur)\n        return self.nums[ret]\n\n\
+    \    def rank(self, l: int, r: int, x: int):\n        \"\"\"return the number\
+    \ of x's in [l, r) range\"\"\"\n        x = self.idx.get(x)\n        if x is None:\n\
+    \            return 0\n        for k in range(self.digit)[::-1]:\n           \
+    \ if x >> k & 1:\n                l = self.B[k].rank(l) + self.offset[k]\n   \
+    \             r = self.B[k].rank(r) + self.offset[k]\n            else:\n    \
+    \            l -= self.B[k].rank(l)\n                r -= self.B[k].rank(r)\n\
+    \        return r - l\n\n    def quantile(self, l: int, r: int, n: int):\n   \
+    \     \"\"\"return n-th (0-indexed) smallest value in [l, r) range\"\"\"\n   \
+    \     assert 0 <= n < r - l\n        ret = 0\n        for k in range(self.digit)[::-1]:\n\
+    \            rank_l = self.B[k].rank(l)\n            rank_r = self.B[k].rank(r)\n\
+    \            ones = rank_r - rank_l\n            zeros = r - l - ones\n      \
+    \      if zeros <= n:\n                ret |= 1 << k\n                l = rank_l\
+    \ + self.offset[k]\n                r = rank_r + self.offset[k]\n            \
+    \    n -= zeros\n            else:\n                l -= rank_l\n            \
+    \    r -= rank_r\n        return self.nums[ret]\n\n    def rquantile(self, l:\
+    \ int, r: int, n: int):\n        \"\"\"return n-th (0-indeed) largest value in\
+    \ [l, r) range\"\"\"\n        return self.quantile(l, r, r - l - 1 - n)\n\n  \
+    \  def range_freq(self, l: int, r: int, lower: int, upper: int):\n        \"\"\
+    \"return the number of values s.t. lower <= x < upper in [l, r) range\"\"\"\n\
+    \        if lower >= upper:\n            return 0\n        return self._range_freq_upper(l,\
+    \ r, upper) - self._range_freq_upper(l, r, lower)\n\n    def prev_value(self,\
+    \ l: int, r: int, upper: int):\n        \"\"\"return maximum x s.t. x < upper\
+    \ in [l, r) range if exist, otherwise None\"\"\"\n        cnt = self._range_freq_upper(l,\
+    \ r, upper)\n        if cnt == 0:\n            return None\n        return self.quantile(l,\
+    \ r, cnt - 1)\n\n    def next_value(self, l: int, r: int, lower: int):\n     \
+    \   \"\"\"return minimum x s.t. x >= lower in [l, r) range if exist, otherwise\
+    \ None\"\"\"\n        cnt = self._range_freq_upper(l, r, lower)\n        if cnt\
+    \ == r - l:\n            return None\n        return self.quantile(l, r, cnt)\n\
+    \n    def range_sum(self, l: int, r: int, lower: int, upper: int):\n        \"\
+    \"\"return sum of values s.t. lower <= x < upper in [l, r) range\n        must\
+    \ be constructed with weight\n        \"\"\"\n        assert self.weight\n   \
+    \     return self._range_sum_upper(l, r, upper) - self._range_sum_upper(l, r,\
+    \ lower)\n\n    def range_nsmallest_sum(self, l: int, r: int, n: int):\n     \
+    \   \"\"\"return sum of the first n (**1-indexed**) values ordered by ascending\
+    \ order in [l, r) range\n        must be constructed with weight\n        \"\"\
+    \"\n        assert self.weight\n        if l >= r:\n            return 0\n   \
+    \     if self.digit == 0:\n            return self.nums[0] * n\n        ret =\
+    \ 0\n        for k in range(self.digit)[::-1]:\n            rank_l = self.B[k].rank(l)\n\
     \            rank_r = self.B[k].rank(r)\n            ones = rank_r - rank_l\n\
     \            zeros = r - l - ones\n            if zeros <= n:\n              \
-    \  ret |= 1 << k\n                l = rank_l + self.offset[k]\n              \
-    \  r = rank_r + self.offset[k]\n                n -= zeros\n            else:\n\
-    \                l -= rank_l\n                r -= rank_r\n        return self.nums[ret]\n\
-    \n    def rquantile(self, l: int, r: int, n: int):\n        \"\"\"return n-th\
-    \ (0-indeed) largest value in [l, r) range\"\"\"\n        return self.quantile(l,\
-    \ r, r - l - 1 - n)\n\n    def range_freq(self, l: int, r: int, lower: int, upper:\
-    \ int):\n        \"\"\"return the number of values s.t. lower <= x < upper\"\"\
-    \"\n        return self._range_freq_upper(l, r, upper) - self._range_freq_upper(l,\
-    \ r, lower)\n\n    def prev_value(self, l: int, r: int, upper: int):\n       \
-    \ \"\"\"return maximum x s.t. x < upper in [l, r) range if exist, otherwise None\"\
-    \"\"\n        cnt = self._range_freq_upper(l, r, upper)\n        if cnt == 0:\n\
-    \            return None\n        return self.quantile(l, r, cnt - 1)\n\n    def\
-    \ next_value(self, l: int, r: int, lower: int):\n        \"\"\"return minimum\
-    \ x s.t. x >= lower in [l, r) range if exist, otherwise None\"\"\"\n        cnt\
-    \ = self._range_freq_upper(l, r, lower)\n        if cnt == r - l:\n          \
-    \  return None\n        return self.quantile(l, r, cnt)\n\n    def range_sum(self,\
-    \ l: int, r: int, lower: int, upper: int):\n        \"\"\"return sum of values\
-    \ s.t. lower <= x < upper in [l, r) range\n        must be constructed with weight\n\
-    \        \"\"\"\n        assert self.weight\n        return self._range_sum_upper(l,\
-    \ r, upper) - self._range_sum_upper(l, r, lower)\n\n    def range_least_sum(self,\
-    \ l: int, r: int, n: int):\n        \"\"\"return sum of least n (**1-indexed**)\
-    \ values in [l, r) range\n        must be constructed with weight\n        \"\"\
-    \"\n        assert self.weight\n        assert 1 <= n <= r - l\n        if self.digit\
-    \ == 0:\n            return self.nums[0] * n\n        ret = 0\n        for k in\
-    \ range(self.digit)[::-1]:\n            rank_l = self.B[k].rank(l)\n         \
-    \   rank_r = self.B[k].rank(r)\n            ones = rank_r - rank_l\n         \
-    \   zeros = r - l - ones\n            if zeros <= n:\n                ret += self.S[k][r\
-    \ - rank_r] - self.S[k][l - rank_l]\n                l = rank_l + self.offset[k]\n\
-    \                r = rank_r + self.offset[k]\n                n -= zeros\n   \
-    \             if n == 0:\n                    return ret\n            else:\n\
-    \                l -= rank_l\n                r -= rank_r\n        ret += self.S[0][l\
-    \ + n] - self.S[0][l]\n        return ret\n\n    def _range_freq_upper(self, l:\
-    \ int, r: int, upper: int):\n        \"\"\"return the number of values s.t. x\
-    \ < upper in [l, r) range\"\"\"\n        if l >= r:\n            return 0\n  \
-    \      if upper > self.nums[-1]:\n            return r - l\n        if upper <=\
-    \ self.nums[0]:\n            return 0\n        upper = bisect.bisect_left(self.nums,\
-    \ upper)\n        ret = 0\n        for k in range(self.digit)[::-1]:\n       \
-    \     rank_l = self.B[k].rank(l)\n            rank_r = self.B[k].rank(r)\n   \
-    \         ones = rank_r - rank_l\n            zeros = r - l - ones\n         \
-    \   if upper >> k & 1:\n                ret += zeros\n                l = rank_l\
-    \ + self.offset[k]\n                r = rank_r + self.offset[k]\n            else:\n\
-    \                l -= rank_l\n                r -= rank_r\n        return ret\n\
-    \n    def _range_sum_upper(self, l: int, r: int, upper: int):\n        \"\"\"\
-    return sum of values s.t. x < upper in [l, r) range\"\"\"\n        if l >= r:\n\
-    \            return 0\n        if upper > self.nums[-1]:\n            return self.S[self.digit][r]\
-    \ - self.S[self.digit][l]\n        if upper <= self.nums[0]:\n            return\
+    \  ret += self._get_internal_sum(k, l - rank_l, r - rank_r)\n                l\
+    \ = rank_l + self.offset[k]\n                r = rank_r + self.offset[k]\n   \
+    \             n -= zeros\n                if n == 0:\n                    return\
+    \ ret\n            else:\n                l -= rank_l\n                r -= rank_r\n\
+    \        ret += self._get_internal_sum(0, l, l + n)\n        return ret\n\n  \
+    \  def range_nlargest_sum(self, l: int, r: int, n: int):\n        \"\"\"return\
+    \ sum of the first n (**1-indexed**) values ordered by descending order in [l,\
+    \ r) range\n        must be constructed with weight\n        \"\"\"\n        assert\
+    \ self.weight\n        return self._get_internal_sum(self.digit, l, r) - self.range_nsmallest_sum(l,\
+    \ r, r - l - n)\n\n    def _range_freq_upper(self, l: int, r: int, upper: int):\n\
+    \        \"\"\"return the number of values s.t. x < upper in [l, r) range\"\"\"\
+    \n        if l >= r:\n            return 0\n        if upper > self.nums[-1]:\n\
+    \            return r - l\n        if upper <= self.nums[0]:\n            return\
     \ 0\n        upper = bisect.bisect_left(self.nums, upper)\n        ret = 0\n \
     \       for k in range(self.digit)[::-1]:\n            rank_l = self.B[k].rank(l)\n\
     \            rank_r = self.B[k].rank(r)\n            ones = rank_r - rank_l\n\
-    \            zero = r - l - ones\n            if upper >> k & 1:\n           \
-    \     ret += self.S[k][r - rank_r] - self.S[k][l - rank_l]\n                l\
-    \ = rank_l + self.offset[k]\n                r = rank_r + self.offset[k]\n   \
-    \         else:\n                l -= rank_l\n                r -= rank_r\n  \
-    \      return ret\n"
+    \            zeros = r - l - ones\n            if upper >> k & 1:\n          \
+    \      ret += zeros\n                l = rank_l + self.offset[k]\n           \
+    \     r = rank_r + self.offset[k]\n            else:\n                l -= rank_l\n\
+    \                r -= rank_r\n        return ret\n\n    def _range_sum_upper(self,\
+    \ l: int, r: int, upper: int):\n        \"\"\"return sum of values s.t. x < upper\
+    \ in [l, r) range\"\"\"\n        if l >= r:\n            return 0\n        if\
+    \ upper > self.nums[-1]:\n            return self._get_internal_sum(self.digit,\
+    \ l, r)\n        if upper <= self.nums[0]:\n            return 0\n        upper\
+    \ = bisect.bisect_left(self.nums, upper)\n        ret = 0\n        for k in range(self.digit)[::-1]:\n\
+    \            rank_l = self.B[k].rank(l)\n            rank_r = self.B[k].rank(r)\n\
+    \            ones = rank_r - rank_l\n            zero = r - l - ones\n       \
+    \     if upper >> k & 1:\n                ret += self._get_internal_sum(k, l -\
+    \ rank_l,  r - rank_r)\n                l = rank_l + self.offset[k]\n        \
+    \        r = rank_r + self.offset[k]\n            else:\n                l -=\
+    \ rank_l\n                r -= rank_r\n        return ret\n\n    def _get_internal_sum(self,\
+    \ k: int, l: int, r: int):\n        return self.S[k][r] - self.S[k][l]\n"
   dependsOn: []
   isVerificationFile: false
   path: library/wavelet_matrix.py
   requiredBy: []
-  timestamp: '2023-01-09 20:43:44+09:00'
+  timestamp: '2023-01-10 19:45:22+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/1549.test.py
