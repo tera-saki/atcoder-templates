@@ -276,8 +276,6 @@ class WaveletMatrix:
         for k in range(self.digit)[::-1]:
             rank_l = self.B[k].rank(l)
             rank_r = self.B[k].rank(r)
-            ones = rank_r - rank_l
-            zero = r - l - ones
             if upper >> k & 1:
                 ret += self._get_internal_sum(k, l - rank_l,  r - rank_r)
                 l = rank_l + self.offset[k]
