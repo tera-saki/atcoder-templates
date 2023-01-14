@@ -41,7 +41,7 @@ data:
     \    # reference: https://maspypy.com/segment-tree-%E3%81%AE%E3%81%8A%E5%8B%89%E5%BC%B72\n\
     \    # reference: https://betrue12.hateblo.jp/entry/2020/09/22/194541\n    def\
     \ __init__(self, N: int, op: Callable[[S, S], S], e: S,\n                 mapping:\
-    \ Callable[[F, S], S],\n                 composition: Callable[[F, F], F], id:\
+    \ Callable[[F, S], S],\n                 composition: Callable[[F, F], F], id_:\
     \ F):\n        \"\"\" \u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\n\n   \
     \     Args:\n            N (int): \u914D\u5217\u306E\u9577\u3055\n           \
     \ op (Callable[[S, S], S]): \u533A\u9593\u53D6\u5F97\u306B\u7528\u3044\u308B\u6F14\
@@ -49,17 +49,17 @@ data:
     \ = a \u304C\u6210\u308A\u7ACB\u3064\u5358\u4F4D\u5143\n            mapping (Callable[[F,\
     \ S], S]): data\u306B\u4F5C\u7528\u3055\u305B\u308B\u95A2\u6570\n            composition\
     \ (Callable[[F, F], F]): lazy\u306B\u4F5C\u7528\u3055\u305B\u308B\u95A2\u6570\
-    \ f(g(x))\n            id (F): \u5168\u3066\u306Ea\u306B\u5BFE\u3057\u3066 mapping(id,\
+    \ f(g(x))\n            id_ (F): \u5168\u3066\u306Ea\u306B\u5BFE\u3057\u3066 mapping(id_,\
     \ a) = a \u304C\u6210\u308A\u7ACB\u3064\u6052\u7B49\u5199\u50CF\n\n        Note:\n\
     \            \u4EFB\u610F\u306E x, y \u2208 S, f, g \u2208 F \u306B\u5BFE\u3057\
     \u3066\u3001\n            - f(op(x, y)) = op(f(x), f(y))\n            - f(g(x))\
-    \ = (g \u2218 f)(x) \n            \u3067\u3042\u308B\u3053\u3068\u304C\u5FC5\u8981\
+    \ = (g \u2218 f)(x)\n            \u3067\u3042\u308B\u3053\u3068\u304C\u5FC5\u8981\
     \n\n            \u4F8B) RMQ and RAQ\n            - min(x, y) + a = min(x + a,\
     \ y + a)\n            - ((x + b) + a) = x + (a + b)\n        \"\"\"\n        self.N\
     \ = N\n        self.op = op\n        self.e = e\n        self.mapping = mapping\n\
-    \        self.composition = composition\n        self.id = id\n\n        self.K\
+    \        self.composition = composition\n        self.id = id_\n\n        self.K\
     \ = (self.N - 1).bit_length()\n        self.size = 1 << (self.K)\n\n        self.data\
-    \ = [e] * (self.size << 1)\n        self.lazy = [id] * (self.size)\n\n    def\
+    \ = [e] * (self.size << 1)\n        self.lazy = [id_] * (self.size)\n\n    def\
     \ build(self, A: List[S]) -> None:\n        for i in range(self.N):\n        \
     \    self.data[self.size + i] = A[i]\n        for i in range(self.size - 1, 0,\
     \ -1):\n            self.data[i] = self.op(self.data[i << 1], self.data[i << 1\
@@ -76,28 +76,28 @@ data:
     \ i: int, x: S) -> None:\n        i += self.size\n        self._propagate_above(i)\n\
     \        self.data[i] = x\n        self._recalc_above(i)\n\n    def get(self,\
     \ i) -> S:\n        i += self.size\n        self._propagate_above(i)\n       \
-    \ return self.data[i]\n\n    def prod(self, L: int, R: int) -> S:\n        assert\
-    \ 0 <= L and L <= R and R <= self.N\n        if L == R:\n            return self.e\n\
-    \        L += self.size\n        R += self.size\n        self._propagate_above(L\
-    \ // (L & -L))\n        self._propagate_above(R // (R & -R) - 1)\n        vl =\
-    \ self.e\n        vr = self.e\n        while L < R:\n            if L & 1:\n \
-    \               vl = self.op(vl, self.data[L])\n                L += 1\n     \
-    \       if R & 1:\n                R -= 1\n                vr = self.op(self.data[R],\
-    \ vr)\n            L >>= 1\n            R >>= 1\n        return self.op(vl, vr)\n\
+    \ return self.data[i]\n\n    def prod(self, l: int, r: int) -> S:\n        assert\
+    \ 0 <= l and l <= r and r <= self.N\n        if l == r:\n            return self.e\n\
+    \        l += self.size\n        r += self.size\n        self._propagate_above(l\
+    \ // (l & -l))\n        self._propagate_above(r // (r & -r) - 1)\n        vl =\
+    \ self.e\n        vr = self.e\n        while l < r:\n            if l & 1:\n \
+    \               vl = self.op(vl, self.data[l])\n                l += 1\n     \
+    \       if r & 1:\n                r -= 1\n                vr = self.op(self.data[r],\
+    \ vr)\n            l >>= 1\n            r >>= 1\n        return self.op(vl, vr)\n\
     \n    def all_prod(self) -> S:\n        return self.data[1]\n\n    def apply(self,\
-    \ L: int, R: int, f: F) -> None:\n        assert 0 <= L and L <= R and R <= self.N\n\
-    \        if L == R:\n            return\n        L += self.size\n        R +=\
-    \ self.size\n        L0 = L // (L & -L)\n        R0 = R // (R & -R) - 1\n    \
-    \    self._propagate_above(L0)\n        self._propagate_above(R0)\n        while\
-    \ L < R:\n            if L & 1:\n                self._eval_at(L, f)\n       \
-    \         L += 1\n            if R & 1:\n                R -= 1\n            \
-    \    self._eval_at(R, f)\n            L >>= 1\n            R >>= 1\n        self._recalc_above(L0)\n\
-    \        self._recalc_above(R0)\n"
+    \ l: int, r: int, f: F) -> None:\n        assert 0 <= l and l <= r and r <= self.N\n\
+    \        if l == r:\n            return\n        l += self.size\n        r +=\
+    \ self.size\n        l0 = l // (l & -l)\n        r0 = r // (r & -r) - 1\n    \
+    \    self._propagate_above(l0)\n        self._propagate_above(r0)\n        while\
+    \ l < r:\n            if l & 1:\n                self._eval_at(l, f)\n       \
+    \         l += 1\n            if r & 1:\n                r -= 1\n            \
+    \    self._eval_at(r, f)\n            l >>= 1\n            r >>= 1\n        self._recalc_above(l0)\n\
+    \        self._recalc_above(r0)\n"
   dependsOn: []
   isVerificationFile: false
   path: library/lazy_segment_tree.py
   requiredBy: []
-  timestamp: '2023-01-14 13:18:06+09:00'
+  timestamp: '2023-01-14 16:20:04+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/dsl_2_g.test.py

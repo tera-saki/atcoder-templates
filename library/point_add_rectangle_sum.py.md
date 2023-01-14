@@ -93,7 +93,7 @@ data:
   isVerificationFile: false
   path: library/point_add_rectangle_sum.py
   requiredBy: []
-  timestamp: '2023-01-14 13:18:06+09:00'
+  timestamp: '2023-01-14 16:20:04+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yosupo/point_add_rectangle_sum.test.py

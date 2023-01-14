@@ -44,7 +44,7 @@ data:
   path: library/binary_indexed_tree.py
   requiredBy:
   - library/point_add_rectangle_sum.py
-  timestamp: '2023-01-14 13:18:06+09:00'
+  timestamp: '2023-01-14 16:20:04+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/alds1_5_d.test.py
