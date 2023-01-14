@@ -3,6 +3,15 @@ class BIT:
         self.N = N
         self.A = [0] * (N + 1)
 
+    def build(self, A):
+        """build BIT with given list"""
+        for i, a in enumerate(A):
+            self.A[i + 1] = a
+        for i in range(1, self.N):
+            if i + (i & -i) > self.N:
+                continue
+            self.A[i + (i & -i)] += self.A[i]
+
     def add(self, i, x):
         """add x to i-th element (0-indexed)"""
         assert 0 <= i < self.N
