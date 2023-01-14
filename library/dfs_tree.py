@@ -32,6 +32,7 @@ class DFSTree:
     def build(self) -> None:
         """build dfs tree"""
         cnt = 0
+        self.tecc_id = [-1] * self.N
         self.tvcc_id = [-1] * len(self.edges)
         self.bcc_num = 0
         for i in range(self.N):
@@ -94,24 +95,23 @@ class DFSTree:
 
     def two_edge_connected_components(self) -> List[List[int]]:
         assert self.built
-        tecc_id = [-1] * self.N
         cnt = 0
         for i in range(self.N):
-            if ~tecc_id[i]:
+            if ~self.tecc_id[i]:
                 continue
             stack = [i]
             while stack:
                 v = stack.pop()
-                if ~tecc_id[v]:
+                if ~self.tecc_id[v]:
                     continue
-                tecc_id[v] = cnt
+                self.tecc_id[v] = cnt
                 for d, eid in self.E[v]:
-                    if ~tecc_id[d] or self.is_bridge[eid]:
+                    if ~self.tecc_id[d] or self.is_bridge[eid]:
                         continue
                     stack.append(d)
             cnt += 1
         ret = [[] for _ in range(cnt)]
-        for i, tid in enumerate(tecc_id):
+        for i, tid in enumerate(self.tecc_id):
             assert ~tid
             ret[tid].append(i)
         return ret
