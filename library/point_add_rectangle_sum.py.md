@@ -5,10 +5,13 @@ data:
     path: library/binary_indexed_tree.py
     title: library/binary_indexed_tree.py
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: tests/yosupo/point_add_rectangle_sum.test.py
+    title: tests/yosupo/point_add_rectangle_sum.test.py
   _isVerificationFailed: false
   _pathExtension: py
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://miti-7.hatenablog.com/entry/2018/04/28/152259
@@ -91,8 +94,9 @@ data:
   path: library/point_add_rectangle_sum.py
   requiredBy: []
   timestamp: '2023-01-14 13:18:06+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - tests/yosupo/point_add_rectangle_sum.test.py
 documentation_of: library/point_add_rectangle_sum.py
 layout: document
 redirect_from:

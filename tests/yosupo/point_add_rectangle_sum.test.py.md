@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: library/point_add_rectangle_sum.py
+    title: library/point_add_rectangle_sum.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -23,11 +26,12 @@ data:
     \ y)\nsolver.build()\nans = []\nfor t, *q in query:\n    if t == 0:\n        x,\
     \ y, w = q\n        solver.add_value(x, y, w)\n    else:\n        lx, ly, rx,\
     \ ry = q\n        ans.append(solver.rectangle_sum(lx, ly, rx, ry))\nprint(*ans)\n"
-  dependsOn: []
+  dependsOn:
+  - library/point_add_rectangle_sum.py
   isVerificationFile: true
   path: tests/yosupo/point_add_rectangle_sum.test.py
   requiredBy: []
-  timestamp: '2023-01-14 13:08:15+09:00'
+  timestamp: '2023-01-14 13:18:06+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/yosupo/point_add_rectangle_sum.test.py

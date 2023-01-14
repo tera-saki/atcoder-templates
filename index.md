@@ -72,7 +72,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/osa_k.py
       title: library/osa_k.py
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: library/point_add_rectangle_sum.py
       title: library/point_add_rectangle_sum.py
     - icon: ':heavy_check_mark:'

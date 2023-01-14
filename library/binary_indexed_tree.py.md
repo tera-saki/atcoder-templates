@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: library/point_add_rectangle_sum.py
     title: library/point_add_rectangle_sum.py
   _extendedVerifiedWith:
@@ -44,7 +44,7 @@ data:
   path: library/binary_indexed_tree.py
   requiredBy:
   - library/point_add_rectangle_sum.py
-  timestamp: '2023-01-14 13:08:15+09:00'
+  timestamp: '2023-01-14 13:18:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/alds1_5_d.test.py
