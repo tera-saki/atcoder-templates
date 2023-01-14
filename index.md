@@ -40,6 +40,9 @@ data:
       path: library/doubling.py
       title: library/doubling.py
     - icon: ':heavy_check_mark:'
+      path: library/doubling_lca.py
+      title: library/doubling_lca.py
+    - icon: ':heavy_check_mark:'
       path: library/dual_segment_tree.py
       title: library/dual_segment_tree.py
     - icon: ':heavy_check_mark:'
@@ -51,9 +54,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/lazy_segment_tree.py
       title: library/lazy_segment_tree.py
-    - icon: ':heavy_check_mark:'
-      path: library/lca.py
-      title: library/lca.py
     - icon: ':heavy_check_mark:'
       path: library/li_chao_tree.py
       title: library/li_chao_tree.py
@@ -246,8 +246,11 @@ data:
       path: tests/yosupo/jump_on_tree.test.py
       title: tests/yosupo/jump_on_tree.test.py
     - icon: ':heavy_check_mark:'
-      path: tests/yosupo/lca.test.py
-      title: tests/yosupo/lca.test.py
+      path: tests/yosupo/lca-doubling.test.py
+      title: tests/yosupo/lca-doubling.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/yosupo/lca-hld.test.py
+      title: tests/yosupo/lca-hld.test.py
     - icon: ':heavy_check_mark:'
       path: tests/yosupo/line_add_get_min.test.py
       title: tests/yosupo/line_add_get_min.test.py

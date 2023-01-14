@@ -7,8 +7,8 @@ data:
     path: tests/yosupo/jump_on_tree.test.py
     title: tests/yosupo/jump_on_tree.test.py
   - icon: ':heavy_check_mark:'
-    path: tests/yosupo/lca.test.py
-    title: tests/yosupo/lca.test.py
+    path: tests/yosupo/lca-doubling.test.py
+    title: tests/yosupo/lca-doubling.test.py
   _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -44,17 +44,17 @@ data:
     \       return self.la(v, d1 + d2 - x)\n"
   dependsOn: []
   isVerificationFile: false
-  path: library/lca.py
+  path: library/doubling_lca.py
   requiredBy: []
-  timestamp: '2023-01-14 16:20:04+09:00'
+  timestamp: '2023-01-14 22:09:01+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yosupo/jump_on_tree.test.py
-  - tests/yosupo/lca.test.py
-documentation_of: library/lca.py
+  - tests/yosupo/lca-doubling.test.py
+documentation_of: library/doubling_lca.py
 layout: document
 redirect_from:
-- /library/library/lca.py
-- /library/library/lca.py.html
-title: library/lca.py
+- /library/library/doubling_lca.py
+- /library/library/doubling_lca.py.html
+title: library/doubling_lca.py
 ---

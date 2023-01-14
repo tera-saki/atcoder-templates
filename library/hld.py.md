@@ -7,6 +7,9 @@ data:
     path: tests/aoj/2667.test.py
     title: tests/aoj/2667.test.py
   - icon: ':heavy_check_mark:'
+    path: tests/yosupo/lca-hld.test.py
+    title: tests/yosupo/lca-hld.test.py
+  - icon: ':heavy_check_mark:'
     path: tests/yosupo/vertex_add_path_sum.test.py
     title: tests/yosupo/vertex_add_path_sum.test.py
   - icon: ':heavy_check_mark:'
@@ -41,11 +44,12 @@ data:
     \   return self.ord[v]\n\n    def lca(self, u, v):\n        while True:\n    \
     \        if self.ord[u] > self.ord[v]:\n                u, v = v, u\n        \
     \    if self.top[u] == self.top[v]:\n                return u\n            v =\
-    \ self.par[self.top[v]]\n\n    def _dfs_sz(self):\n        stack = [(self.root,\
-    \ -1)]\n        while stack:\n            v, p = stack.pop()\n            if v\
-    \ < 0:\n                v = ~v\n                self.sz[v] = 1\n             \
-    \   for i, dst in enumerate(self.E[v]):\n                    if dst == p:\n  \
-    \                      continue\n                    self.sz[v] += self.sz[dst]\n\
+    \ self.par[self.top[v]]\n\n    def dist(self, u, v):\n        return self.D[u]\
+    \ + self.D[v] - 2 * self.D[self.lca(u, v)]\n\n    def _dfs_sz(self):\n       \
+    \ stack = [(self.root, -1)]\n        while stack:\n            v, p = stack.pop()\n\
+    \            if v < 0:\n                v = ~v\n                self.sz[v] = 1\n\
+    \                for i, dst in enumerate(self.E[v]):\n                    if dst\
+    \ == p:\n                        continue\n                    self.sz[v] += self.sz[dst]\n\
     \                    # v -> E[v][0] will be heavy path\n                    if\
     \ self.sz[self.E[v][0]] < self.sz[dst]:\n                        self.E[v][0],\
     \ self.E[v][i] = self.E[v][i], self.E[v][0]\n            else:\n             \
@@ -67,11 +71,12 @@ data:
   isVerificationFile: false
   path: library/hld.py
   requiredBy: []
-  timestamp: '2023-01-14 16:20:04+09:00'
+  timestamp: '2023-01-14 22:09:01+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/2667.test.py
   - tests/yosupo/vertex_add_path_sum.test.py
+  - tests/yosupo/lca-hld.test.py
   - tests/yosupo/vertex_add_subtree_sum.test.py
 documentation_of: library/hld.py
 layout: document

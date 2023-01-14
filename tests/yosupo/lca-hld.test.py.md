@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: library/lca.py
-    title: library/lca.py
+    path: library/hld.py
+    title: library/hld.py
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -18,23 +18,23 @@ data:
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "# verification-helper: PROBLEM https://judge.yosupo.jp/problem/lca\nimport\
-    \ sys\nfrom library.lca import LCA\n\ninput = sys.stdin.readline\n\nN, Q = map(int,\
+    \ sys\nfrom library.hld import HLD\n\ninput = sys.stdin.readline\n\nN, Q = map(int,\
     \ input().split())\nP = list(map(int, input().split()))\nE = [[] for _ in range(N)]\n\
     for i, p in enumerate(P, start=1):\n    E[i].append(p)\n    E[p].append(i)\n\n\
-    solver = LCA(N, E)\nfor _ in range(Q):\n    u, v = map(int, input().split())\n\
+    solver = HLD(N, E)\nfor _ in range(Q):\n    u, v = map(int, input().split())\n\
     \    print(solver.lca(u, v))\n"
   dependsOn:
-  - library/lca.py
+  - library/hld.py
   isVerificationFile: true
-  path: tests/yosupo/lca.test.py
+  path: tests/yosupo/lca-hld.test.py
   requiredBy: []
-  timestamp: '2023-01-14 16:20:04+09:00'
+  timestamp: '2023-01-14 22:09:01+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: tests/yosupo/lca.test.py
+documentation_of: tests/yosupo/lca-hld.test.py
 layout: document
 redirect_from:
-- /verify/tests/yosupo/lca.test.py
-- /verify/tests/yosupo/lca.test.py.html
-title: tests/yosupo/lca.test.py
+- /verify/tests/yosupo/lca-hld.test.py
+- /verify/tests/yosupo/lca-hld.test.py.html
+title: tests/yosupo/lca-hld.test.py
 ---
