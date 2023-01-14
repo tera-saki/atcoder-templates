@@ -1,6 +1,6 @@
 # verification-helper: PROBLEM https://judge.yosupo.jp/problem/lca
 import sys
-from library.lca import LCA
+from library.doubling_lca import LCA
 
 input = sys.stdin.readline
 

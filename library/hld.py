@@ -46,6 +46,9 @@ class HLD:
                 return u
             v = self.par[self.top[v]]
 
+    def dist(self, u, v):
+        return self.D[u] + self.D[v] - 2 * self.D[self.lca(u, v)]
+
     def _dfs_sz(self):
         stack = [(self.root, -1)]
         while stack:
