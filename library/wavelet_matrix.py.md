@@ -157,24 +157,23 @@ data:
     \ l, r)\n        if upper <= self.nums[0]:\n            return 0\n        upper\
     \ = bisect.bisect_left(self.nums, upper)\n        ret = 0\n        for k in range(self.digit)[::-1]:\n\
     \            rank_l = self.B[k].rank(l)\n            rank_r = self.B[k].rank(r)\n\
-    \            ones = rank_r - rank_l\n            zero = r - l - ones\n       \
-    \     if upper >> k & 1:\n                ret += self._get_internal_sum(k, l -\
-    \ rank_l,  r - rank_r)\n                l = rank_l + self.offset[k]\n        \
-    \        r = rank_r + self.offset[k]\n            else:\n                l -=\
-    \ rank_l\n                r -= rank_r\n        return ret\n\n    def _get_internal_sum(self,\
+    \            if upper >> k & 1:\n                ret += self._get_internal_sum(k,\
+    \ l - rank_l,  r - rank_r)\n                l = rank_l + self.offset[k]\n    \
+    \            r = rank_r + self.offset[k]\n            else:\n                l\
+    \ -= rank_l\n                r -= rank_r\n        return ret\n\n    def _get_internal_sum(self,\
     \ k: int, l: int, r: int):\n        return self.S[k][r] - self.S[k][l]\n"
   dependsOn: []
   isVerificationFile: false
   path: library/wavelet_matrix.py
   requiredBy: []
-  timestamp: '2023-01-10 19:45:22+09:00'
+  timestamp: '2023-01-14 13:08:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/1549.test.py
-  - tests/yuki/738.test.py
-  - tests/yosupo/static_range_frequency.test.py
   - tests/yosupo/rectangle_sum.test.py
+  - tests/yosupo/static_range_frequency.test.py
   - tests/yosupo/range_kth_smallest.test.py
+  - tests/yuki/738.test.py
 documentation_of: library/wavelet_matrix.py
 layout: document
 redirect_from:

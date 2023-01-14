@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: library/point_add_rectangle_sum.py
+    title: library/point_add_rectangle_sum.py
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/alds1_5_d.test.py
@@ -9,6 +12,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/yosupo/static_range_inversions_query.test.py
     title: tests/yosupo/static_range_inversions_query.test.py
+  - icon: ':heavy_check_mark:'
+    path: tests/yosupo/vertex_add_path_sum.test.py
+    title: tests/yosupo/vertex_add_path_sum.test.py
+  - icon: ':heavy_check_mark:'
+    path: tests/yosupo/vertex_add_subtree_sum.test.py
+    title: tests/yosupo/vertex_add_subtree_sum.test.py
   _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -19,22 +28,29 @@ data:
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/PyPy/3.7.13/x64/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "class BIT:\n    def __init__(self, N):\n        self.N = N\n        self.A\
-    \ = [0] * (N + 1)\n\n    def add(self, i, x):\n        \"\"\"add x to i-th element\
-    \ (0-indexed)\"\"\"\n        assert 0 <= i < self.N\n        i += 1\n        while\
-    \ i <= self.N:\n            self.A[i] += x\n            i += i & -i\n\n    def\
-    \ sum(self, i):\n        \"\"\"return sum(A[:i])\"\"\"\n        assert 0 <= i\
-    \ <= self.N\n        s = 0\n        while i > 0:\n            s += self.A[i]\n\
-    \            i -= i & -i\n        return s\n\n    def range_sum(self, l, r):\n\
-    \        \"\"\"return sum(A[l:r])\"\"\"\n        return self.sum(r) - self.sum(l)\n"
+    \ = [0] * (N + 1)\n\n    def build(self, A):\n        \"\"\"build BIT with given\
+    \ list\"\"\"\n        for i, a in enumerate(A):\n            self.A[i + 1] = a\n\
+    \        for i in range(1, self.N):\n            if i + (i & -i) > self.N:\n \
+    \               continue\n            self.A[i + (i & -i)] += self.A[i]\n\n  \
+    \  def add(self, i, x):\n        \"\"\"add x to i-th element (0-indexed)\"\"\"\
+    \n        assert 0 <= i < self.N\n        i += 1\n        while i <= self.N:\n\
+    \            self.A[i] += x\n            i += i & -i\n\n    def sum(self, i):\n\
+    \        \"\"\"return sum(A[:i])\"\"\"\n        assert 0 <= i <= self.N\n    \
+    \    s = 0\n        while i > 0:\n            s += self.A[i]\n            i -=\
+    \ i & -i\n        return s\n\n    def range_sum(self, l, r):\n        \"\"\"return\
+    \ sum(A[l:r])\"\"\"\n        return self.sum(r) - self.sum(l)\n"
   dependsOn: []
   isVerificationFile: false
   path: library/binary_indexed_tree.py
-  requiredBy: []
-  timestamp: '2023-01-10 19:45:22+09:00'
+  requiredBy:
+  - library/point_add_rectangle_sum.py
+  timestamp: '2023-01-14 13:08:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/alds1_5_d.test.py
+  - tests/yosupo/vertex_add_path_sum.test.py
   - tests/yosupo/static_range_inversions_query.test.py
+  - tests/yosupo/vertex_add_subtree_sum.test.py
 documentation_of: library/binary_indexed_tree.py
 layout: document
 redirect_from:

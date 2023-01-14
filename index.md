@@ -46,6 +46,9 @@ data:
       path: library/euler_tour.py
       title: library/euler_tour.py
     - icon: ':heavy_check_mark:'
+      path: library/hld.py
+      title: library/hld.py
+    - icon: ':heavy_check_mark:'
       path: library/lazy_segment_tree.py
       title: library/lazy_segment_tree.py
     - icon: ':heavy_check_mark:'
@@ -69,6 +72,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: library/osa_k.py
       title: library/osa_k.py
+    - icon: ':warning:'
+      path: library/point_add_rectangle_sum.py
+      title: library/point_add_rectangle_sum.py
     - icon: ':heavy_check_mark:'
       path: library/primal_dual.py
       title: library/primal_dual.py
@@ -144,6 +150,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/2320.test.py
       title: tests/aoj/2320.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/2667.test.py
+      title: tests/aoj/2667.test.py
     - icon: ':heavy_check_mark:'
       path: tests/aoj/2858.test.py
       title: tests/aoj/2858.test.py
@@ -246,6 +255,9 @@ data:
       path: tests/yosupo/point_add_range_sum.test.py
       title: tests/yosupo/point_add_range_sum.test.py
     - icon: ':heavy_check_mark:'
+      path: tests/yosupo/point_add_rectangle_sum.test.py
+      title: tests/yosupo/point_add_rectangle_sum.test.py
+    - icon: ':heavy_check_mark:'
       path: tests/yosupo/range_affine_range_sum.test.py
       title: tests/yosupo/range_affine_range_sum.test.py
     - icon: ':heavy_check_mark:'
@@ -281,6 +293,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/yosupo/union_find.test.py
       title: tests/yosupo/union_find.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/yosupo/vertex_add_path_sum.test.py
+      title: tests/yosupo/vertex_add_path_sum.test.py
+    - icon: ':heavy_check_mark:'
+      path: tests/yosupo/vertex_add_subtree_sum.test.py
+      title: tests/yosupo/vertex_add_subtree_sum.test.py
     - icon: ':heavy_check_mark:'
       path: tests/yosupo/zalgorithm.test.py
       title: tests/yosupo/zalgorithm.test.py
