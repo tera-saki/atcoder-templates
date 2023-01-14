@@ -9,7 +9,7 @@ class LazySegTree:
     # reference: https://betrue12.hateblo.jp/entry/2020/09/22/194541
     def __init__(self, N: int, op: Callable[[S, S], S], e: S,
                  mapping: Callable[[F, S], S],
-                 composition: Callable[[F, F], F], id: F):
+                 composition: Callable[[F, F], F], id_: F):
         """ 遅延セグメント木
 
         Args:
@@ -18,12 +18,12 @@ class LazySegTree:
             e (S): 全てのaに対して op(a, e) = a が成り立つ単位元
             mapping (Callable[[F, S], S]): dataに作用させる関数
             composition (Callable[[F, F], F]): lazyに作用させる関数 f(g(x))
-            id (F): 全てのaに対して mapping(id, a) = a が成り立つ恒等写像
+            id_ (F): 全てのaに対して mapping(id_, a) = a が成り立つ恒等写像
 
         Note:
             任意の x, y ∈ S, f, g ∈ F に対して、
             - f(op(x, y)) = op(f(x), f(y))
-            - f(g(x)) = (g ∘ f)(x) 
+            - f(g(x)) = (g ∘ f)(x)
             であることが必要
 
             例) RMQ and RAQ
@@ -35,13 +35,13 @@ class LazySegTree:
         self.e = e
         self.mapping = mapping
         self.composition = composition
-        self.id = id
+        self.id = id_
 
         self.K = (self.N - 1).bit_length()
         self.size = 1 << (self.K)
 
         self.data = [e] * (self.size << 1)
-        self.lazy = [id] * (self.size)
+        self.lazy = [id_] * (self.size)
 
     def build(self, A: List[S]) -> None:
         for i in range(self.N):
@@ -83,48 +83,48 @@ class LazySegTree:
         self._propagate_above(i)
         return self.data[i]
 
-    def prod(self, L: int, R: int) -> S:
-        assert 0 <= L and L <= R and R <= self.N
-        if L == R:
+    def prod(self, l: int, r: int) -> S:
+        assert 0 <= l and l <= r and r <= self.N
+        if l == r:
             return self.e
-        L += self.size
-        R += self.size
-        self._propagate_above(L // (L & -L))
-        self._propagate_above(R // (R & -R) - 1)
+        l += self.size
+        r += self.size
+        self._propagate_above(l // (l & -l))
+        self._propagate_above(r // (r & -r) - 1)
         vl = self.e
         vr = self.e
-        while L < R:
-            if L & 1:
-                vl = self.op(vl, self.data[L])
-                L += 1
-            if R & 1:
-                R -= 1
-                vr = self.op(self.data[R], vr)
-            L >>= 1
-            R >>= 1
+        while l < r:
+            if l & 1:
+                vl = self.op(vl, self.data[l])
+                l += 1
+            if r & 1:
+                r -= 1
+                vr = self.op(self.data[r], vr)
+            l >>= 1
+            r >>= 1
         return self.op(vl, vr)
 
     def all_prod(self) -> S:
         return self.data[1]
 
-    def apply(self, L: int, R: int, f: F) -> None:
-        assert 0 <= L and L <= R and R <= self.N
-        if L == R:
+    def apply(self, l: int, r: int, f: F) -> None:
+        assert 0 <= l and l <= r and r <= self.N
+        if l == r:
             return
-        L += self.size
-        R += self.size
-        L0 = L // (L & -L)
-        R0 = R // (R & -R) - 1
-        self._propagate_above(L0)
-        self._propagate_above(R0)
-        while L < R:
-            if L & 1:
-                self._eval_at(L, f)
-                L += 1
-            if R & 1:
-                R -= 1
-                self._eval_at(R, f)
-            L >>= 1
-            R >>= 1
-        self._recalc_above(L0)
-        self._recalc_above(R0)
+        l += self.size
+        r += self.size
+        l0 = l // (l & -l)
+        r0 = r // (r & -r) - 1
+        self._propagate_above(l0)
+        self._propagate_above(r0)
+        while l < r:
+            if l & 1:
+                self._eval_at(l, f)
+                l += 1
+            if r & 1:
+                r -= 1
+                self._eval_at(r, f)
+            l >>= 1
+            r >>= 1
+        self._recalc_above(l0)
+        self._recalc_above(r0)
