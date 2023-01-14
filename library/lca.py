@@ -7,7 +7,7 @@ class LCA:
     def __init__(self, N, E, root=0):
         self.N = N
         self.E = E
-        self.K = N.bit_length()
+        self.K = (N - 1).bit_length()
         self.par = [[-1 for _ in range(N)] for _ in range(self.K)]
         self.depth = [None] * N
 
