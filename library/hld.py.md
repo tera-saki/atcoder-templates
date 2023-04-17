@@ -71,13 +71,13 @@ data:
   isVerificationFile: false
   path: library/hld.py
   requiredBy: []
-  timestamp: '2023-01-14 22:09:01+09:00'
+  timestamp: '2023-04-17 16:54:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/aoj/2667.test.py
-  - tests/yosupo/vertex_add_path_sum.test.py
   - tests/yosupo/lca-hld.test.py
   - tests/yosupo/vertex_add_subtree_sum.test.py
+  - tests/yosupo/vertex_add_path_sum.test.py
+  - tests/aoj/2667.test.py
 documentation_of: library/hld.py
 layout: document
 redirect_from:

@@ -166,14 +166,14 @@ data:
   isVerificationFile: false
   path: library/wavelet_matrix.py
   requiredBy: []
-  timestamp: '2023-01-14 22:09:01+09:00'
+  timestamp: '2023-04-17 16:54:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/aoj/1549.test.py
-  - tests/yosupo/rectangle_sum.test.py
-  - tests/yosupo/static_range_frequency.test.py
-  - tests/yosupo/range_kth_smallest.test.py
   - tests/yuki/738.test.py
+  - tests/yosupo/range_kth_smallest.test.py
+  - tests/yosupo/static_range_frequency.test.py
+  - tests/yosupo/rectangle_sum.test.py
+  - tests/aoj/1549.test.py
 documentation_of: library/wavelet_matrix.py
 layout: document
 redirect_from:

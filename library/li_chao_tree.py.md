@@ -58,11 +58,11 @@ data:
   isVerificationFile: false
   path: library/li_chao_tree.py
   requiredBy: []
-  timestamp: '2023-01-14 22:09:01+09:00'
+  timestamp: '2023-04-17 16:54:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/yosupo/segment_add_get_min.test.py
   - tests/yosupo/line_add_get_min.test.py
+  - tests/yosupo/segment_add_get_min.test.py
 documentation_of: library/li_chao_tree.py
 layout: document
 redirect_from:
